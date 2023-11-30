@@ -1,0 +1,6 @@
+---
+
+- hosts: all
+  tags: always
+  roles:
+    - apt
