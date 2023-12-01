@@ -4,3 +4,8 @@
   tags: always
   roles:
     - apt
+
+- hosts: all
+  tags: always
+  roles:
+    - config

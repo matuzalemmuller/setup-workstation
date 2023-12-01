@@ -1,4 +1,24 @@
 - name: Install packages
   apt:
-    name: vim, git, firefox, wireshark, vlc, conky, tmux
+    name: "{{ packages }}"
     state: latest
+  vars:
+    packages:
+      - vim
+      - git
+      - firefox
+      - wireshark
+      - vlc
+      - conky
+      - tmux
+      - evince
+      - transmission-gtk
+      - obs
+      - cheese
+      - gparted
+      - htop
+
+- import_tasks: docker.yml
+- import_tasks: dropbox.yml
+- import_tasks: vscode.yml
+

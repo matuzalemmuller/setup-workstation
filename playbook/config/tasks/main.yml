@@ -1,0 +1,25 @@
+- name: Copy .tmux.conf
+  copy:
+    src: tmux.conf
+    dest: /home/matuzalem/.tmux.conf
+    owner: matuzalem
+    group: matuzalem
+    mode: '0644'
+
+- name: Copy .vimrc
+  copy:
+    src: vimrc
+    dest: /home/matuzalem/.vimrc
+    owner: matuzalem
+    owner: matuzalem
+    mode: '0644'
+
+- name: Copy conky.conf
+  copy:
+    src: conky.conf
+    dest: /etc/conky/conky.conf
+    owner: root
+    group: root
+    mode: '0644'
+    backup: yes
+

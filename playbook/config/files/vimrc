@@ -1,0 +1,35 @@
+set t_Co=256
+
+" additional highlighting
+syntax enable
+colorscheme ron
+
+" go to previous line/next line using left and right arrows
+set whichwrap+=<,>,[,]
+
+filetype on
+
+" set tab width/spacing
+set shiftwidth=4
+set tabstop=4
+set expandtab
+autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
+
+" abreviate commands
+ca tn tabnew
+ca nu set number
+ca nn set nonumber
+
+set hlsearch
+set incsearch
+set nolazyredraw
+
+" case sensitive search
+set ignorecase
+
+" regex
+set magic
+
+" match brackets
+set showmatch
+let loaded_matchparen=1
