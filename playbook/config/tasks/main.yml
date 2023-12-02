@@ -1,17 +1,17 @@
 - name: Copy .tmux.conf
   copy:
     src: tmux.conf
-    dest: /home/matuzalem/.tmux.conf
-    owner: matuzalem
-    group: matuzalem
+    dest: "/home/{{ username }}/.tmux.conf"
+    owner: "{{ username }}"
+    group: "{{ username }}"
     mode: '0644'
 
 - name: Copy .vimrc
   copy:
     src: vimrc
-    dest: /home/matuzalem/.vimrc
-    owner: matuzalem
-    owner: matuzalem
+    dest: "/home/{{ username }}/.vimrc"
+    owner: "{{ username }}"
+    group: "{{ username }}"
     mode: '0644'
 
 - name: Copy conky.conf
@@ -23,3 +23,5 @@
     mode: '0644'
     backup: yes
 
+- name: Set dark mode in xfce4 (Adwaita-dark)
+  shell: runuser -l "{{ username }}" -c 'xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita-dark"'

@@ -1,3 +1,9 @@
+- name: Comment cdrom entry from /etc/apt/sources.list
+  replace:
+    dest: /etc/apt/sources.list
+    regexp: '^deb cdrom:'
+    replace: '#deb cdrom:' 
+ 
 - name: Install packages
   apt:
     name: "{{ packages }}"
@@ -6,18 +12,22 @@
     packages:
       - vim
       - git
-      - firefox
+      - firefox-esr
       - wireshark
       - vlc
       - conky
       - tmux
       - evince
       - transmission-gtk
-      - obs
+      - obs-studio
       - cheese
       - gparted
       - htop
+      - xfce4-whiskermenu-plugin
+      - dconf-cli
+      - dconf-editor
 
+- import_tasks: chrome.yml
 - import_tasks: docker.yml
 - import_tasks: dropbox.yml
 - import_tasks: vscode.yml

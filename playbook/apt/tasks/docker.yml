@@ -28,8 +28,14 @@
       - docker-buildx-plugin
       - docker-compose-plugin
 
-- name: Add user matuzalem to docker group
+- name: Add user "{{ username }}" to docker group
   user:
-    name: matuzalem
+    name: "{{ username }}"
     groups: docker
     append: yes
+
+- name: Disable docker service
+  service:
+    name: docker
+    enabled: false
+    state: stopped
