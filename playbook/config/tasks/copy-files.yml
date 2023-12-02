@@ -1,0 +1,37 @@
+- name: Copy terminator config
+  copy:
+    src: terminator
+    dest: "/home/{{ username }}/.config/terminator"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: '0644'
+
+- name: Copy .tmux.conf
+  copy:
+    src: tmux.conf
+    dest: "/home/{{ username }}/.tmux.conf"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: '0644'
+
+- name: Copy .vimrc
+  copy:
+    src: vimrc
+    dest: "/home/{{ username }}/.vimrc"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: '0644'
+
+- name: Copy conky.conf
+  copy:
+    src: conky.conf
+    dest: /etc/conky/conky.conf
+    owner: root
+    group: root
+    mode: '0644'
+    backup: yes
+
+- name: Copy webapp desktop file for whatsapp
+  copy:
+    src: webapp-WhatsappWeb.desktop
+    dest: "/home/{{ username }}/.local/share/applications/webapp-WhatsappWeb7804.desktop"

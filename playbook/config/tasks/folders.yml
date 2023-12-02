@@ -1,10 +1,11 @@
 - name: Create regular folders
+  become_user: "{{ username }}"
   file:
     path: "{{ item }}"
     state: directory
     owner: "{{ username }}"
     group: "{{ username }}"
-    mode: '660'
+    mode: '755'
   loop:
     - '/home/{{ username }}/dev'
     - '/home/{{ username }}/Programs'

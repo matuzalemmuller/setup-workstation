@@ -10,33 +10,37 @@
     state: latest
   vars:
     packages:
-      - libglib2.0-dev
-      - dbus-x11
-      - terminator
-      - vim
-      - git
-      - firefox-esr
-      - wireshark
-      - vlc
-      - conky
-      - tmux
-      - evince
-      - transmission-gtk
-      - obs-studio
       - cheese
-      - gparted
-      - htop
-      - xfce4-whiskermenu-plugin
+      - conky
+      - dbus-x11
       - dconf-cli
       - dconf-editor
-      - pipx
+      - evince
+      - firefox-esr
+      - git
       - gnome-system-monitor
+      - gparted
+      - htop
+      - libglib2.0-dev
+      - obs-studio
+      - pipx
       - python3-pip
+      - terminator
+      - tlp
+      - tmux
+      - transmission-gtk
+      - vim
+      - vlc
+      - wireshark
+      - xfce4-whiskermenu-plugin
 
 - import_tasks: chrome.yml
 - import_tasks: docker.yml
 - import_tasks: dropbox.yml
 - import_tasks: vscode.yml
+- import_tasks: teamviewer.yml
+- import_tasks: webapp-manager.yml
+- import_tasks: joplin.yml
 
 - name: Remove unused packages
   apt:
@@ -45,3 +49,7 @@
   vars:
     packages:
       - xterm
+
+- name: Autoremove packages that are no longer required
+  apt:
+    autoremove: yes

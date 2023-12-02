@@ -1,0 +1,19 @@
+[Desktop Entry]
+Version=1.0
+Name=Whatsapp Web
+Comment=Web App
+Exec=sh -c 'XAPP_FORCE_GTKWINDOW_ICON="parole-extension" firefox-esr --class WebApp-WhatsappWeb7804 --name WebApp-WhatsappWeb7804 --profile /home/matuzalem/.local/share/ice/firefox/WhatsappWeb7804 --no-remote "https://web.whatsapp.com"'
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=parole-extension
+Categories=GTK;WebApps;
+MimeType=text/html;text/xml;application/xhtml_xml;
+StartupWMClass=WebApp-WhatsappWeb7804
+StartupNotify=true
+X-WebApp-Browser=Firefox Extended Support Release
+X-WebApp-URL=https://web.whatsapp.com
+X-WebApp-CustomParameters=
+X-WebApp-Navbar=false
+X-WebApp-PrivateWindow=false
+X-WebApp-Isolated=true

@@ -1,0 +1,9 @@
+- name: Install teamviewer from web deb
+  apt:
+    deb: https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
+
+- name: Disable teamviewerd service
+  service:
+    name: teamviewerd
+    enabled: no
+    state: stopped
