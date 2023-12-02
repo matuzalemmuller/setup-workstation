@@ -1,26 +1,27 @@
-- name: Copy terminator config
+- name: Copy config files
   copy:
-    src: terminator
-    dest: "/home/{{ username }}/.config/terminator"
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
     owner: "{{ username }}"
     group: "{{ username }}"
     mode: '0644'
-
-- name: Copy .tmux.conf
-  copy:
-    src: tmux.conf
-    dest: "/home/{{ username }}/.tmux.conf"
-    owner: "{{ username }}"
-    group: "{{ username }}"
-    mode: '0644'
-
-- name: Copy .vimrc
-  copy:
-    src: vimrc
-    dest: "/home/{{ username }}/.vimrc"
-    owner: "{{ username }}"
-    group: "{{ username }}"
-    mode: '0644'
+  loop:
+    - src: terminator
+      dest: "/home/{{ username }}/.config/terminator"
+    - src: tmux.conf
+      dest: "/home/{{ username }}/.tmux.conf"
+    - src: vimrc
+      dest: "/home/{{ username }}/.vimrc"
+    - src: webapp-WhatsappWeb.desktop
+      dest: "/home/{{ username }}/.local/share/applications/webapp-WhatsappWeb7804.desktop"
+    - src: TODO.txt
+      dest: "/home/{{ username }}/Desktop"
+    - src: discord.desktop
+      dest: "/home/{{ username }}/.local/share/applications/menulibre-discord.desktop"
+    - src: thunar-bookmarks
+      dest: "/home/{{ username}}/.config/gtk-3.0/bookmarks"
+    - src: ssh-config
+      dest: "/home/{{ username }}/.ssh/config"
 
 - name: Copy conky.conf
   copy:
@@ -30,8 +31,3 @@
     group: root
     mode: '0644'
     backup: yes
-
-- name: Copy webapp desktop file for whatsapp
-  copy:
-    src: webapp-WhatsappWeb.desktop
-    dest: "/home/{{ username }}/.local/share/applications/webapp-WhatsappWeb7804.desktop"

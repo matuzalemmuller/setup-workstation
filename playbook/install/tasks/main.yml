@@ -36,11 +36,12 @@
 
 - import_tasks: chrome.yml
 - import_tasks: docker.yml
+- import_tasks: discord.yml
 - import_tasks: dropbox.yml
-- import_tasks: vscode.yml
-- import_tasks: teamviewer.yml
-- import_tasks: webapp-manager.yml
 - import_tasks: joplin.yml
+- import_tasks: teamviewer.yml
+- import_tasks: vscode.yml
+- import_tasks: webapp-manager.yml
 
 - name: Remove unused packages
   apt:
@@ -48,6 +49,8 @@
     state: absent
   vars:
     packages:
+      - exfalso
+      - parole
       - xterm
 
 - name: Autoremove packages that are no longer required

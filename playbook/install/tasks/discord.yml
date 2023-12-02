@@ -1,0 +1,5 @@
+- name: Download discord tarball
+  unarchive:
+    src: "https://discord.com/api/download?platform=linux&format=tar.gz"
+    dest: "/home/{{ username }}/Programs"
+    copy: no

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Discord
+Icon=/home/matuzalem/Programs/Discord/discord.png
+Exec=/home/matuzalem/Programs/Discord/Discord
+Actions=
+Categories=Network;X-XFCE;X-Xfce-Toplevel;

@@ -12,6 +12,8 @@ pipx install --include-deps ansible
 echo -e "${GREEN}Adding ansible to PATH...${NC}"
 pipx ensurepath
 
+export PATH=$PATH:~/.local/bin
+
 echo -e "${GREEN}Running the playbook...${NC}"
 ansible-playbook playbook/setup-workstation.yml
 

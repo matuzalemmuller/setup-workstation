@@ -9,6 +9,7 @@
   loop:
     - '/home/{{ username }}/dev'
     - '/home/{{ username }}/Programs'
+    - '/home/{{ username }}/.local/share/applications'
 
 - name: Delete unused default folders
   file:

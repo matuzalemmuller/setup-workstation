@@ -2,3 +2,6 @@
     - Dropbox
     - Joplin
     - Firefox
+
+- Upload pub SSH key to GitHub:
+    - .ssh/github.pub
