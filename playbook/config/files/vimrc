@@ -13,7 +13,9 @@ filetype on
 set shiftwidth=4
 set tabstop=4
 set expandtab
+
 autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
+autocmd BufEnter *.yml colorscheme koehler
 
 " abreviate commands
 ca tn tabnew

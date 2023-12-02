@@ -1,0 +1,14 @@
+- name: Set dark mode for GTK 1
+  become_user: "{{ username }}"
+  dconf:
+    key: "/org/gnome/desktop/interface/color-scheme"
+    value: "'prefer-dark'"
+
+- name: Set dark mode for GTK 2
+  become_user: "{{ username }}"
+  dconf:
+    key: "/org/gnome/desktop/interface/gtk-theme"
+    value: "'Adwaita-dark'"
+
+- name: Set dark mode in xfce4 (Adwaita-dark)
+  shell: runuser -l "{{ username }}" -c 'export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$UID/bus && xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita-dark"'

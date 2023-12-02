@@ -5,7 +5,7 @@
   vars:
     username: matuzalem
   roles:
-    - apt
+    - install
 
 - hosts: all
   tags: always

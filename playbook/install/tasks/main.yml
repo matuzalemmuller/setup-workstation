@@ -4,12 +4,15 @@
     regexp: '^deb cdrom:'
     replace: '#deb cdrom:' 
  
-- name: Install packages
+- name: Install packages via apt repository
   apt:
     name: "{{ packages }}"
     state: latest
   vars:
     packages:
+      - libglib2.0-dev
+      - dbus-x11
+      - terminator
       - vim
       - git
       - firefox-esr
@@ -26,9 +29,19 @@
       - xfce4-whiskermenu-plugin
       - dconf-cli
       - dconf-editor
+      - pipx
+      - gnome-system-monitor
+      - python3-pip
 
 - import_tasks: chrome.yml
 - import_tasks: docker.yml
 - import_tasks: dropbox.yml
 - import_tasks: vscode.yml
 
+- name: Remove unused packages
+  apt:
+    name: "{{ packages }}"
+    state: absent
+  vars:
+    packages:
+      - xterm

@@ -1,4 +1,4 @@
-- name: Install dropbox
+- name: Install dropbox from web deb
   apt:
     deb: https://www.dropbox.com/download?dl=packages/debian/dropbox_2023.09.06_amd64.deb
 
