@@ -1,7 +1,7 @@
 - name: Set dark mode for GTK
   become_user: "{{ username }}"
   dconf:
-    key: "{{ item.key }}" 
+    key: "{{ item.key }}"
     value: "{{ item.value }}" 
   loop:
     - key: "/org/gnome/desktop/interface/color-scheme" 
