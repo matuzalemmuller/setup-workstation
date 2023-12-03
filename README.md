@@ -7,7 +7,7 @@ Everything should be not user-specific, except for [playbook/config/tasks/config
 **_Use it at your own risk. Not open for pull requests or issues._**
 
 ```
-./wrapper-scrip.sh
+./wrapper-script.sh
 # or install requirements and run
 ansible-playbook playbook/setup-workstation --ask-become-pass
 ```
