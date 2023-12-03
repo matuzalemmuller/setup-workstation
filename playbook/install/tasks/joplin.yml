@@ -1,3 +1,3 @@
 - name: Install joplin via autoinstaller script
   become_user: "{{ username }}"
-  script: joplin_install_and_update.sh 
+  script: joplin_install_and_update.sh

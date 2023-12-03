@@ -1,7 +1,7 @@
 - name: Populate service facts
   service_facts:
 
-- name: Install prerequisites for docker install
+- name: Install prerequisites for docker
   apt:
     name: "{{ packages }}"
     state: latest
@@ -11,7 +11,7 @@
       - curl
       - gnupg
 
-- name: Install repo key for docker
+- name: Add repo key for docker
   shell: |
     sudo install -m 0755 -d /etc/apt/keyrings
     curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg

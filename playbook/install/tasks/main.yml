@@ -3,38 +3,9 @@
     dest: /etc/apt/sources.list
     regexp: '^deb cdrom:'
     replace: '#deb cdrom:' 
- 
-- name: Install packages via apt repository
-  apt:
-    name: "{{ packages }}"
-    state: latest
-  vars:
-    packages:
-      - cheese
-      - conky
-      - dbus-x11
-      - dconf-cli
-      - dconf-editor
-      - evince
-      - firefox-esr
-      - git
-      - gnome-system-monitor
-      - gparted
-      - htop
-      - libglib2.0-dev
-      - obs-studio
-      - pipx
-      - python3-pip
-      - terminator
-      - tlp
-      - tmux
-      - transmission-gtk
-      - vim
-      - vlc
-      - wireshark
-      - xfce4-whiskermenu-plugin
 
 - import_tasks: create-folders.yml
+- import_tasks: apt.yml
 - import_tasks: chrome.yml
 - import_tasks: docker.yml
 - import_tasks: discord.yml
@@ -43,17 +14,4 @@
 - import_tasks: teamviewer.yml
 - import_tasks: vscode.yml
 - import_tasks: webapp-manager.yml
-
-- name: Remove unused packages
-  apt:
-    name: "{{ packages }}"
-    state: absent
-  vars:
-    packages:
-      - exfalso
-      - parole
-      - xterm
-
-- name: Autoremove packages that are no longer required
-  apt:
-    autoremove: yes
+- import_tasks: remove-unused.yml

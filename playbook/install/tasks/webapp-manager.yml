@@ -7,7 +7,7 @@
 - name: Rename webapp-manager deb
   shell: mv /tmp/packages/webapp-manager* /tmp/packages/webapp-manager.deb
 
-- name: Install webapp-manager from web deb
+- name: Install webapp-manager from web .deb
   apt:
     deb: "/tmp/packages/webapp-manager.deb"
 

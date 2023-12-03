@@ -1,15 +1,10 @@
 ---
 
 - hosts: all
-  tags: always
-  vars:
-    username: matuzalem
+  vars_prompt:
+    - name: username
+      prompt: "Please provide the username"
+      private: no
   roles:
     - install
-
-- hosts: all
-  tags: always
-  vars:
-    username: matuzalem
-  roles:
     - config

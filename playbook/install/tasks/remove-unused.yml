@@ -1,0 +1,13 @@
+- name: Remove unused packages
+  apt:
+    name: "{{ packages }}"
+    state: absent
+  vars:
+    packages:
+      - exfalso
+      - parole
+      - xterm
+
+- name: Autoremove packages that are no longer required
+  apt:
+    autoremove: yes

@@ -1,0 +1,31 @@
+- name: Install packages via apt
+  apt:
+    name: "{{ packages }}"
+    state: latest
+  vars:
+    packages:
+      - cheese
+      - conky
+      - dbus-x11
+      - dconf-cli
+      - dconf-editor
+      - evince
+      - firefox-esr
+      - git
+      - gnome-system-monitor
+      - gparted
+      - htop
+      - libglib2.0-dev
+      - obs-studio
+      - pipx
+      - psmisc
+      - python3-pip
+      - remmina
+      - terminator
+      - tlp
+      - tmux
+      - transmission-gtk
+      - vim
+      - vlc
+      - wireshark
+      - xfce4-whiskermenu-plugin

@@ -1,4 +1,4 @@
-- name: Install teamviewer from web deb
+- name: Install teamviewer from web .deb
   apt:
     deb: https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
 

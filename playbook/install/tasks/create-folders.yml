@@ -1,4 +1,4 @@
-- name: Create regular folders
+- name: Create folders
   become_user: "{{ username }}"
   file:
     path: "{{ item }}"
@@ -14,6 +14,7 @@
     - '/home/{{ username }}/.ssh'
     - '/home/{{ username }}/.config/autostart'
     - '/home/{{ username }}/.config/gtk-3.0'
+    - '/home/{{ username }}/.config/terminator'
 
 - name: Delete unused default folders
   file:

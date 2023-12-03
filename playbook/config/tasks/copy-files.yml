@@ -1,3 +1,11 @@
+- name: Killall xfce4-panel
+  shell: killall xfce4-panel
+
+- name: Remove panel folder
+  file:
+    state: absent
+    path: "/home/{{ username }}/.config/xfce4/panel"
+
 - name: Copy config files
   copy:
     src: "{{ item.src }}"
@@ -7,41 +15,59 @@
     mode: '0644'
   loop:
     - src: terminator
-      dest: "/home/{{ username }}/.config/terminator"
+      dest: "/home/{{ username }}/.config/terminator/config"
     - src: tmux.conf
       dest: "/home/{{ username }}/.tmux.conf"
     - src: vimrc
       dest: "/home/{{ username }}/.vimrc"
-    - src: webapp-WhatsappWeb.desktop
-      dest: "/home/{{ username }}/.local/share/applications/webapp-WhatsappWeb7804.desktop"
     - src: TODO.txt
       dest: "/home/{{ username }}/Desktop"
-    - src: discord.desktop
-      dest: "/home/{{ username }}/.local/share/applications/menulibre-discord.desktop"
-    - src: ssh-config
-      dest: "/home/{{ username }}/.ssh/config"
     - src: conky.desktop
       dest: "/home/{{ username }}/.config/autostart"
-    - src: thunar-bookmarks
-      dest: "/home/{{ username }}/.config/gtk-3.0/bookmarks"
     - src: terminator-default-terminal.rc
       dest: "/home/{{ username }}/.config/xfce4/helpers.rc"
-    - src: xfce4-keyboard-shortcuts.xml
+    - src: xfce4-panel.xml 
+      dest: "/home/{{ username }}/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"
+    - src: panel
+      dest: "/home/{{ username }}/.config/xfce4"
+
+- name: Copy config files (templates)
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: '0644'
+  loop:
+    - src: discord.desktop.j2
+      dest: "/home/{{ username }}/.local/share/applications/menulibre-discord.desktop"
+    - src: ssh-config.j2
+      dest: "/home/{{ username }}/.ssh/config"
+    - src: thunar-bookmarks.j2
+      dest: "/home/{{ username }}/.config/gtk-3.0/bookmarks"
+    - src: webapp-WhatsappWeb.desktop.j2
+      dest: "/home/{{ username }}/.local/share/applications/webapp-WhatsappWeb7804.desktop"
+    - src: xfce4-keyboard-shortcuts.xml.j2
       dest: "/home/{{ username }}/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml"
 
-- name: Copy config files (executable)
-  copy:
-    src: screenshot.sh
-    dest: "/home/{{ username }}/Programs/shortcuts"
+- name: Copy scripts (templates)
+  template:
+    src: screenshot.sh.j2
+    dest: "/home/{{ username }}/Programs/shortcuts/screenshot.sh"
     owner: "{{ username }}"
     group: "{{ username }}"
     mode: '0755'
 
-- name: Copy conky.conf
+- name: Copy config files (root)
   copy:
-    src: conky.conf
-    dest: /etc/conky/conky.conf
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
     owner: root
     group: root
     mode: '0644'
     backup: yes
+  loop:
+    - src: conky.conf
+      dest: /etc/conky/conky.conf
+    - src: xfce4-panel.xml
+      dest: /etc/xdg/xfce4/panel/default.xml 

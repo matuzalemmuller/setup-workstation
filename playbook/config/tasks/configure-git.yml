@@ -12,4 +12,4 @@
     - name: gpg.format
       value: "ssh"
     - name: user.signingkey
-      value: "/home/matuzalem/.ssh/github.pub"
+      value: "/home/{{ username }}/.ssh/github.pub"

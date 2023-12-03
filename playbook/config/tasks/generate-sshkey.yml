@@ -3,3 +3,5 @@
     path: "/home/{{ username }}/.ssh/github"
     owner: "{{ username }}"
     group: "{{ username }}"
+    force: no
+    regenerate: never
