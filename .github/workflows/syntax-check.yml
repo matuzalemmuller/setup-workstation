@@ -1,7 +1,7 @@
 name: Syntax check
 on: [push]
 jobs:
-  Basic-Test:
+  syntax-check:
     runs-on: ubuntu-22.04
     container:
       image: alpine:3.15
@@ -10,7 +10,5 @@ jobs:
         uses: actions/checkout@v4
       - name: Install ansible
         run: apk add ansible
-      - name: cd to repository
-        run: cd setup-workstation/
       - name: Run ansible-playbook --syntax-check
         run: ansible-playbook playbook/setup-workstation.yml --syntax-check
