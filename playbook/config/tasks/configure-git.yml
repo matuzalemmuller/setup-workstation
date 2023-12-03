@@ -1,4 +1,5 @@
 - name: Configure git
+  become_user: "{{ username }}"
   git_config:
     name: "{{ item.name}}"
     value: "{{ item.value }}"

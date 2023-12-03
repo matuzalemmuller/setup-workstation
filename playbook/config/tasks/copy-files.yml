@@ -18,10 +18,24 @@
       dest: "/home/{{ username }}/Desktop"
     - src: discord.desktop
       dest: "/home/{{ username }}/.local/share/applications/menulibre-discord.desktop"
-    - src: thunar-bookmarks
-      dest: "/home/{{ username}}/.config/gtk-3.0/bookmarks"
     - src: ssh-config
       dest: "/home/{{ username }}/.ssh/config"
+    - src: conky.desktop
+      dest: "/home/{{ username }}/.config/autostart"
+    - src: thunar-bookmarks
+      dest: "/home/{{ username }}/.config/gtk-3.0/bookmarks"
+    - src: terminator-default-terminal.rc
+      dest: "/home/{{ username }}/.config/xfce4/helpers.rc"
+    - src: xfce4-keyboard-shortcuts.xml
+      dest: "/home/{{ username }}/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml"
+
+- name: Copy config files (executable)
+  copy:
+    src: screenshot.sh
+    dest: "/home/{{ username }}/Programs/shortcuts"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: '0755'
 
 - name: Copy conky.conf
   copy:

@@ -9,7 +9,11 @@
   loop:
     - '/home/{{ username }}/dev'
     - '/home/{{ username }}/Programs'
+    - '/home/{{ username }}/Programs/shortcuts'
     - '/home/{{ username }}/.local/share/applications'
+    - '/home/{{ username }}/.ssh'
+    - '/home/{{ username }}/.config/autostart'
+    - '/home/{{ username }}/.config/gtk-3.0'
 
 - name: Delete unused default folders
   file:

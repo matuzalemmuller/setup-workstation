@@ -5,3 +5,7 @@
 
 - Upload pub SSH key to GitHub:
     - .ssh/github.pub
+
+- Panel:
+    - Whisker menu, File Explorer, Firefox, Terminator, VSCode, Window List, System Monitor with CPU and MEM, Connections, Sound, Battery (with percentage), Clock (Time Only, Custom Format: %a %d %b, %R), Workspace Switcher (2, Miniature View, 2 Rows).
+    - Window List: Don't group windows.

@@ -1,7 +1,6 @@
-- import_tasks: folders.yml
 - import_tasks: copy-files.yml
 - import_tasks: dark-theme.yml
-- import_tasks: generate-sshkey.yml
+#- import_tasks: generate-sshkey.yml
 - import_tasks: configure-git.yml
 
 - name: Populate service facts
