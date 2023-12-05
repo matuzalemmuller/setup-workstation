@@ -2,7 +2,7 @@ set t_Co=256
 
 " additional highlighting
 syntax enable
-colorscheme ron
+colorscheme delek
 
 " go to previous line/next line using left and right arrows
 set whichwrap+=<,>,[,]
@@ -15,9 +15,9 @@ set tabstop=4
 set expandtab
 
 autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
-autocmd BufEnter *.yml colorscheme koehler
-
+autocmd BufEnter *.yml colorscheme slate
 autocmd BufEnter *.sh colorscheme koehler
+autocmd BufEnter *.md colorscheme peachpuff
 
 " abreviate commands
 ca tn tabnew

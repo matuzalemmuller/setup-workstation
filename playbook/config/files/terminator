@@ -1,12 +1,19 @@
 [global_config]
 [keybindings]
+  split_horiz = <Primary>underscore
 [profiles]
   [[default]]
+    background_color = "#201f24"
+    cursor_color = "#00e8c6"
     foreground_color = "#ffffff"
-    palette = "#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
+    scrollback_infinite = True
+    palette = "#2e3436:#ff007a:#84ff39:#f3d56e:#7cb7ff:#c74ded:#00e8c6:#d3d7cf:#555753:#ff007a:#84ff39:#f3d56e:#7cb7ff:#c74ded:#00e8c6:#eeeeec"
   [[custom]]
+    background_color = "#201f24"
+    cursor_color = "#00e8c6"
     foreground_color = "#ffffff"
-    palette = "#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
+    scrollback_infinite = True
+    palette = "#2e3436:#ff007a:#84ff39:#f3d56e:#7cb7ff:#c74ded:#00e8c6:#d3d7cf:#555753:#ff007a:#84ff39:#f3d56e:#7cb7ff:#c74ded:#00e8c6:#eeeeec"
 [layouts]
   [[default]]
     [[[window0]]]
