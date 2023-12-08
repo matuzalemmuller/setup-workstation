@@ -5,5 +5,5 @@
 - name: Disable teamviewerd service
   service:
     name: teamviewerd
-    enabled: no
+    enabled: false
     state: stopped

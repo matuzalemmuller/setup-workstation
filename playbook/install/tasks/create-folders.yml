@@ -1,4 +1,5 @@
 - name: Create folders
+  become: true
   become_user: "{{ username }}"
   file:
     path: "{{ item }}"
@@ -9,7 +10,9 @@
   loop:
     - '/home/{{ username }}/dev'
     - '/home/{{ username }}/Programs'
+    - '/home/{{ username }}/Programs/joplin'
     - '/home/{{ username }}/Programs/shortcuts'
+    - '/home/{{ username }}/Programs/tgpt'
     - '/home/{{ username }}/.local/share/applications'
     - '/home/{{ username }}/.ssh'
     - '/home/{{ username }}/.config/autostart'

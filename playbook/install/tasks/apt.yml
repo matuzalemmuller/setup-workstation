@@ -1,22 +1,26 @@
-- name: Install packages via apt
+- name: Install packages via apt (this will take a while)
   apt:
     name: "{{ packages }}"
     state: latest
   vars:
     packages:
+      - caffeine
       - cheese
       - conky
       - dbus-x11
       - dconf-cli
       - dconf-editor
       - evince
+      - flatpak
       - firefox-esr
       - git
       - gnome-system-monitor
       - gparted
       - htop
+      - jq
       - libglib2.0-dev
       - obs-studio
+      - openjdk-17-jdk
       - pipx
       - psmisc
       - python3-pip
@@ -27,5 +31,6 @@
       - transmission-gtk
       - vim
       - vlc
+      - wireguard
       - wireshark
       - xfce4-whiskermenu-plugin

@@ -1,0 +1,6 @@
+- name: Download and install tgpt
+  become: true
+  become_user: "{{ username }}"
+  shell: |
+    curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/main/install | bash -s '/home/{{ username }}/Programs/tgpt'
+    echo 'export PATH=$PATH:/home/{{ username }}/Programs/tgpt/' >> /home/'{{ username }}'/.bashrc

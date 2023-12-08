@@ -21,7 +21,7 @@
 
 - name: Install docker packages
   apt:
-    update_cache: yes
+    update_cache: true
     name: "{{ packages }}"
     state: latest
   vars:
@@ -36,11 +36,11 @@
   user:
     name: "{{ username }}"
     groups: docker
-    append: yes
+    append: true
   when: ansible_facts.services['docker.service'] is undefined
 
 - name: Disable docker service
   service:
     name: docker
-    enabled: no
+    enabled: false
     state: stopped

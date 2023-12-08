@@ -2,7 +2,7 @@
   unarchive:
     src: "https://github.com/linuxmint/webapp-manager/releases/download/master.mint21/packages.tar.gz"
     dest: "/tmp"
-    copy: no
+    copy: false
 
 - name: Rename webapp-manager deb
   shell: mv /tmp/packages/webapp-manager* /tmp/packages/webapp-manager.deb

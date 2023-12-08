@@ -13,5 +13,5 @@
   service:
     name: bluetooth
     state: stopped
-    enabled: no
+    enabled: false
   when: ansible_facts.services['bluetooth.service'] is defined

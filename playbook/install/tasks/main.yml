@@ -6,12 +6,14 @@
 
 - import_tasks: create-folders.yml
 - import_tasks: apt.yml
+- import_tasks: flatpak.yml
 - import_tasks: chrome.yml
 - import_tasks: docker.yml
 - import_tasks: discord.yml
 - import_tasks: dropbox.yml
 - import_tasks: joplin.yml
 - import_tasks: teamviewer.yml
+- import_tasks: tgpt.yml
 - import_tasks: vscode.yml
 - import_tasks: webapp-manager.yml
 - import_tasks: remove-unused.yml

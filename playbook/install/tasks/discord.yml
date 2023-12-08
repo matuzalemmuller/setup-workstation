@@ -1,5 +1,7 @@
 - name: Download discord tarball
+  become: true
+  become_user: "{{ username }}"
   unarchive:
     src: "https://discord.com/api/download?platform=linux&format=tar.gz"
     dest: "/home/{{ username }}/Programs"
-    copy: no
+    copy: false
