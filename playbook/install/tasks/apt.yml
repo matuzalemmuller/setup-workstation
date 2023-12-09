@@ -4,12 +4,13 @@
     state: latest
   vars:
     packages:
-      - caffeine
+      - audacity
       - cheese
       - conky
       - dbus-x11
       - dconf-cli
       - dconf-editor
+      - drawing
       - evince
       - flatpak
       - firefox-esr
@@ -25,10 +26,13 @@
       - psmisc
       - python3-pip
       - remmina
+      - samba
       - terminator
+      - timeshift
       - tlp
       - tmux
       - transmission-gtk
+      - ufw
       - vim
       - vlc
       - wireguard

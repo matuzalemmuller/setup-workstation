@@ -29,5 +29,16 @@ export PATH=$PATH:/home/$username/.local/bin
 echo -e "${GREEN}Running the playbook...${NC}"
 ansible-playbook playbook/setup-workstation.yml -e "ansible_sudo_pass=$password" -e "username=$username"
 
-echo -e "${GREEN}Setup complete! Reboot the computer and enjoy (sudo reboot now)${NC}"
+if [ $? -ne 0 ]; then
+    exit 1
+fi
+
+echo -e "${GREEN}Setup complete! A reboot is required to complete the installation. Reboot now? (y/n)${NC}"
+read rbt
+
+if [ "$rbt" == "y" ]; then
+    echo $password | sudo reboot now
+fi
+
+echo -e "${GREEN}You can reboot later: sudo reboot now${NC}"
 

@@ -1,3 +1,13 @@
 - name: Install VSCode from web .deb
   apt:
     deb: https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
+
+- name: Install VSCode extensions
+  become: true
+  become_user: "{{ username }}"
+  shell: code --install-extension "{{ item }}"
+  loop:
+    - ms-python.python
+    - ms-vscode-remote.remote-ssh
+    - ms-azuretools.vscode-docker
+    - ms-kubernetes-tools.vscode-kubernetes-tools

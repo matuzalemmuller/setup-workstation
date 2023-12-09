@@ -11,4 +11,3 @@
 - name: Autoremove packages that are no longer required
   apt:
     autoremove: true
-

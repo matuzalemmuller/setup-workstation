@@ -71,4 +71,3 @@
       dest: /etc/conky/conky.conf
     - src: xfce4-panel.xml
       dest: /etc/xdg/xfce4/panel/default.xml
-

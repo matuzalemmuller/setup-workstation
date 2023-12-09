@@ -1,0 +1,31 @@
+
+- name: Install prerequisites for docker
+  apt:
+    name: "{{ packages }}"
+    state: latest
+  vars:
+    packages:
+      - ca-certificates
+      - curl
+      - apt-transport-https
+
+- name: Add repo key for kubectl
+  shell: |
+    curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+    echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+- name: Install kubectl package
+  apt:
+    update_cache: true
+    name: kubectl
+    state: latest
+
+- name: Add kubectl auto-completion
+  become: true
+  become_user: "{{ username }}"
+  shell: |
+    echo '' >> /home/'{{ username }}'/.bashrc
+    echo '# kubectl autocompletion' >> /home/'{{ username }}'/.bashrc
+    echo 'source <(kubectl completion bash)' >> /home/'{{ username }}'/.bashrc
+    echo 'alias k=kubectl' >> /home/'{{ username }}'/.bashrc
+    echo 'complete -o default -F __start_kubectl k' >> /home/'{{ username }}'/.bashrc

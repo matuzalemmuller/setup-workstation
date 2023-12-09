@@ -14,12 +14,17 @@ set shiftwidth=4
 set tabstop=4
 set expandtab
 
+" switch viewports using ctrl-s
+:map <C-s> <C-W>w
+
 autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
 
 " abreviate commands
 ca tn tabnew
 ca nu set number
 ca nn set nonumber
+ca nnu set nonumber
+ca hs split
 
 set hlsearch
 set incsearch

@@ -2,7 +2,7 @@
   replace:
     dest: /etc/apt/sources.list
     regexp: '^deb cdrom:'
-    replace: '#deb cdrom:' 
+    replace: '#deb cdrom:'
 
 - import_tasks: create-folders.yml
 - import_tasks: apt.yml
@@ -12,6 +12,7 @@
 - import_tasks: discord.yml
 - import_tasks: dropbox.yml
 - import_tasks: joplin.yml
+- import_tasks: kubectl.yml
 - import_tasks: teamviewer.yml
 - import_tasks: tgpt.yml
 - import_tasks: vscode.yml

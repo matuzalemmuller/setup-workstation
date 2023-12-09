@@ -1,7 +1,7 @@
 - name: Add flathub repository
   script: /usr/bin/flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-- name: Install the flatpak packages (this will take a while)
+- name: Install packages via flatpak (this will take a while)
   become: true
   become_user: "{{ username }}"
   community.general.flatpak:
@@ -11,4 +11,3 @@
     packages:
       - com.github.micahflee.torbrowser-launcher
       - com.github.tchx84.Flatseal
-      - org.gnome.NetworkDisplays
