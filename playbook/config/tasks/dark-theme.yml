@@ -13,9 +13,3 @@
 - name: Set dark mode in xfce4 (Adwaita-dark)
   shell: runuser -l "{{ username }}" -c 'export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$UID/bus && xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita-dark"'
 
-- name: Set black wallpaper
-  ignore_errors: true
-  shell: |
-    runuser -l "{{ username }}" -c 'export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$UID/bus && xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual-1/workspace0/image-style && xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual-1/workspace0/image-style --set 0'
-    runuser -l "{{ username }}" -c 'export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$UID/bus && xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual-1/workspace0/rgba1 && xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitorVirtual-1/workspace0/rgba1 -t double -s 0.000000 -t double -s 0.000000 -t double -s 0.000000 -t double -s 1.000000'
-

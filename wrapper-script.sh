@@ -13,7 +13,25 @@ read username
 echo -n "Password (your user must have root privileges): "
 read -s password
 
-echo -e "\n${GREEN}Installing prerequisites to run ansible...${NC}"
+# Checking if password is valid, need to be improved (but it won't be)
+echo -e "\n${GREEN}Testing root password...${NC}"
+echo $password | sudo -S ls /root
+RESULT=$?
+
+if [ $RESULT -ne 0 ]; then
+    echo -e "${YELLOW}Invalid root password!${NC}"
+    exit 1
+fi
+
+# cdrom entry breaks apt update
+echo -e "\n${GREEN}Removing cdrom entry from /etc/apt/sources.list${NC}"
+echo $passwd | sudo -S sed -i.bak '/cdrom/d' /etc/apt/sources.list
+
+echo -e "${GREEN}Updating package repository...${NC}"
+echo $password | sudo -S apt update
+
+# Install ansible
+echo "${GREEN}Installing prerequisites to run ansible...${NC}"
 echo $password | sudo -S apt install -y python3-pip pipx
 
 echo -e "${GREEN}Installing ansible...${NC}"
@@ -26,6 +44,7 @@ pipx ensurepath
 # Add ansible to PATH for this script run
 export PATH=$PATH:/home/$username/.local/bin
 
+# Run ansible playbook
 echo -e "${GREEN}Running the playbook...${NC}"
 ansible-playbook playbook/setup-workstation.yml -e "ansible_sudo_pass=$password" -e "username=$username"
 
@@ -33,12 +52,13 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+# Complete/reboot
 echo -e "${GREEN}Setup complete! A reboot is required to complete the installation. Reboot now? (y/n)${NC}"
 read rbt
 
 if [ "$rbt" == "y" ]; then
-    echo $password | sudo reboot now
+    echo $password | sudo -S reboot now
 fi
 
-echo -e "${GREEN}You can reboot later: sudo reboot now${NC}"
+echo -e "${GREEN}You can reboot later (sudo reboot now), but do NOT start XFCE!${NC}"
 

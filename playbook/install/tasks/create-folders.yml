@@ -9,8 +9,8 @@
     mode: '755'
   loop:
     - '/home/{{ username }}/dev'
-    - '/home/{{ username }}/Programs'
     - '/home/{{ username }}/Programs/joplin'
+    - '/home/{{ username }}/Programs/ladder'
     - '/home/{{ username }}/Programs/shortcuts'
     - '/home/{{ username }}/Programs/tgpt'
     - '/home/{{ username }}/.local/share/applications'

@@ -1,0 +1,15 @@
+- name: Download ladder tarball
+  become: true
+  become_user: "{{ username }}"
+  unarchive:
+    src: "https://github.com/everywall/ladder/releases/latest/download/ladder_linux_amd64.tar.gz"
+    dest: "/home/{{ username }}/Programs/ladder"
+    copy: false
+
+- name: Add ladder to PATH
+  become: true
+  become_user: "{{ username }}"
+  shell: |
+    echo '' >> /home/'{{ username }}'/.bashrc
+    echo '# ladder path' >> /home/'{{ username }}'/.bashrc
+    echo 'export PATH="$PATH:/home/{{ username }}/Programs/ladder"' >> /home/'{{ username }}'/.bashrc
