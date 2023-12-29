@@ -60,8 +60,6 @@
   loop:
     - src: screenshot.sh.j2
       dest: "/home/{{ username }}/Programs/shortcuts/screenshot.sh"
-    - src: ladder_start.sh.j2
-      dest: "/home/{{ username }}/Programs/ladder/ladder_start.sh"
 
 - name: Copy config files (root)
   copy:
@@ -74,7 +72,6 @@
   loop:
     - src: conky.conf
       dest: /etc/conky/conky.conf
-    - src: nginx_ladder.conf
-      dest: /etc/nginx/conf.d/ladder.conf
     - src: xfce4-panel.xml
       dest: /etc/xdg/xfce4/panel/default.xml
+

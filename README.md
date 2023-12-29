@@ -9,5 +9,5 @@ Everything should be not user-specific, except for [playbook/config/tasks/config
 ```
 ./wrapper-script.sh
 # or install requirements and run
-ansible-playbook playbook/setup-workstation --ask-become-pass
+ansible-playbook playbook/setup-workstation.yml --ask-become-pass
 ```

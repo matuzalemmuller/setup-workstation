@@ -17,10 +17,10 @@
       - git
       - gnome-system-monitor
       - gparted
+      - gufw
       - htop
       - jq
       - libglib2.0-dev
-      - nginx
       - obs-studio
       - openjdk-17-jdk
       - pipx

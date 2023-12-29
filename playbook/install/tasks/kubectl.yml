@@ -20,12 +20,15 @@
     name: kubectl
     state: latest
 
-- name: Add kubectl auto-completion
+- name: Add kubectl auto-completion to .bashrc
   become: true
   become_user: "{{ username }}"
-  shell: |
-    echo '' >> /home/'{{ username }}'/.bashrc
-    echo '# kubectl autocompletion' >> /home/'{{ username }}'/.bashrc
-    echo 'source <(kubectl completion bash)' >> /home/'{{ username }}'/.bashrc
-    echo 'alias k=kubectl' >> /home/'{{ username }}'/.bashrc
-    echo 'complete -o default -F __start_kubectl k' >> /home/'{{ username }}'/.bashrc
+  blockinfile:
+    marker: "## {mark} Add kubectl autocomplete"
+    path: "/home/{{ username }}/.bashrc"
+    insertafter: "EOF"
+    block: |
+      source <(kubectl completion bash)
+      alias k=kubectl
+      complete -o default -F __start_kubectl k
+

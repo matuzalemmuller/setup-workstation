@@ -3,6 +3,14 @@
   become_user: "{{ username }}"
   shell: |
     curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/main/install | bash -s '/home/{{ username }}/Programs/tgpt'
-    echo '' >> /home/'{{ username }}'/.bashrc
-    echo '# tgpt path' >> /home/'{{ username }}'/.bashrc
-    echo 'export PATH="$PATH:/home/{{ username }}/Programs/tgpt"' >> /home/'{{ username }}'/.bashrc
+
+- name: Add tgpt to PATH
+  become: true
+  become_user: "{{ username }}"
+  blockinfile:
+    marker: "## {mark} Add tgpt to PATH"
+    path: "/home/{{ username }}/.bashrc"
+    insertafter: "EOF"
+    block: |
+      export PATH="$PATH:/home/{{ username }}/Programs/tgpt"
+  

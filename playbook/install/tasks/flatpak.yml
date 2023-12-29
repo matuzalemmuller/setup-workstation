@@ -1,5 +1,7 @@
 - name: Add flathub repository
-  script: /usr/bin/flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+  become: True
+  become_user: "{{ username }}"
+  script: /usr/bin/flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 - name: Install packages via flatpak (this will take a while)
   become: true
@@ -7,6 +9,7 @@
   community.general.flatpak:
     name: "{{ packages }}"
     state: present
+    method: "user"
   vars:
     packages:
       - com.github.micahflee.torbrowser-launcher

@@ -9,7 +9,10 @@
 - name: Add ladder to PATH
   become: true
   become_user: "{{ username }}"
-  shell: |
-    echo '' >> /home/'{{ username }}'/.bashrc
-    echo '# ladder path' >> /home/'{{ username }}'/.bashrc
-    echo 'export PATH="$PATH:/home/{{ username }}/Programs/ladder"' >> /home/'{{ username }}'/.bashrc
+  blockinfile:
+    marker: "## {mark} Add ladder to PATH"
+    path: "/home/{{ username }}/.bashrc"
+    insertafter: "EOF"
+    block: |
+      export PATH="$PATH:/home/{{ username }}/Programs/ladder"
+
