@@ -16,6 +16,7 @@
       - firefox-esr
       - git
       - gnome-system-monitor
+      - gnome-power-manager
       - gparted
       - gufw
       - htop
