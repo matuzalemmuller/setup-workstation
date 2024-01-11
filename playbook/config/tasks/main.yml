@@ -2,12 +2,7 @@
 - import_tasks: dark-theme.yml
 - import_tasks: generate-sshkey.yml
 - import_tasks: configure-git.yml
-
-- name: Add entry in hosts file for ladder
-  lineinfile:
-    path: /etc/hosts
-    insertbefore: "BOF"
-    line: "127.0.0.1\tladder"
+- import_tasks: libvirt.yml
 
 - name: Set workspace count to 2
   shell: runuser -l "{{ username }}" -c 'export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$UID/bus && xfconf-query -c xfwm4 -p /general/workspace_count -s 2'

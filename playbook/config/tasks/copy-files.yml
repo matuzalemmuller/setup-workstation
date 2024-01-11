@@ -74,4 +74,6 @@
       dest: /etc/conky/conky.conf
     - src: xfce4-panel.xml
       dest: /etc/xdg/xfce4/panel/default.xml
+    - src: tlp.conf
+      dest: /etc/tlp.conf
 
