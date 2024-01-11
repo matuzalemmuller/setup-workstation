@@ -4,3 +4,8 @@
     groups: libvirt
     append: yes
 
+- name: Start libvirt default network on boot
+  virt_net:
+    autostart: true
+    name: default
+
