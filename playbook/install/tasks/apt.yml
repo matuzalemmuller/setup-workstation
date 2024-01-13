@@ -22,6 +22,7 @@
       - htop
       - jq
       - libglib2.0-dev
+      - lrzip
       - obs-studio
       - openjdk-17-jdk
       - pipx
