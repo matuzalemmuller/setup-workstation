@@ -15,4 +15,3 @@
     insertafter: "EOF"
     block: |
       export PATH="$PATH:/home/{{ username }}/Programs/ladder"
-

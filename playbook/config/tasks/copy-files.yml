@@ -76,4 +76,3 @@
       dest: /etc/xdg/xfce4/panel/default.xml
     - src: tlp.conf
       dest: /etc/tlp.conf
-

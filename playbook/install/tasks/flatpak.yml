@@ -2,8 +2,9 @@
   become: True
   become_user: "{{ username }}"
   script: /usr/bin/flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+  when: first_time_setup | bool
 
-- name: Install packages via flatpak (this will take a while)
+- name: Install packages via flatpak (this may take a while)
   become: true
   become_user: "{{ username }}"
   community.general.flatpak:

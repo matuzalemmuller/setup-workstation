@@ -8,4 +8,3 @@
   virt_net:
     autostart: true
     name: default
-

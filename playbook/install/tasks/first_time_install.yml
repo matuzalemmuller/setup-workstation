@@ -1,0 +1,8 @@
+- import_tasks: chrome.yml
+- import_tasks: docker.yml
+- import_tasks: discord.yml
+- import_tasks: dropbox.yml
+- import_tasks: kubectl.yml
+- import_tasks: teamviewer.yml
+- import_tasks: vscode.yml
+- import_tasks: webapp-manager.yml

@@ -12,4 +12,3 @@
 
 - name: Set dark mode in xfce4 (Adwaita-dark)
   shell: runuser -l "{{ username }}" -c 'export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$UID/bus && xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita-dark"'
-

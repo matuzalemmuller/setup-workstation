@@ -5,6 +5,12 @@
     - name: username
       prompt: "Please provide the username"
       private: false
+  vars_prompt:
+    - name: first_time_setup
+      prompt: "Perform first time setup (yes/no)?"
+      private: no
   roles:
-    - install
-    - config
+    - role: install
+    - role: config
+      when: first_time_setup | bool
+     

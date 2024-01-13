@@ -6,4 +6,3 @@
 
 - name: Update grub
   shell: update-grub
-

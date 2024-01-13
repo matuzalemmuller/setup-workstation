@@ -1,4 +1,4 @@
-- name: Install packages via apt (this will take a while)
+- name: Install packages via apt (this may take a while)
   apt:
     name: "{{ packages }}"
     state: latest
@@ -6,21 +6,31 @@
     packages:
       - audacity
       - cheese
+      - code
       - conky
       - dbus-x11
       - dconf-cli
       - dconf-editor
+      - distrobox
+      - docker-ce
+      - docker-ce-cli
+      - dropbox
+      - containerd.io
+      - docker-buildx-plugin
+      - docker-compose-plugin
       - drawing
       - evince
       - flatpak
       - firefox-esr
       - git
+      - google-chrome-stable
       - gnome-system-monitor
       - gnome-power-manager
       - gparted
       - gufw
       - htop
       - jq
+      - kubectl
       - libglib2.0-dev
       - lrzip
       - obs-studio
@@ -31,6 +41,7 @@
       - python3-virtualenv
       - remmina
       - samba
+      - teamviewer
       - terminator
       - timeshift
       - tlp
@@ -40,6 +51,7 @@
       - vim
       - virt-manager
       - vlc
+      - webapp-manager
       - wireguard
       - wireshark
       - xfce4-whiskermenu-plugin
