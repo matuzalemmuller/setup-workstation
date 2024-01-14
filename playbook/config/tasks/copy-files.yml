@@ -30,6 +30,8 @@
       dest: "/home/{{ username }}/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"
     - src: panel
       dest: "/home/{{ username }}/.config/xfce4"
+    - src: ladder_ruleset.yml 
+      dest: "/home/{{ username }}/Programs/ladder/ruleset.yml"
 
 - name: Copy config files (templates)
   template:
@@ -49,7 +51,9 @@
       dest: "/home/{{ username }}/.local/share/applications/webapp-WhatsappWeb7804.desktop"
     - src: xfce4-keyboard-shortcuts.xml.j2
       dest: "/home/{{ username }}/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml"
-
+    - src: ladder_systray.desktop.j2
+      dest: "/home/{{ username }}/.config/autostart/ladder_systray.desktop"
+ 
 - name: Copy scripts (templates)
   template:
     src: "{{ item.src }}"
@@ -60,6 +64,8 @@
   loop:
     - src: screenshot.sh.j2
       dest: "/home/{{ username }}/Programs/shortcuts/screenshot.sh"
+    - src: ladder_start.sh.j2
+      dest: "/home/{{ username }}/Programs/ladder/ladder_systray_start.sh"
 
 - name: Copy config files (root)
   copy:

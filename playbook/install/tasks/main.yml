@@ -4,5 +4,6 @@
 - import_tasks: first_time_install.yml
   when: first_time_setup | bool
 - import_tasks: apt.yml
+- import_tasks: ladder.yml
 - import_tasks: flatpak.yml
 - import_tasks: remove-unused.yml

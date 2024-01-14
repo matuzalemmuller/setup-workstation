@@ -1,5 +1,5 @@
 
-- name: Install prerequisites for docker
+- name: Install prerequisites for kubectl
   apt:
     name: "{{ packages }}"
     state: latest

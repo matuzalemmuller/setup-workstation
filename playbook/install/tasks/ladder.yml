@@ -15,3 +15,32 @@
     insertafter: "EOF"
     block: |
       export PATH="$PATH:/home/{{ username }}/Programs/ladder"
+
+- name: Clone custom-systray-launcher
+  become: true
+  become_user: "{{ username }}"
+  git:
+    repo: "https://github.com/matuzalemmuller/custom-systray-launcher"
+    dest: "/home/{{ username }}/Programs/ladder/custom-systray-launcher"
+    force: yes
+
+- name: Setup custom-systray-launcher for ladder
+  lineinfile:
+    dest: "/home/{{ username }}/Programs/ladder/custom-systray-launcher/systray.py"
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  loop:
+    - regexp: '^PROCESS = \[""\]'
+      line: 'PROCESS = ["/home/{{ username }}/Programs/ladder/ladder","-r","/home/{{ username }}/Programs/ladder/ruleset.yml"]'
+    - regexp: '^ICON_ACTIVE = ""'
+      line: 'ICON_ACTIVE = "/home/{{ username }}/Programs/ladder/custom-systray-launcher/examples/icons/ladder_icon_active.png"'
+    - regexp: '^ICON_INACTIVE = ""'
+      line: 'ICON_INACTIVE = "/home/{{ username }}/Programs/ladder/custom-systray-launcher/examples/icons/ladder_icon_inactive.png"'
+    - regexp: '^ICON_WARNING = ""'
+      line: 'ICON_WARNING = "/home/{{ username }}/Programs/ladder/custom-systray-launcher/examples/icons/warning.png"'
+
+- name: Create virtualenv and install requirements for custom-systray-launcher
+  pip: 
+    requirements: "/home/{{ username }}/Programs/ladder/custom-systray-launcher/requirements.txt"
+    virtualenv: "/home/{{ username }}/Programs/ladder/custom-systray-launcher/env"
+
