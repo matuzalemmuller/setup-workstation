@@ -34,7 +34,7 @@ then
     echo $password | sudo -S apt update
 
     # Install ansible
-    echo "${GREEN}Installing prerequisites to run ansible...${NC}"
+    echo -e "${GREEN}Installing prerequisites to run ansible...${NC}"
     echo $password | sudo -S apt install -y python3-pip pipx
 
     echo -e "${GREEN}Installing ansible...${NC}"

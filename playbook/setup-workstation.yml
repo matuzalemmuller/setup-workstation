@@ -12,4 +12,3 @@
     - role: install
     - role: config
       when: first_time_setup | bool
-     

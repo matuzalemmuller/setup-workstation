@@ -1,16 +1,3 @@
-- name: Populate service facts
-  service_facts:
-
-- name: Install prerequisites for docker
-  apt:
-    name: "{{ packages }}"
-    state: latest
-  vars:
-    packages:
-      - ca-certificates
-      - curl
-      - gnupg
-
 - name: Add repo key for docker
   shell: |
     sudo install -m 0755 -d /etc/apt/keyrings

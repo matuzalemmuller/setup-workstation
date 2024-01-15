@@ -43,4 +43,3 @@
   pip: 
     requirements: "/home/{{ username }}/Programs/ladder/custom-systray-launcher/requirements.txt"
     virtualenv: "/home/{{ username }}/Programs/ladder/custom-systray-launcher/env"
-

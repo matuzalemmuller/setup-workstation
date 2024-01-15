@@ -4,9 +4,12 @@
     state: latest
   vars:
     packages:
+      - apt-transport-https
       - audacity
+      - ca-certificates
       - cheese
       - conky
+      - curl
       - dbus-x11
       - dconf-cli
       - dconf-editor
@@ -18,12 +21,16 @@
       - git
       - gnome-system-monitor
       - gnome-power-manager
+      - gnupg
       - gparted
       - gufw
       - htop
       - jq
       - libglib2.0-dev
+      - libncurses5-dev
+      - libpcap-dev
       - lrzip
+      - net-tools
       - obs-studio
       - openjdk-17-jdk
       - pipx
@@ -32,6 +39,7 @@
       - python3-virtualenv
       - remmina
       - samba
+      - strace
       - terminator
       - timeshift
       - tlp
