@@ -3,6 +3,7 @@
 - import_tasks: docker.yml
 - import_tasks: dropbox.yml
 - import_tasks: joplin.yml
+- import_tasks: kind.yml
 - import_tasks: kubectl.yml
 - import_tasks: ladder.yml
 - import_tasks: nettop.yml
