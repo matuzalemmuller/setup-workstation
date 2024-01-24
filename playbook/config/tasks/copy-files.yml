@@ -22,6 +22,8 @@
       dest: "/home/{{ username }}/Programs/ladder/ruleset.yml"
     - src: panel
       dest: "/home/{{ username }}/.config/xfce4"
+    - src: vscode-settings.json
+      dest: "/home/{{ username }}/.config/Code/User/settings.json"
     - src: terminator
       dest: "/home/{{ username }}/.config/terminator/config"
     - src: terminator-default-terminal.rc

@@ -52,3 +52,4 @@
       - wireguard
       - wireshark
       - xfce4-whiskermenu-plugin
+      - xsel
