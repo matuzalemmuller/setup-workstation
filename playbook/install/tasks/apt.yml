@@ -18,6 +18,7 @@
       - evince
       - flatpak
       - firefox-esr
+      - galculator
       - git
       - gnome-system-monitor
       - gnome-power-manager
