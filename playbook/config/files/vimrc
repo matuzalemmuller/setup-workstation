@@ -1,5 +1,8 @@
 set t_Co=256
 
+" enable mouse support
+set mouse=a
+
 " additional highlighting
 syntax enable
 colorscheme slate
