@@ -1,9 +1,10 @@
 - import_tasks: copy-files.yml
 - import_tasks: dark-theme.yml
 - import_tasks: generate-sshkey.yml
-- import_tasks: grub.yml
 - import_tasks: libvirt.yml
 - import_tasks: configure-git.yml
+- import_tasks: thinkpad.yml
+  when: ansible_product_version is match("ThinkPad*")
 
 - name: Set workspace count to 2
   shell: runuser -l "{{ username }}" -c 'export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$UID/bus && xfconf-query -c xfwm4 -p /general/workspace_count -s 2'

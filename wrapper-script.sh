@@ -12,6 +12,12 @@ echo -n "Username: "
 read username
 echo -n "Password (your user must have root privileges): "
 read -s password
+echo -ne "\nPerform first time setup? (yes/NO): "
+read first_time_setup
+
+if [ "$first_time_setup" != "yes" ]; then
+    first_time_setup="no"
+fi
 
 # Checking if password is valid, need to be improved (but it won't be)
 echo -e "\n${GREEN}Testing root password...${NC}"
@@ -50,7 +56,7 @@ fi
 
 # Run ansible playbook
 echo -e "${GREEN}Running the playbook...${NC}"
-ansible-playbook playbook/setup-workstation.yml -e "ansible_sudo_pass=$password" -e "username=$username"
+ansible-playbook playbook/setup-workstation.yml -e "ansible_sudo_pass=$password" -e "username=$username" -e "first_time_setup=$first_time_setup"
 
 if [ $? -ne 0 ]; then
     exit 1

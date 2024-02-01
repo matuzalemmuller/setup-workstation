@@ -1,0 +1,20 @@
+- name: 'ThinkPad: Add kernel parameters to grub - fixes suspend issues'
+  lineinfile:
+    path: /etc/default/grub
+    regexp: '^GRUB_CMDLINE_LINUX_DEFAULT='
+    line: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=off init_on_alloc=0"'
+
+- name: 'ThinkPad: Update grub'
+  shell: update-grub
+
+- name: 'ThinkPad: Copy config files (root)'
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: root
+    group: root
+    mode: '0644'
+    backup: true
+  loop:
+    - src: thinkpad-tlp.conf
+      dest: /etc/tlp.conf

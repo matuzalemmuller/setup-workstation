@@ -6,8 +6,9 @@
       prompt: "Please provide the username"
       private: false
     - name: first_time_setup
-      prompt: "Perform first time setup (yes/no)?"
+      prompt: "Perform first time setup (yes/NO)?"
       private: no
+      default: no
   roles:
     - role: install
     - role: config
