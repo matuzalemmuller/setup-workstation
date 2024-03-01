@@ -20,8 +20,9 @@
       - firefox-esr
       - galculator
       - git
-      - gnome-system-monitor
+      - gnome-disk-utility
       - gnome-power-manager
+      - gnome-system-monitor
       - gnupg
       - gparted
       - gufw
