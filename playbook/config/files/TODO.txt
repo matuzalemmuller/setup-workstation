@@ -7,4 +7,4 @@
     - .ssh/github.pub
 
 - Panel:
-    - Battery: Show percentage.
+    - Battery: Show percentage

@@ -1,4 +1,4 @@
-- name: 'Macbook Pro: Copy config files'
+- name: 'MacBook Pro: Copy config files'
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
@@ -9,7 +9,7 @@
     - src: mac-a1502/switch-option-command.desktop
       dest: "/home/{{ username }}/.config/autostart"
 
-- name: 'Macbook Pro: Copy config files (root)'
+- name: 'MacBook Pro: Copy config files (root)'
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
@@ -24,9 +24,25 @@
       dest: /lib/systemd/system-sleep/lid_wakeup_disable
     - src: mac-a1502/network_hack_hibernation
       dest: /usr/lib/systemd/system-sleep/network_hack_hibernation
- 
-- name: 'Macbook Pro: Add GDK_SCALE to /etc/profile'
+    - src: mac-a1502/macbook-tlp.conf
+      dest: /etc/tlp.conf
+
+- name: 'MacBook Pro: Add GDK_SCALE to /etc/profile'
   lineinfile:
     dest: /etc/profile
     line: "export GDK_SCALE=2"
     insertafter: EOF
+
+- name: 'MacBook Pro: Update TODO.txt'
+  become: true
+  become_user: "{{ username }}"
+  blockinfile:
+    marker: ""
+    path: "/home/{{ username }}/Desktop/TODO.txt"
+    insertafter: "EOF"
+    block: |
+      - Resolution:
+          - 1920x1200
+
+      - Install:
+          - facetimehd: https://github.com/patjak/facetimehd

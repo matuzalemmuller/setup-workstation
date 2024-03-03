@@ -1,0 +1,7 @@
+- name: 'MacBook Pro: Install packages via apt (this may take a while)'
+  apt:
+    name: "{{ packages }}"
+    state: latest
+  vars:
+    packages:
+      - mbpfan

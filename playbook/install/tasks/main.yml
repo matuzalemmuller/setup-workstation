@@ -1,5 +1,7 @@
 - import_tasks: create-folders.yml
 - import_tasks: apt.yml
+- import_tasks: macbook.yml
+  when: ansible_product_name is match("MacBookPro12,1")
 - import_tasks: first_time_install.yml
   when: first_time_setup | bool
 - import_tasks: flatpak.yml
