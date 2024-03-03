@@ -1,4 +1,4 @@
-- name: Copy config files
+- name: 'Macbook Pro: Copy config files'
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
