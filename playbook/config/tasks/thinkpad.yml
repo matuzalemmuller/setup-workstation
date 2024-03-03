@@ -16,5 +16,5 @@
     mode: '0644'
     backup: true
   loop:
-    - src: thinkpad-tlp.conf
+    - src: thinkpad/thinkpad-tlp.conf
       dest: /etc/tlp.conf

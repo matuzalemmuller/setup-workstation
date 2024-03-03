@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# /lib/systemd/system-sleep/lid_wakeup_disable
+#
+# Avoids that system wakes up immediately after suspend or hibernate
+# with lid open (e.g. suspend/hibernate through KDE menu entry)
+#
+# Tested on MacBookPro12,1
+
+case $1 in
+  pre)
+    if cat /proc/acpi/wakeup | grep -qE '^LID0.*enabled'; then
+        echo LID0 > /proc/acpi/wakeup
+    fi
+    ;;
+esac
