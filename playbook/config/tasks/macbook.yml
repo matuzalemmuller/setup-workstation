@@ -26,6 +26,15 @@
       dest: /usr/lib/systemd/system-sleep/network_hack_hibernation
     - src: mac-a1502/macbook-tlp.conf
       dest: /etc/tlp.conf
+    - src: mac-a1502/suspend-fix.service
+      dest: /etc/systemd/system/suspend-fix.service
+
+- name: Enable suspend-fix service
+  service:
+    daemon_reload: true
+    name: suspend-fix
+    state: started
+    enabled: true
 
 - name: 'MacBook Pro: Add GDK_SCALE to /etc/profile'
   lineinfile:
