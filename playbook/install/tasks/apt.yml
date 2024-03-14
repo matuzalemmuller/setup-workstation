@@ -8,6 +8,7 @@
       - audacity
       - ca-certificates
       - cheese
+      - cmake
       - conky
       - curl
       - dbus-x11
