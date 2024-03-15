@@ -4,5 +4,7 @@
             "*.yaml",
             "*.yml"
         ],
-    }
+    },
+    "editor.codeActionsOnSave": {},
+    "git.enableCommitSigning": true
 }
