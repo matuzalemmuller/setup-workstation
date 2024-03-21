@@ -44,6 +44,7 @@
       - remmina
       - samba
       - strace
+      - tcpdump
       - terminator
       - timeshift
       - tlp
