@@ -1,0 +1,9 @@
+- name: Disable console freeze
+  become: true
+  become_user: "{{ username }}"
+  blockinfile:
+    marker: "## {mark} Disable console freeze"
+    path: "/home/{{ username }}/.bashrc"
+    insertafter: "EOF"
+    block: |
+      /usr/bin/stty -ixon

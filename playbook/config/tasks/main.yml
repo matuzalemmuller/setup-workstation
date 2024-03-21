@@ -3,6 +3,8 @@
 - import_tasks: generate-sshkey.yml
 - import_tasks: libvirt.yml
 - import_tasks: configure-git.yml
+- import_tasks: modify-bashrc.yml
+- import_tasks: modify-root-bashrc.yml
 - import_tasks: thinkpad.yml
   when: ansible_product_version is match("ThinkPad*")
 - import_tasks: macbook.yml

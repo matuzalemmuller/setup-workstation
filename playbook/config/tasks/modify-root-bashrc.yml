@@ -1,0 +1,9 @@
+- name: Change default editor to vim (root)
+  blockinfile:
+    marker: "## {mark} Change default editor"
+    path: "/root/.bashrc"
+    insertafter: "EOF"
+    block: |
+      export VISUAL=vim
+      export EDITOR="$VISUAL"
+
