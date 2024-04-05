@@ -43,6 +43,7 @@
       - qimgv
       - remmina
       - samba
+      - software-properties-common
       - strace
       - tcpdump
       - terminator
