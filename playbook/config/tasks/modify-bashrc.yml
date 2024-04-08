@@ -7,3 +7,13 @@
     insertafter: "EOF"
     block: |
       /usr/bin/stty -ixon
+
+- name: Add /usr/sbin to PATH
+  become: true
+  become_user: "{{ username }}"
+  blockinfile:
+    marker: "## {mark} Add /usr/sbin to PATH"
+    path: "/home/{{ username }}/.bashrc"
+    insertafter: "EOF"
+    block: |
+      export PATH="$PATH:/usr/sbin"
