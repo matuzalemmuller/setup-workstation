@@ -1,0 +1,24 @@
+- name: Create folder for vim-gitgutter
+  become: true
+  become_user: "{{ username }}"
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: '755'
+  loop:
+    - '/home/{{ username }}/.vim/pack/airblade/start'
+
+- name: Clone airblade/vim-gitgutter
+  become: true
+  become_user: "{{ username }}"
+  git:
+    repo: "https://github.com/matuzalemmuller/vim-gitgutter.git"
+    dest: "/home/{{ username }}/.vim/pack/airblade/start/vim-gitgutter"
+    force: yes
+
+- name: Add vim-gitgutter integration
+  become: true
+  become_user: "{{ username }}"
+  shell: /usr/bin/vim -u NONE -c "helptags vim-gitgutter/doc" -c q

@@ -6,5 +6,8 @@
         ],
     },
     "editor.codeActionsOnSave": {},
-    "git.enableCommitSigning": true
+    "git.enableCommitSigning": true,
+    "update.showReleaseNotes": false,
+    "workbench.startupEditor": "none",
+    "telemetry.telemetryLevel": "off"
 }

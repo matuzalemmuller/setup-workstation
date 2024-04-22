@@ -33,7 +33,7 @@ set hlsearch
 set incsearch
 set nolazyredraw
 
-" case sensitive search
+" case insensitive search
 set ignorecase
 
 " regex
@@ -42,3 +42,6 @@ set magic
 " match brackets
 set showmatch
 let loaded_matchparen=1
+
+" Change update time so git changes appear more quickly
+set updatetime=100

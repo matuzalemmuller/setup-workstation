@@ -24,6 +24,8 @@
       dest: "/home/{{ username }}/.config/xfce4"
     - src: vscode-settings.json
       dest: "/home/{{ username }}/.config/Code/User/settings.json"
+    - src: vscode-keybindings.json
+      dest: "/home/{{ username }}/.config/Code/User/keybindings.json"
     - src: terminator
       dest: "/home/{{ username }}/.config/terminator/config"
     - src: terminator-default-terminal.rc

@@ -10,5 +10,6 @@
 - import_tasks: macbook.yml
   when: ansible_product_name is match("MacBookPro12,1")
 - import_tasks: tgpt.yml
+- import_tasks: vim-gitgutter.yml
 - import_tasks: remove-unused.yml
 
