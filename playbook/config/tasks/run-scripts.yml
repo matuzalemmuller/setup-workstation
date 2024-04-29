@@ -1,0 +1,6 @@
+- name: Run script (template)
+  become: true
+  become_user: "{{ username }}"
+  shell: "{{ lookup('template', '{{ item }}') }}"
+  loop:
+    - distrobox_create.sh.j2

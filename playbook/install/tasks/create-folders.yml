@@ -9,6 +9,10 @@
     mode: '755'
   loop:
     - '/home/{{ username }}/dev'
+    - '/home/{{ username }}/Programs/distrobox/debian-home'
+    - '/home/{{ username }}/Programs/distrobox/fedora-home'
+    - '/home/{{ username }}/Programs/distrobox/opensuse-home'
+    - '/home/{{ username }}/Programs/distrobox/ubuntu-home'
     - '/home/{{ username }}/Programs/joplin'
     - '/home/{{ username }}/Programs/ladder'
     - '/home/{{ username }}/Programs/shortcuts'

@@ -25,4 +25,3 @@
   file:
     path: "/home/{{ username }}/Programs/nettop"
     state: absent
-

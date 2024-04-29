@@ -6,9 +6,14 @@
         ],
     },
     "editor.codeActionsOnSave": {},
+    "editor.minimap.enabled": false,
+    "editor.stickyScroll.enabled": false,
+    "git.autofetch": false,
     "git.enableCommitSigning": true,
-    "update.showReleaseNotes": false,
-    "workbench.startupEditor": "none",
     "telemetry.telemetryLevel": "off",
-    "git.autofetch": true
+    "update.showReleaseNotes": false,
+    "window.customTitleBarVisibility": "auto",
+    "window.titleBarStyle": "custom",
+    "workbench.startupEditor": "none",
+    "workbench.tree.enableStickyScroll": false
 }

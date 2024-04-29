@@ -32,10 +32,26 @@
       dest: "/home/{{ username }}/.config/xfce4/helpers.rc"
     - src: tmux.conf
       dest: "/home/{{ username }}/.tmux.conf"
+    - src: tmux.conf
+      dest: "/home/{{ username }}/Programs/distrobox/debian-home/.tmux.conf"
+    - src: tmux.conf
+      dest: "/home/{{ username }}/Programs/distrobox/fedora-home/.tmux.conf"
+    - src: tmux.conf
+      dest: "/home/{{ username }}/Programs/distrobox/opensuse-home/.tmux.conf"
+    - src: tmux.conf
+      dest: "/home/{{ username }}/Programs/distrobox/ubuntu-home/.tmux.conf"
     - src: TODO.txt
       dest: "/home/{{ username }}/Desktop"
     - src: vimrc
       dest: "/home/{{ username }}/.vimrc"
+    - src: vimrc
+      dest: "/home/{{ username }}/Programs/distrobox/debian-home/.vimrc"
+    - src: vimrc
+      dest: "/home/{{ username }}/Programs/distrobox/fedora-home/.vimrc"
+    - src: vimrc
+      dest: "/home/{{ username }}/Programs/distrobox/opensuse-home/.vimrc"
+    - src: vimrc
+      dest: "/home/{{ username }}/Programs/distrobox/ubuntu-home/.vimrc"
     - src: xfce4-panel.xml
       dest: "/home/{{ username }}/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"
 
@@ -68,6 +84,8 @@
     group: "{{ username }}"
     mode: '0755'
   loop:
+    - src: distrobox_create.sh.j2
+      dest: "/home/{{ username }}/Programs/distrobox/distrobox_create.sh"
     - src: screenshot.sh.j2
       dest: "/home/{{ username }}/Programs/shortcuts/screenshot.sh"
     - src: ladder_start.sh.j2

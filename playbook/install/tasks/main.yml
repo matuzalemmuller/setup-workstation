@@ -12,4 +12,3 @@
 - import_tasks: tgpt.yml
 - import_tasks: vim-gitgutter.yml
 - import_tasks: remove-unused.yml
-

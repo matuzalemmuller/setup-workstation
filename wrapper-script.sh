@@ -12,7 +12,7 @@ echo -n "Username: "
 read username
 echo -n "Password (your user must have root privileges): "
 read -s password
-echo -ne "\nPerform first time setup? (yes/NO): "
+echo -ne "\nPerform first time setup? (yes/[no]): "
 read first_time_setup
 
 if [ "$first_time_setup" != "yes" ]; then
@@ -63,12 +63,11 @@ if [ $? -ne 0 ]; then
 fi
 
 # Complete/reboot
-echo -e "${GREEN}Setup complete! A reboot is required to the first time setup. Reboot now? (y/N)${NC}"
+echo -e "${GREEN}Setup complete! A reboot is required to the first time setup. Reboot now? (yes/[no])${NC}"
 read rbt
 
-if [ "$rbt" == "y" ]; then
+if [ "$rbt" == "yes" ]; then
     echo $password | sudo -S reboot now
 fi
 
 echo -e "${YELLOW}If performing your first time setup: you can reboot later (sudo reboot now), but do NOT start XFCE!${NC}"
-

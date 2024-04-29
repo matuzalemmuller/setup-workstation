@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# The version of distrobox available in the debian 12 repositories doesn't
+# have the assemble command available, so I'll just create the containers
+# by hand here
+distrobox create --image debian:bookworm  debian --yes \
+                 --init-hooks "apt update && apt install -y git tmux vim" \
+                 --home "/home/{{ username }}/Programs/distrobox/debian-home"
+                 
+distrobox create --image ubuntu:22.04 ubuntu --yes \
+                 --init-hooks "apt update && apt install -y git tmux vim" \
+                 --home "/home/{{ username }}/Programs/distrobox/ubuntu-home"
+
+distrobox create --image fedora:latest fedora --yes \
+                 --init-hooks "dnf upgrade --refresh && dnf install git tmux vim" \
+                 --home "/home/{{ username }}/Programs/distrobox/fedora-home"
+
+distrobox create --image opensuse/leap:latest opensuse --yes \
+                 --init-hooks "zypper refresh && zypper install -y git tmux vim" \
+                 --home "/home/{{ username }}/Programs/distrobox/opensuse-home"
