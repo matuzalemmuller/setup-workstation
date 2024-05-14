@@ -6,7 +6,8 @@
     path: "/home/{{ username }}/.bashrc"
     insertafter: "EOF"
     block: |
-      /usr/bin/stty -ixon
+      # disable tmux freeze + ssh fix: https://stackoverflow.com/questions/24623021/getting-stty-standard-input-inappropriate-ioctl-for-device-when-using-scp-thro
+      [[ $- == *i* ]] && /usr/bin/stty -ixon
 
 - name: Add /usr/sbin to PATH
   become: true

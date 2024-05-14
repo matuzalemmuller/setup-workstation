@@ -18,6 +18,8 @@
       dest: "/home/{{ username }}/.config/autostart"
     - src: disable-xfce-beep.desktop
       dest: "/home/{{ username }}/.config/autostart"
+    - src: inputrc
+      dest: "/home/{{ username }}/.inputrc"
     - src: ladder_ruleset.yml
       dest: "/home/{{ username }}/Programs/ladder/ruleset.yml"
     - src: panel
