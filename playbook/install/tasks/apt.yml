@@ -1,3 +1,9 @@
+- name: Update all packages
+  apt:
+    name: "*"
+    state: latest
+    update_cache: true
+
 - name: Install packages via apt (this may take a while)
   apt:
     name: "{{ packages }}"

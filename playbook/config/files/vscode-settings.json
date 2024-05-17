@@ -11,6 +11,7 @@
     "git.autofetch": false,
     "git.enableCommitSigning": true,
     "telemetry.telemetryLevel": "off",
+    "update.mode": "none",
     "update.showReleaseNotes": false,
     "window.customTitleBarVisibility": "auto",
     "window.titleBarStyle": "custom",
