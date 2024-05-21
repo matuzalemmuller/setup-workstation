@@ -11,10 +11,14 @@
     "git.autofetch": false,
     "git.enableCommitSigning": true,
     "telemetry.telemetryLevel": "off",
-    "update.mode": "none",
     "update.showReleaseNotes": false,
-    "window.customTitleBarVisibility": "auto",
     "window.titleBarStyle": "custom",
     "workbench.startupEditor": "none",
-    "workbench.tree.enableStickyScroll": false
+    "workbench.tree.enableStickyScroll": false,
+    "window.customTitleBarVisibility": "auto",
+    "update.mode": "none"
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true,
+    }
 }

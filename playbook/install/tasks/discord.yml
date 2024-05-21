@@ -1,4 +1,4 @@
-- name: Download discord tarball
+- name: Download and extract discord tarball
   become: true
   become_user: "{{ username }}"
   unarchive:

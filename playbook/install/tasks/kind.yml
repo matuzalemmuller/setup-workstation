@@ -1,4 +1,4 @@
-- name: Download kind
+- name: Download kind executable
   get_url:
     url: https://github.com/kubernetes-sigs/kind/releases/latest/download/kind-linux-amd64
     dest: /usr/local/bin/kind
