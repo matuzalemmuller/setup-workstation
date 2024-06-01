@@ -20,6 +20,8 @@
       - dbus-x11
       - dconf-cli
       - dconf-editor
+      - debhelper
+      - dh-virtualenv
       - distrobox
       - drawing
       - evince
@@ -35,6 +37,7 @@
       - gufw
       - htop
       - jq
+      - libffi-dev
       - libglib2.0-dev
       - libncurses5-dev
       - libpcap-dev

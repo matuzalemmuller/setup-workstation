@@ -18,3 +18,25 @@
     insertafter: "EOF"
     block: |
       export PATH="$PATH:/usr/sbin"
+
+- name: Add ls aliases
+  become: true
+  become_user: "{{ username }}"
+  blockinfile:
+    marker: "## {mark} Add ls aliases"
+    path: "/home/{{ username }}/.bashrc"
+    insertafter: "EOF"
+    block: |
+      alias la='ls -la'
+      alias ll='ls -lh'
+
+- name: Add various aliases
+  become: true
+  become_user: "{{ username }}"
+  blockinfile:
+    marker: "## {mark} Add various alias"
+    path: "/home/{{ username }}/.bashrc"
+    insertafter: "EOF"
+    block: |
+      alias cpv='rsync -ah --info=progress2'
+      alias grep='grep --color=auto'
