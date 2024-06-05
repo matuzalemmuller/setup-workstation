@@ -1,0 +1,3 @@
+- name: Install hcloud-manager
+  apt:
+    deb: "https://github.com/matuzalemmuller/hcloud-manager/releases/latest/download/hcloud-manager.deb"

@@ -4,6 +4,7 @@
 - import_tasks: first_time_install.yml
   when: first_time_setup | bool
 - import_tasks: flatpak.yml
+- import_tasks: hcloud-manager.yml
 - import_tasks: joplin.yml
 - import_tasks: kind.yml
 - import_tasks: ladder.yml
