@@ -10,6 +10,8 @@
     "editor.stickyScroll.enabled": false,
     "git.autofetch": false,
     "git.enableCommitSigning": true,
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    "python.defaultInterpreterPath": "${workspaceFolder}/venv/bin/python",
     "telemetry.telemetryLevel": "off",
     "update.showReleaseNotes": false,
     "window.titleBarStyle": "custom",
