@@ -1,0 +1,7 @@
+- name: Clone pindexis/qfc
+  become: true
+  become_user: "{{ username }}"
+  git:
+    repo: "https://github.com/matuzalemmuller/qfc.git"
+    dest: "/home/{{ username }}/.qfc"
+    force: yes

@@ -5,6 +5,7 @@
   vars:
     packages:
       - exfalso
+      - firefox-esr
       - parole
       - xterm
 

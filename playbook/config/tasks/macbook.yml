@@ -13,21 +13,21 @@
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
-    owner: root
-    group: root
+    owner: 'root'
+    group: 'root'
     mode: '0644'
     backup: true
   loop:
     - src: mac-a1502/90-monitor.conf
-      dest: /etc/X11/xorg.conf.d/90-monitor.conf
+      dest: "/etc/X11/xorg.conf.d/90-monitor.conf"
     - src: mac-a1502/lid_wakeup_disable 
-      dest: /lib/systemd/system-sleep/lid_wakeup_disable
+      dest: "/lib/systemd/system-sleep/lid_wakeup_disable"
     - src: mac-a1502/network_hack_hibernation
-      dest: /usr/lib/systemd/system-sleep/network_hack_hibernation
+      dest: "/usr/lib/systemd/system-sleep/network_hack_hibernation"
     - src: mac-a1502/macbook-tlp.conf
-      dest: /etc/tlp.conf
+      dest: "/etc/tlp.conf"
     - src: mac-a1502/suspend-fix.service
-      dest: /etc/systemd/system/suspend-fix.service
+      dest: "/etc/systemd/system/suspend-fix.service"
 
 - name: Enable suspend-fix service
   service:
@@ -38,7 +38,7 @@
 
 - name: 'MacBook Pro: Add GDK_SCALE to /etc/profile'
   lineinfile:
-    dest: /etc/profile
+    dest: "/etc/profile"
     line: "export GDK_SCALE=2"
     insertafter: EOF
 

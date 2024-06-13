@@ -6,3 +6,12 @@
     block: |
       export VISUAL=vim
       export EDITOR="$VISUAL"
+
+- name: Add ls aliases (root)
+  blockinfile:
+    marker: "## {mark} Add ls aliases"
+    path: "/root/.bashrc"
+    insertafter: "EOF"
+    block: |
+      alias la='ls -la'
+      alias ll='ls -lh'

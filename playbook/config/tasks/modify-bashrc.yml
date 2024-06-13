@@ -1,4 +1,4 @@
-- name: Disable console freeze
+- name: "Disable console freeze in /home/{{ username }}/.bashrc"
   become: true
   become_user: "{{ username }}"
   blockinfile:
@@ -9,7 +9,7 @@
       # disable tmux freeze + ssh fix: https://stackoverflow.com/questions/24623021/getting-stty-standard-input-inappropriate-ioctl-for-device-when-using-scp-thro
       [[ $- == *i* ]] && /usr/bin/stty -ixon
 
-- name: Add /usr/sbin to PATH
+- name: Add /usr/sbin to PATH in /home/{{ username }}/.bashrc
   become: true
   become_user: "{{ username }}"
   blockinfile:
@@ -19,7 +19,7 @@
     block: |
       export PATH="$PATH:/usr/sbin"
 
-- name: Add ls aliases
+- name: Add ls aliases to /home/{{ username }}/.bashrc
   become: true
   become_user: "{{ username }}"
   blockinfile:
@@ -30,7 +30,7 @@
       alias la='ls -la'
       alias ll='ls -lh'
 
-- name: Add various aliases
+- name: Add various aliases to /home/{{ username }}/.bashrc
   become: true
   become_user: "{{ username }}"
   blockinfile:
@@ -40,3 +40,57 @@
     block: |
       alias cpv='rsync -ah --info=progress2'
       alias grep='grep --color=auto'
+      alias nettop='sudo /usr/local/bin/nettop'
+
+- name: Add kubectl auto-completion to /home/{{ username }}/.bashrc
+  become: true
+  become_user: "{{ username }}"
+  blockinfile:
+    marker: "## {mark} Add kubectl autocomplete"
+    path: "/home/{{ username }}/.bashrc"
+    insertafter: "EOF"
+    block: |
+      source <(kubectl completion bash)
+      alias k=kubectl
+      complete -o default -F __start_kubectl k
+
+- name: Add kind auto-completion to /home/{{ username }}/.bashrc
+  become: true
+  become_user: "{{ username }}"
+  blockinfile:
+    marker: "## {mark} Add kind autocomplete"
+    path: "/home/{{ username }}/.bashrc"
+    insertafter: "EOF"
+    block: |
+      source <(kind completion bash)
+
+- name: Get hstr bash configuration
+  become: true
+  become_user: "{{ username }}"
+  shell: /usr/local/bin/hstr --show-bash-configuration
+  register: hstr_bashrc
+
+- name: Add hstr bash configuration to /home/{{ username }}/.bashrc
+  become: true
+  become_user: "{{ username }}"
+  blockinfile:
+    marker: "## {mark} Add hstr bash configuration"
+    path: "/home/{{ username }}/.bashrc"
+    insertafter: "EOF"
+    content: "{{ hstr_bashrc.stdout }}"
+
+- name: Update hstr color config to monocromatic
+  lineinfile:
+    dest: "/home/{{ username }}/.bashrc"
+    regexp: "^export HSTR_CONFIG="
+    line: "export HSTR_CONFIG=monochromatic # plain black and white"
+
+- name: Add qfc sourcing to /home/{{ username }}/.bashrc
+  become: true
+  become_user: "{{ username }}"
+  blockinfile:
+    marker: "## {mark} Add qfc sourcing"
+    path: "/home/{{ username }}/.bashrc"
+    insertafter: "EOF"
+    block: |
+      [[ -s "$HOME/.qfc/bin/qfc.sh" ]] && source "$HOME/.qfc/bin/qfc.sh"

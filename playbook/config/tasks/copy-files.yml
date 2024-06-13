@@ -20,8 +20,10 @@
       dest: "/home/{{ username }}/.config/autostart"
     - src: inputrc
       dest: "/home/{{ username }}/.inputrc"
-    - src: ladder_ruleset.yml
-      dest: "/home/{{ username }}/Programs/ladder/ruleset.yml"
+    - src: joplin.desktop
+      dest: "/home/{{ username }}/.local/share/applications/joplin.desktop"
+    - src: mimeapps.list
+      dest: "/home/{{ username }}/.config/mimeapps.list"
     - src: panel
       dest: "/home/{{ username }}/.config/xfce4"
     - src: vscode/snippets/
@@ -74,11 +76,9 @@
     - src: thunar-bookmarks.j2
       dest: "/home/{{ username }}/.config/gtk-3.0/bookmarks"
     - src: webapp-WhatsappWeb.desktop.j2
-      dest: "/home/{{ username }}/.local/share/applications/webapp-WhatsappWeb7804.desktop"
+      dest: "/home/{{ username }}/.local/share/applications/webapp-WhatsappWeb3834.desktop"
     - src: xfce4-keyboard-shortcuts.xml.j2
       dest: "/home/{{ username }}/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml"
-    - src: ladder_systray.desktop.j2
-      dest: "/home/{{ username }}/.config/autostart/ladder_systray.desktop"
  
 - name: Copy scripts (templates)
   template:
@@ -92,15 +92,13 @@
       dest: "/home/{{ username }}/Programs/distrobox/distrobox_create.sh"
     - src: screenshot.sh.j2
       dest: "/home/{{ username }}/Programs/shortcuts/screenshot.sh"
-    - src: ladder_start.sh.j2
-      dest: "/home/{{ username }}/Programs/ladder/ladder_systray_start.sh"
 
 - name: Copy config files (root)
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
-    owner: root
-    group: root
+    owner: 'root'
+    group: 'root'
     mode: '0644'
     backup: true
   loop:
@@ -108,3 +106,15 @@
       dest: /etc/conky/conky.conf
     - src: xfce4-panel.xml
       dest: /etc/xdg/xfce4/panel/default.xml
+
+- name: Copy config files (templates)
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  loop:
+    - src: sudoers/nettop
+      dest: "/etc/sudoers.d/nettop"
+

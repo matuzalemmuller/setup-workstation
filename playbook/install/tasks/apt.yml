@@ -12,6 +12,7 @@
     packages:
       - apt-transport-https
       - audacity
+      - autotools-dev
       - ca-certificates
       - cheese
       - cmake
@@ -26,7 +27,6 @@
       - drawing
       - evince
       - flatpak
-      - firefox-esr
       - galculator
       - git
       - gnome-disk-utility
@@ -41,6 +41,7 @@
       - libglib2.0-dev
       - libncurses5-dev
       - libpcap-dev
+      - libreadline-dev
       - lrzip
       - net-tools
       - obs-studio

@@ -1,4 +1,16 @@
-- name: Install joplin via autoinstaller script
-  become: true
-  become_user: "{{ username }}"
-  script: joplin_install_and_update.sh
+- name: Get release info for joplin
+  uri:
+    url: https://api.github.com/repos/laurent22/joplin/releases/latest
+    return_content: yes
+  register: joplin_latest_release_json
+
+- name: Get latest release
+  shell: |
+    echo {{ joplin_latest_release_json }} | grep -Po '"tag_name": ?"v\K.*?(?=")'
+  register: joplin_latest_release_plain
+
+- name: Download joplin AppImage
+  get_url:
+    url: https://github.com/laurent22/joplin/releases/latest/download/Joplin-{{ (joplin_latest_release_plain).stdout }}.AppImage
+    dest: "/opt/joplin/Joplin.AppImage"
+    mode: '755'

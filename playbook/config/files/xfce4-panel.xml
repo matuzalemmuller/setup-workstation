@@ -14,6 +14,7 @@
       <property name="plugin-ids" type="array">
         <value type="int" value="7"/>
         <value type="int" value="1"/>
+        <value type="int" value="17"/>
         <value type="int" value="14"/>
         <value type="int" value="15"/>
         <value type="int" value="16"/>
@@ -56,15 +57,7 @@
         <value type="string" value="ethernet network connection “wired connection 1” active"/>
       </property>
       <property name="known-items" type="array">
-        <value type="string" value="dropbox-client-1791"/>
-        <value type="string" value=""/>
-        <value type="string" value="dropbox-client-1787"/>
-        <value type="string" value="dropbox-client-1863"/>
-        <value type="string" value="dropbox-client-1754"/>
         <value type="string" value="vlc"/>
-        <value type="string" value="dropbox-client-3236750"/>
-        <value type="string" value="dropbox-client-1760"/>
-        <value type="string" value="dropbox-client-7560"/>
         <value type="string" value="remmina-icon"/>
         <value type="string" value="chrome_status_icon_1"/>
       </property>
@@ -72,7 +65,7 @@
     <property name="plugin-8" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
       <property name="show-notifications" type="bool" value="true"/>
-      <property name="mpris-players" type="string" value="chromium.instance15153;chromium.instance3247965;firefox.instance1909;firefox.instance2123;firefox.instance3238695;firefox.instance7927;firefox.instance9829;vlc"/>
+      <property name="mpris-players" type="string" value="chromium.instance1040242;chromium.instance106722;chromium.instance1087795;chromium.instance1102652;chromium.instance112130;chromium.instance11588;chromium.instance1175340;chromium.instance1180417;chromium.instance118659;chromium.instance1201506;chromium.instance1212262;chromium.instance1249280;chromium.instance126190;chromium.instance131303;chromium.instance1315818;chromium.instance1323822;chromium.instance1358227;chromium.instance13633;chromium.instance1372303;chromium.instance1462897;chromium.instance146477;chromium.instance146804;chromium.instance149530;chromium.instance15153;chromium.instance15448;chromium.instance1567555;chromium.instance191663;chromium.instance192862;chromium.instance2156;chromium.instance2174;chromium.instance2188;chromium.instance22312;chromium.instance23090;chromium.instance233995;chromium.instance2357796;chromium.instance2399959;chromium.instance259870;chromium.instance273017;chromium.instance27941;chromium.instance28074;chromium.instance2875529;chromium.instance289746;chromium.instance2898501;chromium.instance292245;chromium.instance2965269;chromium.instance296689;chromium.instance30296;chromium.instance30485;chromium.instance3128944;chromium.instance313259;chromium.instance3247965;chromium.instance3265;chromium.instance3393892;chromium.instance346037;chromium.instance354756;chromium.instance357137;chromium.instance3807169;chromium.instance39442;chromium.instance41493;chromium.instance42876;chromium.instance4290;chromium.instance431942;chromium.instance432577;chromium.instance44275;chromium.instance443823;chromium.instance463997;chromium.instance467236;chromium.instance46747;chromium.instance46811;chromium.instance47525;chromium.instance49001;chromium.instance50927;chromium.instance535296;chromium.instance54510;chromium.instance558836;chromium.instance56587;chromium.instance58449;chromium.instance59244;chromium.instance607683;chromium.instance63663;chromium.instance63734;chromium.instance6952;chromium.instance695860;chromium.instance727475;chromium.instance732526;chromium.instance74805;chromium.instance74941;chromium.instance749717;chromium.instance767643;chromium.instance798573;chromium.instance800447;chromium.instance82217;chromium.instance831330;chromium.instance835049;chromium.instance863741;chromium.instance869386;chromium.instance876019;chromium.instance879108;chromium.instance899608;chromium.instance907599;chromium.instance910532;chromium.instance91781;chromium.instance91968;chromium.instance994310;firefox.instance106450;firefox.instance10980;firefox.instance1179356;firefox.instance1356241;firefox.instance1418048;firefox.instance1909;firefox.instance1959;firefox.instance1961;firefox.instance1972;firefox.instance2006;firefox.instance2021;firefox.instance2074;firefox.instance2091;firefox.instance2123;firefox.instance2125;firefox.instance2130;firefox.instance2141;firefox.instance2147;firefox.instance2157;firefox.instance2213;firefox.instance222647;firefox.instance27558;firefox.instance2762;firefox.instance28889;firefox.instance295128;firefox.instance299897;firefox.instance300577;firefox.instance3238695;firefox.instance3253;firefox.instance36153;firefox.instance3828;firefox.instance4374;firefox.instance51573;firefox.instance5356;firefox.instance5405;firefox.instance5407;firefox.instance733827;firefox.instance7927;firefox.instance8086;firefox.instance9829;vlc"/>
     </property>
     <property name="plugin-9" type="string" value="power-manager-plugin"/>
     <property name="plugin-11" type="string" value="separator">
@@ -123,7 +116,7 @@
     </property>
     <property name="plugin-14" type="string" value="launcher">
       <property name="items" type="array">
-        <value type="string" value="17014904502.desktop"/>
+        <value type="string" value="17180738762.desktop"/>
       </property>
     </property>
     <property name="plugin-15" type="string" value="launcher">
@@ -140,6 +133,11 @@
       <property name="display-type" type="uint" value="2"/>
       <property name="display-name" type="uint" value="1"/>
       <property name="group-policy" type="uint" value="0"/>
+    </property>
+    <property name="plugin-17" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="17179944231.desktop"/>
+      </property>
     </property>
   </property>
 </channel>

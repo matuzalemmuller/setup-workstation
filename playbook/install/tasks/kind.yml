@@ -1,15 +1,5 @@
 - name: Download kind executable
   get_url:
     url: https://github.com/kubernetes-sigs/kind/releases/latest/download/kind-linux-amd64
-    dest: /usr/local/bin/kind
+    dest: "/usr/local/bin/kind"
     mode: '755'
-
-- name: Add kind auto-completion to .bashrc
-  become: true
-  become_user: "{{ username }}"
-  blockinfile:
-    marker: "## {mark} Add kind autocomplete"
-    path: "/home/{{ username }}/.bashrc"
-    insertafter: "EOF"
-    block: |
-      source <(kind completion bash)

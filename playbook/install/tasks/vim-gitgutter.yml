@@ -2,13 +2,11 @@
   become: true
   become_user: "{{ username }}"
   file:
-    path: "{{ item }}"
+    path: '/home/{{ username }}/.vim/pack/airblade/start'
     state: directory
     owner: "{{ username }}"
     group: "{{ username }}"
     mode: '755'
-  loop:
-    - '/home/{{ username }}/.vim/pack/airblade/start'
 
 - name: Clone airblade/vim-gitgutter
   become: true

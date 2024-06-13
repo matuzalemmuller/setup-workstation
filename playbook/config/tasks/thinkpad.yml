@@ -11,10 +11,10 @@
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
-    owner: root
-    group: root
+    owner: 'root'
+    group: 'root'
     mode: '0644'
     backup: true
   loop:
     - src: thinkpad/thinkpad-tlp.conf
-      dest: /etc/tlp.conf
+      dest: "/etc/tlp.conf"

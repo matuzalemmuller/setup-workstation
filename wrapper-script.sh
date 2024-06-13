@@ -63,7 +63,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Complete/reboot
-echo -ne "${GREEN}Setup complete! A reboot is required to the first time setup. Reboot now? (yes/[no])${NC}"
+echo -ne "${GREEN}Setup complete! A reboot is required to the first time setup. Reboot now? (yes/[no])${NC}: "
 read rbt
 
 if [ "$rbt" == "yes" ]; then

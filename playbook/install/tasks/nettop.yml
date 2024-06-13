@@ -3,19 +3,19 @@
   become_user: "{{ username }}"
   git:
     repo: "https://github.com/Emanem/nettop"
-    dest: "/home/{{ username }}/Programs/nettop"
+    dest: "/tmp/nettop"
     force: yes
 
 - name: Compile nettop (make release)
   become: true
   become_user: "{{ username }}"
   make:
-    chdir: "/home/{{ username }}/Programs/nettop"
+    chdir: "/tmp/nettop"
     target: release
 
 - name: Copy nettop executable to /usr/local/bin/nettop
   copy:
-    src: "/home/{{ username }}/Programs/nettop/nettop"
+    src: "/tmp/nettop/nettop"
     dest: "/usr/local/bin/nettop"
     owner: "root"
     group: "root"
@@ -23,5 +23,5 @@
 
 - name: Delete nettop folder
   file:
-    path: "/home/{{ username }}/Programs/nettop"
+    path: "/tmp/nettop"
     state: absent

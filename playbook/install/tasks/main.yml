@@ -7,7 +7,6 @@
 - import_tasks: hcloud-manager.yml
 - import_tasks: joplin.yml
 - import_tasks: kind.yml
-- import_tasks: ladder.yml
 - import_tasks: macbook.yml
   when: ansible_product_name is match("MacBookPro12,1")
 - import_tasks: tgpt.yml

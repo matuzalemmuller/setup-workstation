@@ -1,0 +1,19 @@
+- name: Save firefox signing key
+  get_url:
+    url: https://packages.mozilla.org/apt/repo-signing-key.gpg
+    dest: "/etc/apt/keyrings/packages.mozilla.org.asc"
+    mode: '0644'
+
+- name: Copy firefox source to /etc/apt/sources.list.d
+  copy:
+    src: sources-list/mozilla.list
+    dest: "/etc/apt/sources.list.d/mozilla.list"
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+
+- name: Install firefox package
+  apt:
+    update_cache: true
+    name: firefox
+    state: latest

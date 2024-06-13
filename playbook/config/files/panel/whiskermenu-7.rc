@@ -1,5 +1,5 @@
 favorites=xfce4-file-manager.desktop,xfce4-terminal-emulator.desktop
-recent=webapp-WhatsappWeb7804.desktop,xfce-session-settings.desktop,pavucontrol.desktop,com.github.d4nj1.tlpui.desktop,virt-manager.desktop,appimagekit-joplin.desktop,xfce4-power-manager-settings.desktop,google-chrome.desktop,xfce-mouse-settings.desktop,xfce-wmtweaks-settings.desktop
+recent=virt-manager.desktop,firefox.desktop,webapp-WhatsappWeb3834.desktop,webapp-manager.desktop,google-chrome.desktop,xfce4-file-manager.desktop,appimagekit-joplin.desktop,org.xfce.mousepad.desktop,com.github.d4nj1.tlpui.desktop,code.desktop
 button-icon=org.xfce.panel.whiskermenu
 button-single-row=false
 show-button-title=false

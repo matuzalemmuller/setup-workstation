@@ -22,15 +22,3 @@
     update_cache: true
     name: kubectl
     state: latest
-
-- name: Add kubectl auto-completion to .bashrc
-  become: true
-  become_user: "{{ username }}"
-  blockinfile:
-    marker: "## {mark} Add kubectl autocomplete"
-    path: "/home/{{ username }}/.bashrc"
-    insertafter: "EOF"
-    block: |
-      source <(kubectl completion bash)
-      alias k=kubectl
-      complete -o default -F __start_kubectl k

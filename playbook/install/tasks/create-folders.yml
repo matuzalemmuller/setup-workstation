@@ -13,15 +13,22 @@
     - '/home/{{ username }}/Programs/distrobox/fedora-home'
     - '/home/{{ username }}/Programs/distrobox/opensuse-home'
     - '/home/{{ username }}/Programs/distrobox/ubuntu-home'
-    - '/home/{{ username }}/Programs/joplin'
-    - '/home/{{ username }}/Programs/ladder'
     - '/home/{{ username }}/Programs/shortcuts'
-    - '/home/{{ username }}/Programs/tgpt'
     - '/home/{{ username }}/.local/share/applications'
     - '/home/{{ username }}/.ssh'
     - '/home/{{ username }}/.config/autostart'
     - '/home/{{ username }}/.config/gtk-3.0'
     - '/home/{{ username }}/.config/terminator'
+
+- name: Create folders (root)
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: 'root'
+    group: 'root'
+    mode: '755'
+  loop:
+    - '/opt/joplin'
 
 - name: Delete unused default folders
   file:
