@@ -16,6 +16,7 @@
       - ca-certificates
       - cheese
       - cmake
+      - command-not-found
       - conky
       - curl
       - dbus-x11
@@ -72,3 +73,6 @@
       - wireshark
       - xfce4-whiskermenu-plugin
       - xsel
+
+- name: Update packages in command-not-found
+  shell: update-command-not-found

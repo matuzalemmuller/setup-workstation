@@ -15,3 +15,5 @@
     block: |
       alias la='ls -la'
       alias ll='ls -lh'
+      alias cnf='command-not-found'
+

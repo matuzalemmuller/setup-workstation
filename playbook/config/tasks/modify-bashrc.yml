@@ -41,6 +41,7 @@
       alias cpv='rsync -ah --info=progress2'
       alias grep='grep --color=auto'
       alias nettop='sudo /usr/local/bin/nettop'
+      alias cnf='command-not-found'
 
 - name: Add kubectl auto-completion to /home/{{ username }}/.bashrc
   become: true
