@@ -37,12 +37,14 @@
       - gparted
       - gufw
       - htop
+      - ipython3
       - jq
       - libffi-dev
       - libglib2.0-dev
       - libncurses5-dev
       - libpcap-dev
       - libreadline-dev
+      - linux-perf
       - lrzip
       - net-tools
       - obs-studio

@@ -34,7 +34,7 @@
   become: true
   become_user: "{{ username }}"
   blockinfile:
-    marker: "## {mark} Add various alias"
+    marker: "## {mark} Add various aliases"
     path: "/home/{{ username }}/.bashrc"
     insertafter: "EOF"
     block: |
@@ -65,27 +65,6 @@
     block: |
       source <(kind completion bash)
 
-- name: Get hstr bash configuration
-  become: true
-  become_user: "{{ username }}"
-  shell: /usr/local/bin/hstr --show-bash-configuration
-  register: hstr_bashrc
-
-- name: Add hstr bash configuration to /home/{{ username }}/.bashrc
-  become: true
-  become_user: "{{ username }}"
-  blockinfile:
-    marker: "## {mark} Add hstr bash configuration"
-    path: "/home/{{ username }}/.bashrc"
-    insertafter: "EOF"
-    content: "{{ hstr_bashrc.stdout }}"
-
-- name: Update hstr color config to monocromatic
-  lineinfile:
-    dest: "/home/{{ username }}/.bashrc"
-    regexp: "^export HSTR_CONFIG="
-    line: "export HSTR_CONFIG=monochromatic # plain black and white"
-
 - name: Add qfc sourcing to /home/{{ username }}/.bashrc
   become: true
   become_user: "{{ username }}"
@@ -95,3 +74,9 @@
     insertafter: "EOF"
     block: |
       [[ -s "$HOME/.qfc/bin/qfc.sh" ]] && source "$HOME/.qfc/bin/qfc.sh"
+
+- name: Increase default bash history (HISTFILESIZE)
+  lineinfile:
+    path: /home/{{ username }}/.bashrc
+    regexp: '^HISTFILESIZE='
+    line: 'HISTFILESIZE=10000'

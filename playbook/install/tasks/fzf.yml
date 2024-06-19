@@ -1,0 +1,13 @@
+- name: Clone fzf
+  git:
+    repo: "https://github.com/matuzalemmuller/fzf"
+    dest: "/opt/fzf"
+    force: yes
+
+- name: "Install and configure fzf (root)"
+  shell: /opt/fzf/install --key-bindings --completion --update-rc
+
+- name: "Install and configure fzf ({{ username }})"
+  become: true
+  become_user: "{{ username }}"
+  shell: /opt/fzf/install --key-bindings --completion --update-rc
