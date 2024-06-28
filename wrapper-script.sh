@@ -62,12 +62,14 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Complete/reboot
-echo -ne "${GREEN}Setup complete! A reboot is required to the first time setup. Reboot now? (yes/[no])${NC}: "
-read rbt
+if [ "$first_time_setup" == "yes" ]; then
+    # Complete/reboot
+    echo -ne "${GREEN}Setup complete! A reboot is required to the first time setup. Reboot now? (yes/[no])${NC}: "
+    read rbt
 
-if [ "$rbt" == "yes" ]; then
-    echo $password | sudo -S reboot now
+    if [ "$rbt" == "yes" ]; then
+        echo $password | sudo -S reboot now
+    fi
+
+    echo -e "${YELLOW}If performing your first time setup: you can reboot later (sudo reboot now), but do NOT start XFCE!${NC}"
 fi
-
-echo -e "${YELLOW}If performing your first time setup: you can reboot later (sudo reboot now), but do NOT start XFCE!${NC}"

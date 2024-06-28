@@ -2,3 +2,4 @@
   when: first_time_setup | bool
 - import_tasks: modify-bashrc.yml
 - import_tasks: modify-root-bashrc.yml
+- import_tasks: vscode.yml

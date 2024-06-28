@@ -1,16 +1,13 @@
-- name: Save firefox signing key
-  get_url:
+- name: Add gpg key for firefox
+  apt_key:
     url: https://packages.mozilla.org/apt/repo-signing-key.gpg
-    dest: "/etc/apt/keyrings/packages.mozilla.org.asc"
-    mode: '0644'
+    keyring: /etc/apt/trusted.gpg.d/firefox.gpg
 
-- name: Copy firefox source to /etc/apt/sources.list.d
-  copy:
-    src: sources-list/mozilla.list
-    dest: "/etc/apt/sources.list.d/mozilla.list"
-    owner: 'root'
-    group: 'root'
-    mode: '0644'
+- name: Add repo for firefox
+  apt_repository:
+    repo: "deb https://packages.mozilla.org/apt mozilla main"
+    filename: mozilla
+    state: present
 
 - name: Install firefox package
   apt:

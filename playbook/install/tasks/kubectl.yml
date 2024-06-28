@@ -12,10 +12,16 @@
   shell: echo {{ (k8s_version_with_minor).content }} | awk -F'.' '{ print $1"."$2 }' 
   register: k8s_version
 
-- name: Add repo key for kubectl
-  shell: |
-    curl -fsSL https://pkgs.k8s.io/core:/stable:/{{ (k8s_version).stdout }}/deb/Release.key | gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
-    echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/{{ (k8s_version).stdout }}/deb/ /' | tee /etc/apt/sources.list.d/kubernetes.list
+- name: Add gpg key for kubectl
+  apt_key:
+    url: 'https://pkgs.k8s.io/core:/stable:/{{ (k8s_version).stdout }}/deb/Release.key'
+    keyring: /etc/apt/trusted.gpg.d/kubectl.gpg
+
+- name: Add repo for kubectl
+  apt_repository:
+    repo: "deb [signed-by=/etc/apt/trusted.gpg.d/kubectl.gpg] https://pkgs.k8s.io/core:/stable:/{{ (k8s_version).stdout }}/deb/ /"
+    filename: kubectl
+    state: present
 
 - name: Install kubectl package
   apt:

@@ -1,7 +1,8 @@
 - Login to:
     - Dropbox
     - Joplin
-    - Firefox
+    - Firefox/Chrome
+    - VSCode/Codeium
 
 - Upload pub SSH key to GitHub:
     - .ssh/github.pub

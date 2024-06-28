@@ -3,6 +3,7 @@
 - import_tasks: dropbox.yml
 - import_tasks: firefox.yml
 - import_tasks: fzf.yml
+- import_tasks: helm.yml
 - import_tasks: kubectl.yml
 - import_tasks: nettop.yml
 - import_tasks: qfc.yml

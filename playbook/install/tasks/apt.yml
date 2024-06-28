@@ -77,12 +77,5 @@
       - xfce4-whiskermenu-plugin
       - xsel
 
-- name: Get packages installed/upgraded today
-  shell: grep -E "^$(date +%Y-%m-%d).+ (install|upgrade) " /var/log/dpkg.log | cut -d " " -f 3-5
-  register: result
-
-- name: Show packages installed/upgraded today
-  debug: msg="{{ result.stdout_lines }}"
-
 - name: Update packages in command-not-found
   shell: update-command-not-found

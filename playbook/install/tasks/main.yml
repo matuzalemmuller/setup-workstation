@@ -11,3 +11,10 @@
   when: ansible_product_name is match("MacBookPro12,1")
 - import_tasks: tgpt.yml
 - import_tasks: remove-unused.yml
+
+- name: Get packages installed/upgraded today
+  shell: grep -E "^$(date +%Y-%m-%d).+ (install|upgrade) " /var/log/dpkg.log | cut -d " " -f 3-5
+  register: result
+
+- name: Show packages installed/upgraded today
+  debug: msg="{{ result.stdout_lines }}"

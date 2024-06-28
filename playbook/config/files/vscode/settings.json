@@ -12,15 +12,18 @@
     "git.enableCommitSigning": true,
     "python.terminal.activateEnvInCurrentTerminal": true,
     "python.defaultInterpreterPath": "${workspaceFolder}/venv/bin/python",
-    "telemetry.telemetryLevel": "off",
+    "telemetry.telemetryLevel": "all",
     "update.showReleaseNotes": false,
     "window.titleBarStyle": "custom",
     "workbench.startupEditor": "none",
     "workbench.tree.enableStickyScroll": false,
     "window.customTitleBarVisibility": "auto",
-    "update.mode": "none"
+    "update.mode": "none",
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter",
         "editor.formatOnSave": true,
-    }
+    },
+    "code-runner.enableAppInsights": false,
+    "code-runner.runInTerminal": true,
+    "code-runner.saveAllFilesBeforeRun": true
 }
