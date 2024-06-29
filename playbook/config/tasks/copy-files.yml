@@ -22,6 +22,12 @@
       dest: "/home/{{ username }}/.inputrc"
     - src: joplin.desktop
       dest: "/home/{{ username }}/.local/share/applications/joplin.desktop"
+    - src: k9s/config.yaml
+      dest: "/home/{{ username }}/.config/k9s/config.yaml"
+    - src: k9s/skin-gruvbox-dark.yaml
+      dest: "/home/{{ username }}/.config/k9s/skins/gruvbox-dark.yaml"
+    - src: kube/kind-cluster-config.yaml
+      dest: "/home/{{ username }}/.kube/kind-cluster-config.yaml"
     - src: mimeapps.list
       dest: "/home/{{ username }}/.config/mimeapps.list"
     - src: panel

@@ -15,16 +15,16 @@ read -s password
 echo -ne "\nPerform first time setup? (yes/[no]): "
 read first_time_setup
 
-if [ "$first_time_setup" != "yes" ]; then
+if [ "${first_time_setup}" != "yes" ]; then
     first_time_setup="no"
 fi
 
 # Checking if password is valid, need to be improved (but it won't be)
 echo -e "\n${GREEN}Testing root password...${NC}"
-echo $password | sudo -S ls /root
+echo ${password} | sudo -S ls /root
 RESULT=$?
 
-if [ $RESULT -ne 0 ]; then
+if [ ${RESULT} -ne 0 ]; then
     echo -e "${YELLOW}Invalid root password!${NC}"
     exit 1
 fi
@@ -37,11 +37,11 @@ echo $passwd | sudo -S sed -i.bak '/cdrom/d' /etc/apt/sources.list
 if ! command -v ansible-playbook &> /dev/null
 then
     echo -e "${GREEN}Updating package repository...${NC}"
-    echo $password | sudo -S apt update
+    echo ${password} | sudo -S apt update
 
     # Install ansible
     echo -e "${GREEN}Installing prerequisites to run ansible...${NC}"
-    echo $password | sudo -S apt install -y python3-pip pipx
+    echo ${password} | sudo -S apt install -y python3-pip pipx
 
     echo -e "${GREEN}Installing ansible...${NC}"
     pipx install --include-deps ansible
@@ -51,24 +51,26 @@ then
     pipx ensurepath
 
     # Add ansible to PATH for this script run
-    export PATH=$PATH:/home/$username/.local/bin
+    export PATH=$PATH:/home/${username}/.local/bin
 fi
 
 # Run ansible playbook
 echo -e "${GREEN}Running the playbook...${NC}"
-ansible-playbook playbook/setup-workstation.yml -e "ansible_sudo_pass=$password" -e "username=$username" -e "first_time_setup=$first_time_setup"
+ansible-playbook playbook/setup-workstation.yml -e "ansible_sudo_pass=${password}" -e "username=${username}" -e "first_time_setup=${first_time_setup}"
 
 if [ $? -ne 0 ]; then
     exit 1
 fi
 
-if [ "$first_time_setup" == "yes" ]; then
+if [ "${first_time_setup}" == "yes" ]; then
     # Complete/reboot
-    echo -ne "${GREEN}Setup complete! A reboot is required to the first time setup. Reboot now? (yes/[no])${NC}: "
+    echo -ne "${GREEN}Setup complete! A reboot is required to the first time setup. Reboot now? ([yes]/no)${NC}: "
     read rbt
 
-    if [ "$rbt" == "yes" ]; then
-        echo $password | sudo -S reboot now
+    if [ "${rbt}" != "no" ]; then
+        if [ "${rbt}" == "yes" ] || [ -z "${rbt}" ]; then
+            echo ${password} | sudo -S reboot now
+        fi
     fi
 
     echo -e "${YELLOW}If performing your first time setup: you can reboot later (sudo reboot now), but do NOT start XFCE!${NC}"

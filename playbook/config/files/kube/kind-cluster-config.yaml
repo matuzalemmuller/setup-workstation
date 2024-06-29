@@ -1,0 +1,113 @@
+apiVersion: kind.x-k8s.io/v1alpha4
+kind: Cluster
+nodes:
+- role: worker
+  labels:
+    tier: frontend
+- role: worker
+  labels:
+    tier: backend
+- role: control-plane
+  extraPortMappings:
+  - containerPort: 30050
+    hostPort: 30050
+  - containerPort: 30051
+    hostPort: 30051
+  - containerPort: 30052
+    hostPort: 30052
+  - containerPort: 30053
+    hostPort: 30053
+  - containerPort: 30054
+    hostPort: 30054
+  - containerPort: 30055
+    hostPort: 30055
+  - containerPort: 30056
+    hostPort: 30056
+  - containerPort: 30057
+    hostPort: 30057
+  - containerPort: 30058
+    hostPort: 30058
+  - containerPort: 30059
+    hostPort: 30059
+  - containerPort: 30060
+    hostPort: 30060
+  - containerPort: 30061
+    hostPort: 30061
+  - containerPort: 30062
+    hostPort: 30062
+  - containerPort: 30063
+    hostPort: 30063
+  - containerPort: 30064
+    hostPort: 30064
+  - containerPort: 30065
+    hostPort: 30065
+  - containerPort: 30066
+    hostPort: 30066
+  - containerPort: 30067
+    hostPort: 30067
+  - containerPort: 30068
+    hostPort: 30068
+  - containerPort: 30069
+    hostPort: 30069
+  - containerPort: 30070
+    hostPort: 30070
+  - containerPort: 30071
+    hostPort: 30071
+  - containerPort: 30072
+    hostPort: 30072
+  - containerPort: 30073
+    hostPort: 30073
+  - containerPort: 30074
+    hostPort: 30074
+  - containerPort: 30075
+    hostPort: 30075
+  - containerPort: 30076
+    hostPort: 30076
+  - containerPort: 30077
+    hostPort: 30077
+  - containerPort: 30078
+    hostPort: 30078
+  - containerPort: 30079
+    hostPort: 30079
+  - containerPort: 30080
+    hostPort: 30080
+  - containerPort: 30081
+    hostPort: 30081
+  - containerPort: 30082
+    hostPort: 30082
+  - containerPort: 30083
+    hostPort: 30083
+  - containerPort: 30084
+    hostPort: 30084
+  - containerPort: 30085
+    hostPort: 30085
+  - containerPort: 30086
+    hostPort: 30086
+  - containerPort: 30087
+    hostPort: 30087
+  - containerPort: 30088
+    hostPort: 30088
+  - containerPort: 30089
+    hostPort: 30089
+  - containerPort: 30090
+    hostPort: 30090
+  - containerPort: 30091
+    hostPort: 30091
+  - containerPort: 30092
+    hostPort: 30092
+  - containerPort: 30093
+    hostPort: 30093
+  - containerPort: 30094
+    hostPort: 30094
+  - containerPort: 30095
+    hostPort: 30095
+  - containerPort: 30096
+    hostPort: 30096
+  - containerPort: 30097
+    hostPort: 30097
+  - containerPort: 30098
+    hostPort: 30098
+  - containerPort: 30099
+    hostPort: 30099
+  - containerPort: 30900
+    hostPort: 30900

@@ -55,7 +55,7 @@
       alias k=kubectl
       complete -o default -F __start_kubectl k
 
-- name: Add kind auto-completion to /home/{{ username }}/.bashrc
+- name: Add kind auto-completion and aliases to /home/{{ username }}/.bashrc
   become: true
   become_user: "{{ username }}"
   blockinfile:
@@ -64,6 +64,7 @@
     insertafter: "EOF"
     block: |
       source <(kind completion bash)
+      alias kind-create-cluster="kind create cluster --config /home/{{ username }}/.kube/kind-cluster-config.yaml"
 
 - name: Add qfc sourcing to /home/{{ username }}/.bashrc
   become: true
