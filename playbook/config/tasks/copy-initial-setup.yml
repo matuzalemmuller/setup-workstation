@@ -6,7 +6,7 @@
     state: absent
     path: "/home/{{ username }}/.config/xfce4/panel"
 
-- name: Copy config files
+- name: Copy config files (first time install)
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
@@ -18,52 +18,20 @@
       dest: "/home/{{ username }}/.config/autostart"
     - src: disable-xfce-beep.desktop
       dest: "/home/{{ username }}/.config/autostart"
+    - src: discord.desktop
+      dest: "/home/{{ username }}/.local/share/applications/menulibre-discord.desktop"
     - src: inputrc
       dest: "/home/{{ username }}/.inputrc"
     - src: joplin.desktop
       dest: "/home/{{ username }}/.local/share/applications/joplin.desktop"
-    - src: k9s/config.yaml
-      dest: "/home/{{ username }}/.config/k9s/config.yaml"
-    - src: k9s/skin-gruvbox-dark.yaml
-      dest: "/home/{{ username }}/.config/k9s/skins/gruvbox-dark.yaml"
-    - src: kube/kind-cluster-config.yaml
-      dest: "/home/{{ username }}/.kube/kind-cluster-config.yaml"
     - src: mimeapps.list
       dest: "/home/{{ username }}/.config/mimeapps.list"
     - src: panel
       dest: "/home/{{ username }}/.config/xfce4"
-    - src: vscode/snippets/
-      dest: "/home/{{ username }}/.config/Code/User/snippets/"
-    - src: vscode/settings.json
-      dest: "/home/{{ username }}/.config/Code/User/settings.json"
-    - src: vscode/keybindings.json
-      dest: "/home/{{ username }}/.config/Code/User/keybindings.json"
-    - src: terminator
-      dest: "/home/{{ username }}/.config/terminator/config"
     - src: terminator-default-terminal.rc
       dest: "/home/{{ username }}/.config/xfce4/helpers.rc"
-    - src: tmux.conf
-      dest: "/home/{{ username }}/.tmux.conf"
-    - src: tmux.conf
-      dest: "/home/{{ username }}/Programs/distrobox/debian-home/.tmux.conf"
-    - src: tmux.conf
-      dest: "/home/{{ username }}/Programs/distrobox/fedora-home/.tmux.conf"
-    - src: tmux.conf
-      dest: "/home/{{ username }}/Programs/distrobox/opensuse-home/.tmux.conf"
-    - src: tmux.conf
-      dest: "/home/{{ username }}/Programs/distrobox/ubuntu-home/.tmux.conf"
     - src: TODO.txt
       dest: "/home/{{ username }}/Desktop"
-    - src: vimrc
-      dest: "/home/{{ username }}/.vimrc"
-    - src: vimrc
-      dest: "/home/{{ username }}/Programs/distrobox/debian-home/.vimrc"
-    - src: vimrc
-      dest: "/home/{{ username }}/Programs/distrobox/fedora-home/.vimrc"
-    - src: vimrc
-      dest: "/home/{{ username }}/Programs/distrobox/opensuse-home/.vimrc"
-    - src: vimrc
-      dest: "/home/{{ username }}/Programs/distrobox/ubuntu-home/.vimrc"
     - src: xfce4-panel.xml
       dest: "/home/{{ username }}/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"
 
@@ -75,8 +43,6 @@
     group: "{{ username }}"
     mode: '0644'
   loop:
-    - src: discord.desktop.j2
-      dest: "/home/{{ username }}/.local/share/applications/menulibre-discord.desktop"
     - src: ssh-config.j2
       dest: "/home/{{ username }}/.ssh/config"
     - src: thunar-bookmarks.j2
@@ -123,4 +89,3 @@
   loop:
     - src: sudoers/nettop
       dest: "/etc/sudoers.d/nettop"
-
