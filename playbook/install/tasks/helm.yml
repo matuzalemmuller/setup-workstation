@@ -2,15 +2,19 @@
   apt_key:
     url: https://baltocdn.com/helm/signing.asc
     keyring: /etc/apt/trusted.gpg.d/helm.gpg
+  tags: helm
 
 - name: Add repo for helm
   apt_repository:
     repo: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main"
     filename: helm
     state: present
+  tags: helm
 
 - name: Install helm package
   apt:
     update_cache: true
     name: helm
     state: latest
+  tags: helm
+

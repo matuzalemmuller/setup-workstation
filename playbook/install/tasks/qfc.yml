@@ -5,3 +5,4 @@
     repo: "https://github.com/matuzalemmuller/qfc.git"
     dest: "/home/{{ username }}/.qfc"
     force: yes
+  tags: qfc

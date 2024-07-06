@@ -2,12 +2,14 @@
   apt_key:
     url: https://download.docker.com/linux/debian/gpg
     keyring: /etc/apt/trusted.gpg.d/docker.gpg
+  tags: docker
 
 - name: Add repo for docker
   apt_repository:
     repo: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/docker.gpg] https://download.docker.com/linux/debian   {{ ansible_lsb.codename }} stable"
     filename: docker
     state: present
+  tags: docker
 
 - name: Install docker packages
   apt:
@@ -21,6 +23,7 @@
       - containerd.io
       - docker-buildx-plugin
       - docker-compose-plugin
+  tags: docker
 
 - name: Add user "{{ username }}" to docker group
   user:
@@ -28,9 +31,11 @@
     groups: docker
     append: true
   when: ansible_facts.services['docker.service'] is undefined
+  tags: docker
 
 - name: Disable docker service
   service:
     name: docker
     enabled: false
     state: stopped
+  tags: docker

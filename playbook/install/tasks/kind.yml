@@ -3,3 +3,4 @@
     url: https://github.com/kubernetes-sigs/kind/releases/latest/download/kind-linux-amd64
     dest: "/usr/local/bin/kind"
     mode: '755'
+  tags: kind

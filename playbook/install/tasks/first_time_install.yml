@@ -12,3 +12,4 @@
 - import_tasks: vim-gitgutter.yml
 - import_tasks: vscode.yml
 - import_tasks: webapp-manager.yml
+- import_tasks: ydiff.yml

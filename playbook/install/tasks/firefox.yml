@@ -2,15 +2,18 @@
   apt_key:
     url: https://packages.mozilla.org/apt/repo-signing-key.gpg
     keyring: /etc/apt/trusted.gpg.d/firefox.gpg
+  tags: firefox
 
 - name: Add repo for firefox
   apt_repository:
     repo: "deb https://packages.mozilla.org/apt mozilla main"
     filename: mozilla
     state: present
+  tags: firefox
 
 - name: Install firefox package
   apt:
     update_cache: true
     name: firefox
     state: latest
+  tags: firefox

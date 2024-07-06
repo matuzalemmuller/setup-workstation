@@ -3,16 +3,19 @@
     src: "https://github.com/linuxmint/webapp-manager/releases/download/master.mint21/packages.tar.gz"
     dest: "/tmp"
     copy: false
+  tags: webapp-manager
 
 - name: Rename webapp-manager deb
   shell: mv /tmp/packages/webapp-manager* /tmp/packages/webapp-manager.deb
+  tags: webapp-manager
 
 - name: Install webapp-manager from web .deb
   apt:
     deb: "/tmp/packages/webapp-manager.deb"
+  tags: webapp-manager
 
 - name: Delete webapp-manager tarball
   file:
     path: '/tmp/packages'
     state: absent
-
+  tags: webapp-manager

@@ -78,6 +78,27 @@
 
 - name: Increase default bash history (HISTFILESIZE)
   lineinfile:
-    path: /home/{{ username }}/.bashrc
+    path: "/home/{{ username }}/.bashrc"
     regexp: '^HISTFILESIZE='
     line: 'HISTFILESIZE=10000'
+
+- name: Use ydiff for git diff and difftool for individual files
+  become: true
+  become_user: "{{ username }}"
+  blockinfile:
+    marker: "## {mark} Replace git diff"
+    path: "/home/{{ username }}/.bashrc"
+    insertafter: "EOF"
+    block: |
+      git() {
+        if [ "$1" == "diff" ];  then
+            if [ "$#" -eq 1 ]; then
+                /opt/ydiff/ydiff.py -s
+            else
+                /usr/bin/git difftool --tool=vimdiff -y $2
+            fi
+        else
+            /usr/bin/git "$@"
+        fi
+      }
+

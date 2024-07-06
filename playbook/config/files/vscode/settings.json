@@ -1,10 +1,4 @@
 {
-    "yaml.schemas": {
-        "Kubernetes": [
-            "*.yaml",
-            "*.yml"
-        ],
-    },
     "editor.codeActionsOnSave": {},
     "editor.minimap.enabled": false,
     "editor.stickyScroll.enabled": false,
@@ -12,8 +6,6 @@
     "git.enableCommitSigning": true,
     "python.terminal.activateEnvInCurrentTerminal": true,
     "python.defaultInterpreterPath": "${workspaceFolder}/venv/bin/python",
-    "telemetry.telemetryLevel": "all",
-    "update.showReleaseNotes": false,
     "window.titleBarStyle": "custom",
     "workbench.startupEditor": "none",
     "workbench.tree.enableStickyScroll": false,
@@ -21,9 +13,23 @@
     "update.mode": "none",
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter",
-        "editor.formatOnSave": true,
+        "editor.formatOnSave": true
     },
+    "yaml.schemas": {
+        "Kubernetes": [
+            "*.yaml",
+            "*.yml"
+        ]
+    },
+    "telemetry.telemetryLevel": "all",
     "code-runner.enableAppInsights": false,
     "code-runner.runInTerminal": true,
-    "code-runner.saveAllFilesBeforeRun": true
+    "code-runner.saveAllFilesBeforeRun": true,
+    "indentRainbow.indicatorStyle": "light",
+    "indentRainbow.colors": [
+        "rgba(255,255,214,0.3)",
+        "rgba(127,255,127,0.3)",
+        "rgba(255,127,255,0.3)",
+        "rgba(79,236,236,0.3)"
+    ]
 }

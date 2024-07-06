@@ -11,5 +11,7 @@
     - ms-python.black-formatter
     - ms-python.python
     - ms-vscode-remote.remote-ssh
+    - oderwat.indent-rainbow
     - redhat.vscode-yaml
     - rangav.vscode-thunder-client
+  tags: vscode

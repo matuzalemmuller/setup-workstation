@@ -1,0 +1,6 @@
+- name: Download ydiff
+  get_url:
+    url: https://raw.githubusercontent.com/matuzalemmuller/ydiff/master/ydiff.py
+    dest: "/opt/ydiff/ydiff.py"
+    mode: '755'
+  tags: ydiff

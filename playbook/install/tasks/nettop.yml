@@ -5,6 +5,7 @@
     repo: "https://github.com/Emanem/nettop"
     dest: "/tmp/nettop"
     force: yes
+  tags: nettop
 
 - name: Compile nettop (make release)
   become: true
@@ -12,6 +13,7 @@
   make:
     chdir: "/tmp/nettop"
     target: release
+  tags: nettop
 
 - name: Copy nettop executable to /usr/local/bin/nettop
   copy:
@@ -20,8 +22,10 @@
     owner: "root"
     group: "root"
     mode: '0555'
+  tags: nettop
 
 - name: Delete nettop folder
   file:
     path: "/tmp/nettop"
     state: absent
+  tags: nettop

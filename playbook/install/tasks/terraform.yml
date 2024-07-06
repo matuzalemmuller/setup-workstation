@@ -2,15 +2,18 @@
   apt_key:
     url: https://apt.releases.hashicorp.com/gpg
     keyring: /etc/apt/trusted.gpg.d/hashicorp.gpg
+  tags: terraform
 
 - name: Add repo for hashicorp
   apt_repository:
     repo: "deb [signed-by=/etc/apt/trusted.gpg.d/hashicorp.gpg] https://apt.releases.hashicorp.com {{ ansible_lsb.codename }} main"
     filename: hashicorp
     state: present
+  tags: terraform
 
 - name: Install terraform package
   apt:
     update_cache: true
     name: terraform
     state: latest
+  tags: terraform

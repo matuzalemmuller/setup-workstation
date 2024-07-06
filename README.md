@@ -6,6 +6,10 @@ Ansible playbook to customize my Debian 12 XFCE desktop.
 
 ```
 ./wrapper-script.sh
-# or install requirements and run
+
+# or install ansible requirements and run
 ansible-playbook playbook/setup-workstation.yml --ask-become-pass
+
+# to run a specific tag (may need to set first time install)
+ansible-playbook playbook/setup-workstation.yml --ask-become-pass -t <tag>
 ```

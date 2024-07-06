@@ -3,28 +3,34 @@
     url: https://dl.k8s.io/release/stable.txt
     return_content: yes
   register: k8s_version_with_minor
+  tags: kubectl
 
 - name: Print latest version of kubectl
   debug:
     var: (k8s_version_with_minor).content
+  tags: kubectl
 
 - name: Remove minor revision from kubectl version variable
   shell: echo {{ (k8s_version_with_minor).content }} | awk -F'.' '{ print $1"."$2 }' 
   register: k8s_version
+  tags: kubectl
 
 - name: Add gpg key for kubectl
   apt_key:
     url: 'https://pkgs.k8s.io/core:/stable:/{{ (k8s_version).stdout }}/deb/Release.key'
     keyring: /etc/apt/trusted.gpg.d/kubectl.gpg
+  tags: kubectl
 
 - name: Add repo for kubectl
   apt_repository:
     repo: "deb [signed-by=/etc/apt/trusted.gpg.d/kubectl.gpg] https://pkgs.k8s.io/core:/stable:/{{ (k8s_version).stdout }}/deb/ /"
     filename: kubectl
     state: present
+  tags: kubectl
 
 - name: Install kubectl package
   apt:
     update_cache: true
     name: kubectl
     state: latest
+  tags: kubectl
