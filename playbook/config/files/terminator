@@ -1,6 +1,7 @@
 [global_config]
   handle_size = 15
   scroll_tabbar = True
+  enabled_plugins = CurrDirOpen,
 [keybindings]
   split_horiz = <Primary>underscore
   next_tab = <Primary>grave

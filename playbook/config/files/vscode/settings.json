@@ -1,16 +1,18 @@
 {
     "editor.codeActionsOnSave": {},
+    "editor.fontSize": 13,
     "editor.minimap.enabled": false,
     "editor.stickyScroll.enabled": false,
     "git.autofetch": false,
     "git.enableCommitSigning": true,
     "python.terminal.activateEnvInCurrentTerminal": true,
     "python.defaultInterpreterPath": "${workspaceFolder}/venv/bin/python",
+    "terminal.integrated.fontSize": 13,
+    "update.mode": "none",
     "window.titleBarStyle": "custom",
     "workbench.startupEditor": "none",
     "workbench.tree.enableStickyScroll": false,
     "window.customTitleBarVisibility": "auto",
-    "update.mode": "none",
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter",
         "editor.formatOnSave": true

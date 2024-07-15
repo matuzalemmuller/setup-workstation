@@ -10,8 +10,10 @@
       dest: "/home/{{ username }}/.config/k9s/config.yaml"
     - src: k9s/skin-gruvbox-dark.yaml
       dest: "/home/{{ username }}/.config/k9s/skins/gruvbox-dark.yaml"
-    - src: kube/kind-cluster-config.yaml
-      dest: "/home/{{ username }}/.kube/kind-cluster-config.yaml"
+    - src: kube/kind-cluster-config-full.yaml
+      dest: "/home/{{ username }}/.kube/kind-cluster-config-full.yaml"
+    - src: kube/kind-cluster-config-quick.yaml
+      dest: "/home/{{ username }}/.kube/kind-cluster-config-quick.yaml"
     - src: vscode/snippets/
       dest: "/home/{{ username }}/.config/Code/User/snippets/"
     - src: vscode/settings.json

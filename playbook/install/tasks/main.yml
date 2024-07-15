@@ -4,9 +4,9 @@
 - import_tasks: first_time_install.yml
   when: first_time_setup | bool
 - import_tasks: flatpak.yml
-- import_tasks: hcloud-manager.yml
 - import_tasks: joplin.yml
 - import_tasks: k9s.yml
+- import_tasks: k3d.yml
 - import_tasks: kind.yml
 - import_tasks: macbook.yml
   when: ansible_product_name is match("MacBookPro12,1")

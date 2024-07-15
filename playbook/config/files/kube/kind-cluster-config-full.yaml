@@ -3,10 +3,10 @@ kind: Cluster
 nodes:
 - role: worker
   labels:
-    tier: frontend
+    tier: worker1
 - role: worker
   labels:
-    tier: backend
+    tier: worker2
 - role: control-plane
   extraPortMappings:
   - containerPort: 30050

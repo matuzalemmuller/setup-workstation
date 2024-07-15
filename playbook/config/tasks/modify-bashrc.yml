@@ -55,6 +55,19 @@
       alias k=kubectl
       complete -o default -F __start_kubectl k
 
+- name: Add k3d auto-completion and alias to /home/{{ username }}/.bashrc
+  become: true
+  become_user: "{{ username }}"
+  blockinfile:
+    marker: "## {mark} Add k3d autocomplete"
+    path: "/home/{{ username }}/.bashrc"
+    insertafter: "EOF"
+    block: |
+      source <(k3d completion bash)
+      alias k3d-create-cluster='k3d cluster create mycluster --agents 3 -p "30000-30050:30000-30050@loadbalancer"'
+      alias k3d-stop-cluster='k3d cluster stop mycluster'
+      alias k3d-start-cluster='k3d cluster start mycluster'
+
 - name: Add kind auto-completion and aliases to /home/{{ username }}/.bashrc
   become: true
   become_user: "{{ username }}"
@@ -64,7 +77,8 @@
     insertafter: "EOF"
     block: |
       source <(kind completion bash)
-      alias kind-create-cluster="kind create cluster --config /home/{{ username }}/.kube/kind-cluster-config.yaml"
+      alias kind-create-cluster-full="kind create cluster --config /home/{{ username }}/.kube/kind-cluster-config-full.yaml"
+      alias kind-create-cluster-quick="kind create cluster --config /home/{{ username }}/.kube/kind-cluster-config-quick.yaml"
 
 - name: Add qfc sourcing to /home/{{ username }}/.bashrc
   become: true
