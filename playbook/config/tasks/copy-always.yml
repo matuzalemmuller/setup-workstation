@@ -6,6 +6,12 @@
     group: "{{ username }}"
     mode: '0644'
   loop:
+    - src: autostart/
+      dest: "/home/{{ username }}/.config/autostart/"
+    - src: discord.desktop
+      dest: "/home/{{ username }}/.local/share/applications/menulibre-discord.desktop"
+    - src: joplin.desktop
+      dest: "/home/{{ username }}/.local/share/applications/joplin.desktop"
     - src: k9s/config.yaml
       dest: "/home/{{ username }}/.config/k9s/config.yaml"
     - src: k9s/skin-gruvbox-dark.yaml
@@ -14,6 +20,8 @@
       dest: "/home/{{ username }}/.kube/kind-cluster-config-full.yaml"
     - src: kube/kind-cluster-config-quick.yaml
       dest: "/home/{{ username }}/.kube/kind-cluster-config-quick.yaml"
+    - src: mimeapps.list
+      dest: "/home/{{ username }}/.config/mimeapps.list"
     - src: vscode/snippets/
       dest: "/home/{{ username }}/.config/Code/User/snippets/"
     - src: vscode/settings.json
@@ -42,3 +50,31 @@
       dest: "/home/{{ username }}/Programs/distrobox/opensuse-home/.vimrc"
     - src: vimrc
       dest: "/home/{{ username }}/Programs/distrobox/ubuntu-home/.vimrc"
+
+- name: Copy config files (templates) (always)
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: '0644'
+  loop:
+    - src: thunar-bookmarks.j2
+      dest: "/home/{{ username }}/.config/gtk-3.0/bookmarks"
+    - src: webapp-WhatsappWeb.desktop.j2
+      dest: "/home/{{ username }}/.local/share/applications/webapp-WhatsappWeb3834.desktop"
+    - src: xfce4-keyboard-shortcuts.xml.j2
+      dest: "/home/{{ username }}/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml"
+
+- name: Copy config files (templates) (always)
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  loop:
+    - src: sudoers/nettop
+      dest: "/etc/sudoers.d/nettop"
+    - src: sudoers/virsh
+      dest: "/etc/sudoers.d/virsh"

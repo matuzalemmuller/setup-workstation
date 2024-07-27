@@ -14,3 +14,5 @@
       value: "ssh"
     - name: user.signingkey
       value: "/home/{{ username }}/.ssh/github.pub"
+    - name: init.defaultBranch
+      value: "main"

@@ -17,3 +17,11 @@
       alias ll='ls -lh'
       alias cnf='command-not-found'
 
+- name: Change PS1 color (root)
+  blockinfile:
+    marker: "## {mark} Change PS1 color"
+    path: "/root/.bashrc"
+    insertafter: "EOF"
+    block: |
+      PS1="\[\e[01;31m\]$PS1\[\e[00m\]"
+

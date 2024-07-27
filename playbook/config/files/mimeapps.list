@@ -22,3 +22,4 @@ video/mp4=vlc.desktop;qimgv.desktop;
 image/png=qimgv.desktop;
 application/x-yaml=code.desktop;
 text/x-python=code.desktop;
+application/x-desktop=org.xfce.mousepad.desktop;

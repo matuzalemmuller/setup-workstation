@@ -41,6 +41,7 @@
       alias cpv='rsync -ah --info=progress2'
       alias grep='grep --color=auto'
       alias nettop='sudo /usr/local/bin/nettop'
+      alias virsh='sudo virsh'
       alias cnf='command-not-found'
 
 - name: Add kubectl auto-completion to /home/{{ username }}/.bashrc
@@ -64,7 +65,7 @@
     insertafter: "EOF"
     block: |
       source <(k3d completion bash)
-      alias k3d-create-cluster='k3d cluster create mycluster --agents 3 -p "30000-30050:30000-30050@loadbalancer"'
+      alias k3d-create-cluster='k3d cluster create mycluster --agents 1 -p "30000-30050:30000-30050@loadbalancer"'
       alias k3d-stop-cluster='k3d cluster stop mycluster'
       alias k3d-start-cluster='k3d cluster start mycluster'
 
