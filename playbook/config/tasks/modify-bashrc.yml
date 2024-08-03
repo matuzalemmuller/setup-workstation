@@ -44,6 +44,16 @@
       alias virsh='sudo virsh'
       alias cnf='command-not-found'
 
+- name: Add helm auto-completion to /home/{{ username }}/.bashrc
+  become: true
+  become_user: "{{ username }}"
+  blockinfile:
+    marker: "## {mark} Add helm autocomplete"
+    path: "/home/{{ username }}/.bashrc"
+    insertafter: "EOF"
+    block: |
+      source <(helm completion bash)
+
 - name: Add kubectl auto-completion to /home/{{ username }}/.bashrc
   become: true
   become_user: "{{ username }}"
@@ -96,6 +106,16 @@
     path: "/home/{{ username }}/.bashrc"
     regexp: '^HISTFILESIZE='
     line: 'HISTFILESIZE=10000'
+
+- name: Sync history across open sessions
+  become: true
+  become_user: "{{ username }}"
+  blockinfile:
+    marker: "## {mark} Add qfc sourcing"
+    path: "/home/{{ username }}/.bashrc"
+    insertafter: "EOF"
+    block: |
+      export PROMPT_COMMAND="history -a; history -n"
 
 - name: Use ydiff for git diff and difftool for individual files
   become: true

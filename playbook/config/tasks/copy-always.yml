@@ -10,6 +10,8 @@
       dest: "/home/{{ username }}/.config/autostart/"
     - src: discord.desktop
       dest: "/home/{{ username }}/.local/share/applications/menulibre-discord.desktop"
+    - src: gnome-power-manager.desktop
+      dest: "/home/{{ username }}/.local/share/applications/gnome-power-manager.desktop"
     - src: joplin.desktop
       dest: "/home/{{ username }}/.local/share/applications/joplin.desktop"
     - src: k9s/config.yaml

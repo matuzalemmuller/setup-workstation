@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Gnome Power Statistics
+Icon=org.gnome.PowerStats
+Exec=/usr/bin/gnome-power-statistics
+Actions=
+Categories=System;
+Comment=Display battery and power usage statistics
+Path=
+Terminal=false
+StartupNotify=false
