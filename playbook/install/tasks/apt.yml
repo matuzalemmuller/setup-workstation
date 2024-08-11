@@ -40,6 +40,7 @@
       - gufw
       - htop
       - ipython3
+      - iotop
       - jq
       - libffi-dev
       - libglib2.0-dev

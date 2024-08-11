@@ -43,6 +43,7 @@
       alias nettop='sudo /usr/local/bin/nettop'
       alias virsh='sudo virsh'
       alias cnf='command-not-found'
+      alias usb-transfer-status='watch grep -e Dirty: -e Writeback: /proc/meminfo'
 
 - name: Add helm auto-completion to /home/{{ username }}/.bashrc
   become: true

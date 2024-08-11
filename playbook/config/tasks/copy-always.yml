@@ -76,6 +76,8 @@
     group: 'root'
     mode: '0644'
   loop:
+    - src: sudoers/iotop
+      dest: "/etc/sudoers.d/iotop"
     - src: sudoers/nettop
       dest: "/etc/sudoers.d/nettop"
     - src: sudoers/virsh

@@ -1,6 +1,7 @@
 - import_tasks: first_time_install.yml
   when: first_time_setup | bool
 - import_tasks: copy-always.yml
+- import_tasks: dmesg.yml
 - import_tasks: modify-bashrc.yml
 - import_tasks: modify-root-bashrc.yml
 - import_tasks: vscode.yml
