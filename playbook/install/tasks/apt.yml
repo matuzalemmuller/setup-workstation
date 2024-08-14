@@ -63,6 +63,7 @@
       - remmina
       - samba
       - software-properties-common
+      - sshpass
       - strace
       - stress
       - tcpdump
