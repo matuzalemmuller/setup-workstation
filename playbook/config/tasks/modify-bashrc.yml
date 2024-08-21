@@ -112,7 +112,7 @@
   become: true
   become_user: "{{ username }}"
   blockinfile:
-    marker: "## {mark} Add qfc sourcing"
+    marker: "## {mark} Sync history across open sessions"
     path: "/home/{{ username }}/.bashrc"
     insertafter: "EOF"
     block: |
@@ -137,4 +137,3 @@
             /usr/bin/git "$@"
         fi
       }
-

@@ -3,14 +3,14 @@
     repo: "https://github.com/matuzalemmuller/fzf"
     dest: "/opt/fzf"
     force: yes
-  tags: fvf
+  tags: fzf
 
 - name: "Install and configure fzf (root)"
   shell: /opt/fzf/install --key-bindings --completion --update-rc
-  tags: fvf
+  tags: fzf
 
 - name: "Install and configure fzf ({{ username }})"
   become: true
   become_user: "{{ username }}"
   shell: /opt/fzf/install --key-bindings --completion --update-rc
-  tags: fvf
+  tags: fzf

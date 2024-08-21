@@ -35,7 +35,7 @@
   loop:
     - src: ssh-config.j2
       dest: "/home/{{ username }}/.ssh/config"
- 
+
 - name: Copy scripts (templates) (first time install)
   template:
     src: "{{ item.src }}"
