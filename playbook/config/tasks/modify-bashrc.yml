@@ -67,6 +67,16 @@
       alias k=kubectl
       complete -o default -F __start_kubectl k
 
+- name: Add terraform auto-completion to /home/{{ username }}/.bashrc
+  become: true
+  become_user: "{{ username }}"
+  blockinfile:
+    marker: "## {mark} Add terraform autocomplete"
+    path: "/home/{{ username }}/.bashrc"
+    insertafter: "EOF"
+    block: |
+      complete -C /usr/bin/terraform terraform
+
 - name: Add k3d auto-completion and alias to /home/{{ username }}/.bashrc
   become: true
   become_user: "{{ username }}"

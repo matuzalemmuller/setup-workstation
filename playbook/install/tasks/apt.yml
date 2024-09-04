@@ -16,6 +16,7 @@
       - blueman
       - ca-certificates
       - cheese
+      - cloud-init
       - cmake
       - command-not-found
       - conky
