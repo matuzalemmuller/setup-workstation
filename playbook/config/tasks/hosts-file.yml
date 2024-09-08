@@ -1,0 +1,11 @@
+- name: Add hosts to /etc/hosts
+  blockinfile:
+    marker: "## {mark} Custom hosts"
+    path: "/etc/hosts"
+    insertafter: "EOF"
+    block: |
+      # hetzner
+      10.8.0.2	hetzner
+      # proxmox
+      10.0.0.200	proxmox
+  tags: hosts

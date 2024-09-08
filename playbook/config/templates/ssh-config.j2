@@ -1,2 +1,10 @@
 Host *github.com
 	IdentityFile /home/{{ username }}/.ssh/github
+
+Host proxmox 10.0.0.200
+    User root
+    IdentityFile /home/{{ username }}/.ssh/homelab
+
+Host hetzner 10.8.0.2
+    User root
+    IdentityFile /home/{{ username }}/.ssh/homelab

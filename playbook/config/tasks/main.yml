@@ -2,6 +2,7 @@
   when: first_time_setup | bool
 - import_tasks: copy-always.yml
 - import_tasks: dmesg.yml
+- import_tasks: hosts-file.yml
 - import_tasks: modify-bashrc.yml
 - import_tasks: modify-root-bashrc.yml
 - import_tasks: vscode.yml

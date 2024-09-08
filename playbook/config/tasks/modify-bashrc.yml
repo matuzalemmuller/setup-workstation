@@ -44,6 +44,8 @@
       alias virsh='sudo virsh'
       alias cnf='command-not-found'
       alias usb-transfer-status='watch grep -e Dirty: -e Writeback: /proc/meminfo'
+      alias proxmox='ssh root@10.0.0.200'
+      alias hetzner='ssh root@10.8.0.2'
 
 - name: Add helm auto-completion to /home/{{ username }}/.bashrc
   become: true
