@@ -5,4 +5,5 @@
 - import_tasks: hosts-file.yml
 - import_tasks: modify-bashrc.yml
 - import_tasks: modify-root-bashrc.yml
+- import_tasks: resolv-conf.yaml
 - import_tasks: vscode.yml

@@ -1,8 +1,7 @@
 - name: Upgrade all packages
   apt:
-    name: "*"
-    state: latest
-    update_cache: true
+    upgrade: yes
+    update_cache: yes
 
 - name: Install packages via apt (this may take a while)
   apt:

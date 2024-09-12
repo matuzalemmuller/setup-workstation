@@ -1,0 +1,5 @@
+- name: Set DNS nameservers in /etc/resolv.conf
+  blockinfile:
+      path: /etc/resolv.conf
+      block: |
+            search homelab.matuzalemmuller.com
