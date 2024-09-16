@@ -51,6 +51,7 @@
       - lrzip
       - menulibre
       - net-tools
+      - nfs-common
       - obs-studio
       - openjdk-17-jdk
       - original-awk
@@ -61,6 +62,7 @@
       - python3-virtualenv
       - qimgv
       - remmina
+      - resolvconf
       - samba
       - software-properties-common
       - sshpass
