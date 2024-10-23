@@ -1,4 +1,10 @@
-- name: Install dropbox from web .deb
+- name: 'dropbox: Check if source is already added to apt sources'
+  stat:
+    path: "/etc/apt/sources.list.d/dropbox.list"
+  register: dropbox_apt_source
+
+- name: 'dropbox: Install from web .deb'
   apt:
     deb: https://www.dropbox.com/download?dl=packages/debian/dropbox_2024.04.17_amd64.deb
+  when: not dropbox_apt_source.stat.exists
   tags: dropbox

@@ -1,5 +1,11 @@
-- name: Set DNS nameservers in /etc/resolv.conf
+- name: 'resolvconf: Install package - this needs to be the last step because network gets sad'
+  apt:
+    name: resolvconf
+    state: latest
+
+- name: 'resolvconf: Set domain search'
   blockinfile:
       path: /etc/resolvconf/resolv.conf.d/tail
       block: |
             search homelab.matuzalemmuller.com
+            search cloud.matuzalemmuller.com

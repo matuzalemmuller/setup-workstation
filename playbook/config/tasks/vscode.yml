@@ -1,4 +1,4 @@
-- name: Install VSCode extensions
+- name: 'vscode: Install extensions'
   become: true
   become_user: "{{ username }}"
   shell: code --install-extension "{{ item }}"

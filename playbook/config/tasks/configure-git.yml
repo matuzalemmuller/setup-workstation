@@ -1,4 +1,4 @@
-- name: Configure git
+- name: 'git: Configure'
   become: true
   become_user: "{{ username }}"
   git_config:

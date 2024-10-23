@@ -1,4 +1,4 @@
-- name: "Disable console freeze in /home/{{ username }}/.bashrc"
+- name: 'bashrc: Disable console freeze'
   become: true
   become_user: "{{ username }}"
   blockinfile:
@@ -9,7 +9,7 @@
       # disable tmux freeze + ssh fix: https://stackoverflow.com/questions/24623021/getting-stty-standard-input-inappropriate-ioctl-for-device-when-using-scp-thro
       [[ $- == *i* ]] && /usr/bin/stty -ixon
 
-- name: Add /usr/sbin to PATH in /home/{{ username }}/.bashrc
+- name: 'bashrc: Add /usr/sbin to PATH'
   become: true
   become_user: "{{ username }}"
   blockinfile:
@@ -19,7 +19,7 @@
     block: |
       export PATH="$PATH:/usr/sbin"
 
-- name: Add ls aliases to /home/{{ username }}/.bashrc
+- name: 'bashrc: Add ls aliases'
   become: true
   become_user: "{{ username }}"
   blockinfile:
@@ -30,7 +30,7 @@
       alias la='ls -la'
       alias ll='ls -lh'
 
-- name: Add various aliases to /home/{{ username }}/.bashrc
+- name: 'bashrc: Add various aliases'
   become: true
   become_user: "{{ username }}"
   blockinfile:
@@ -46,8 +46,9 @@
       alias usb-transfer-status='watch grep -e Dirty: -e Writeback: /proc/meminfo'
       alias proxmox='ssh root@10.0.0.200'
       alias hetzner='ssh root@10.8.0.2'
+      alias serve_folder='python3 -m http.server 8080 --bind 0.0.0.0 --directory '
 
-- name: Add helm auto-completion to /home/{{ username }}/.bashrc
+- name: 'bashrc: Add helm auto-completion'
   become: true
   become_user: "{{ username }}"
   blockinfile:
@@ -57,7 +58,7 @@
     block: |
       source <(helm completion bash)
 
-- name: Add kubectl auto-completion to /home/{{ username }}/.bashrc
+- name: 'bashrc: Add kubectl auto-completion'
   become: true
   become_user: "{{ username }}"
   blockinfile:
@@ -66,10 +67,10 @@
     insertafter: "EOF"
     block: |
       source <(kubectl completion bash)
-      alias k=kubectl
+      alias k=kubecolor
       complete -o default -F __start_kubectl k
 
-- name: Add terraform auto-completion to /home/{{ username }}/.bashrc
+- name: 'bashrc: Add terraform auto-completion'
   become: true
   become_user: "{{ username }}"
   blockinfile:
@@ -79,7 +80,7 @@
     block: |
       complete -C /usr/bin/terraform terraform
 
-- name: Add k3d auto-completion and alias to /home/{{ username }}/.bashrc
+- name: 'bashrc: Add k3d auto-completion and alias'
   become: true
   become_user: "{{ username }}"
   blockinfile:
@@ -92,7 +93,7 @@
       alias k3d-stop-cluster='k3d cluster stop mycluster'
       alias k3d-start-cluster='k3d cluster start mycluster'
 
-- name: Add kind auto-completion and aliases to /home/{{ username }}/.bashrc
+- name: 'bashrc: Add kind auto-completion and aliases'
   become: true
   become_user: "{{ username }}"
   blockinfile:
@@ -104,7 +105,7 @@
       alias kind-create-cluster-full="kind create cluster --config /home/{{ username }}/.kube/kind-cluster-config-full.yaml"
       alias kind-create-cluster-quick="kind create cluster --config /home/{{ username }}/.kube/kind-cluster-config-quick.yaml"
 
-- name: Add qfc sourcing to /home/{{ username }}/.bashrc
+- name: 'bashrc: Add qfc sourcing'
   become: true
   become_user: "{{ username }}"
   blockinfile:
@@ -114,13 +115,13 @@
     block: |
       [[ -s "$HOME/.qfc/bin/qfc.sh" ]] && source "$HOME/.qfc/bin/qfc.sh"
 
-- name: Increase default bash history (HISTFILESIZE)
+- name: 'bashrc: Increase default bash history (HISTFILESIZE)'
   lineinfile:
     path: "/home/{{ username }}/.bashrc"
     regexp: '^HISTFILESIZE='
     line: 'HISTFILESIZE=10000'
 
-- name: Sync history across open sessions
+- name: 'bashrc: Sync history across open sessions'
   become: true
   become_user: "{{ username }}"
   blockinfile:
@@ -130,7 +131,7 @@
     block: |
       export PROMPT_COMMAND="history -a; history -n"
 
-- name: Use ydiff for git diff and difftool for individual files
+- name: 'bashrc: Use ydiff for git diff and difftool for individual files'
   become: true
   become_user: "{{ username }}"
   blockinfile:
@@ -149,3 +150,24 @@
             /usr/bin/git "$@"
         fi
       }
+
+- name: 'bashrc: Add micromamba prefix'
+  become: true
+  become_user: "{{ username }}"
+  blockinfile:
+    marker: "## {mark} Micromamba prefix"
+    path: "/home/{{ username }}/.bashrc"
+    insertafter: "EOF"
+    block: |
+      # >>> mamba initialize >>>
+      # !! Contents within this block are managed by 'micromamba shell init' !!
+      export MAMBA_EXE='/opt/micromamba/bin/micromamba';
+      export MAMBA_ROOT_PREFIX='/home/matuzalem/micromamba';
+      __mamba_setup="$("$MAMBA_EXE" shell hook --shell bash --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+      if [ $? -eq 0 ]; then
+          eval "$__mamba_setup"
+      else
+          alias micromamba="$MAMBA_EXE"  # Fallback on help from micromamba activate
+      fi
+      unset __mamba_setup
+      # <<< mamba initialize <<<

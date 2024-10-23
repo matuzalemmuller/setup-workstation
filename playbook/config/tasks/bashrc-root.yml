@@ -1,4 +1,4 @@
-- name: Change default editor to vim (root)
+- name: 'bashrc-root: Change default editor to vim'
   blockinfile:
     marker: "## {mark} Change default editor"
     path: "/root/.bashrc"
@@ -7,7 +7,7 @@
       export VISUAL=vim
       export EDITOR="$VISUAL"
 
-- name: Add ls aliases (root)
+- name: 'bashrc-root: Add ls aliases'
   blockinfile:
     marker: "## {mark} Add ls aliases"
     path: "/root/.bashrc"
@@ -17,7 +17,7 @@
       alias ll='ls -lh'
       alias cnf='command-not-found'
 
-- name: Change PS1 color (root)
+- name: 'bashrc-root: Change PS1 color'
   blockinfile:
     marker: "## {mark} Change PS1 color"
     path: "/root/.bashrc"

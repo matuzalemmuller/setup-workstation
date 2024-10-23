@@ -1,4 +1,4 @@
-- name: Remove unused packages
+- name: 'apt: Remove unused packages'
   apt:
     name: "{{ packages }}"
     state: absent
@@ -9,6 +9,6 @@
       - parole
       - xterm
 
-- name: Autoremove packages that are no longer required
+- name: 'apt: Autoremove packages that are no longer required'
   apt:
     autoremove: true

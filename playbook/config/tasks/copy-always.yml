@@ -1,4 +1,4 @@
-- name: Copy config files (always)
+- name: 'copy-always: Copy config files'
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
@@ -8,8 +8,6 @@
   loop:
     - src: autostart/
       dest: "/home/{{ username }}/.config/autostart/"
-    - src: discord.desktop
-      dest: "/home/{{ username }}/.local/share/applications/menulibre-discord.desktop"
     - src: gnome-power-manager.desktop
       dest: "/home/{{ username }}/.local/share/applications/gnome-power-manager.desktop"
     - src: joplin.desktop
@@ -53,7 +51,7 @@
     - src: vimrc
       dest: "/home/{{ username }}/Programs/distrobox/ubuntu-home/.vimrc"
 
-- name: Copy config files (templates) (always)
+- name: 'copy-always: Copy config files (templates)'
   template:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
@@ -68,7 +66,7 @@
     - src: xfce4-keyboard-shortcuts.xml.j2
       dest: "/home/{{ username }}/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml"
 
-- name: Copy config files (templates) (always)
+- name: 'copy-always: Copy config files (root / templates)'
   template:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"

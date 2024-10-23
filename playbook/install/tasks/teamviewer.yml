@@ -1,11 +1,18 @@
-- name: Install teamviewer from web .deb
+- name: 'teamviewer: Check if source is already added to apt sources'
+  stat:
+    path: "/etc/apt/sources.list.d/teamviewer.list"
+  register: teamviewer_apt_source
+
+- name: 'teamviewer: Install from web .deb'
   apt:
     deb: https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
+  when: not teamviewer_apt_source.stat.exists
   tags: teamviewer
 
-- name: Disable teamviewerd service
+- name: 'teamviewer: Disable service'
   service:
     name: teamviewerd
     enabled: false
     state: stopped
+  when: not teamviewer_apt_source.stat.exists
   tags: teamviewer

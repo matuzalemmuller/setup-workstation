@@ -1,4 +1,4 @@
-- name: Allow any user to run dmesg
+- name: 'dmesg: Allow any user to execute'
   ansible.posix.sysctl:
     name: kernel.dmesg_restrict
     value: '0'

@@ -1,10 +1,10 @@
-- name: Add user to groups
+- name: 'libvirt: Add user to group'
   user:
     name: '{{ username }}'
     groups: libvirt
     append: yes
 
-- name: Start libvirt default network on boot
+- name: 'libvirt: Start default network on boot'
   virt_net:
     autostart: true
     name: default

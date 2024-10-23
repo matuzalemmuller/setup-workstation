@@ -1,4 +1,4 @@
-- name: Download and install tgpt
+- name: 'tgpt: Download and install'
   shell: |
     curl -sSL https://raw.githubusercontent.com/aandrew-me/tgpt/main/install | bash -s '/usr/local/bin/tgpt'
   tags: tgpt

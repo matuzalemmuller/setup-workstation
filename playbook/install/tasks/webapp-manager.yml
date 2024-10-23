@@ -1,21 +1,30 @@
-- name: Unarchive webapp-manager tarball
+- name: 'webapp-manager: Check if installed'
+  stat:
+    path: "/usr/bin/webapp-manager"
+  register: webapp_manager_binary
+
+- name: 'webapp-manager: Unarchive release tarball to /tmp'
   unarchive:
     src: "https://github.com/linuxmint/webapp-manager/releases/download/master.mint21/packages.tar.gz"
     dest: "/tmp"
     copy: false
+  when: not webapp_manager_binary.stat.exists
   tags: webapp-manager
 
-- name: Rename webapp-manager deb
+- name: 'webapp-manager: Rename deb'
   shell: mv /tmp/packages/webapp-manager* /tmp/packages/webapp-manager.deb
+  when: not webapp_manager_binary.stat.exists
   tags: webapp-manager
 
-- name: Install webapp-manager from web .deb
+- name: 'webapp-manager: Install from web .deb'
   apt:
     deb: "/tmp/packages/webapp-manager.deb"
+  when: not webapp_manager_binary.stat.exists
   tags: webapp-manager
 
-- name: Delete webapp-manager tarball
+- name: 'webapp-manager: Delete uncompressed tarball from /tmp'
   file:
     path: '/tmp/packages'
     state: absent
+  when: not webapp_manager_binary.stat.exists
   tags: webapp-manager

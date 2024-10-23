@@ -12,12 +12,11 @@
 - name: Set workspace count to 2
   shell: runuser -l "{{ username }}" -c 'export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$UID/bus && xfconf-query -c xfwm4 -p /general/workspace_count -s 2'
 
-- name: Populate service facts
-  service_facts:
-
-- name: Disable bluetooth service
-  service:
-    name: bluetooth
-    state: stopped
-    enabled: false
-  when: ansible_facts.services['bluetooth.service'] is defined
+- name: First time install complete
+  copy:
+    content: ""
+    dest: /etc/first_time_setup
+    force: false
+    group: root
+    owner: root
+    mode: 0400

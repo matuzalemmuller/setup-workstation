@@ -1,4 +1,4 @@
-- name: Create folders
+- name: 'preinstall: Create folders'
   become: true
   become_user: "{{ username }}"
   file:
@@ -22,7 +22,7 @@
     - '/home/{{ username }}/.config/k9s/skins'
     - '/home/{{ username }}/.config/terminator'
 
-- name: Create folders (root)
+- name: 'preinstall: Create folders (root)'
   file:
     path: "{{ item }}"
     state: directory
@@ -31,9 +31,10 @@
     mode: '755'
   loop:
     - '/opt/joplin'
+    - '/opt/micromamba'
     - '/opt/ydiff'
 
-- name: Delete unused default folders
+- name: 'preinstall: Delete unused default folders'
   file:
     path: "{{ item }}"
     state: absent

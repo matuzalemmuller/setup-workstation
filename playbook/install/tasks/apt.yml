@@ -1,9 +1,10 @@
-- name: Upgrade all packages
+- name: 'apt: Upgrade all packages'
   apt:
     upgrade: yes
     update_cache: yes
+  register: apt_upgrade
 
-- name: Install packages via apt (this may take a while)
+- name: 'apt: Install packages (this may take a while)'
   apt:
     name: "{{ packages }}"
     state: latest
@@ -50,6 +51,7 @@
       - linux-perf
       - lrzip
       - menulibre
+      - mp3wrap
       - net-tools
       - nfs-common
       - obs-studio
@@ -62,7 +64,6 @@
       - python3-virtualenv
       - qimgv
       - remmina
-      - resolvconf
       - samba
       - software-properties-common
       - sshpass
@@ -75,6 +76,7 @@
       - tmux
       - transmission-gtk
       - ufw
+      - unrar-free
       - vim
       - virt-manager
       - vlc
@@ -82,6 +84,9 @@
       - wireshark
       - xfce4-whiskermenu-plugin
       - xsel
+      - zip
+  register: apt_install
 
-- name: Update packages in command-not-found
+- name: 'command-not-found: Update packages'
   shell: update-command-not-found
+  when: apt_upgrade.changed or apt_install.changed

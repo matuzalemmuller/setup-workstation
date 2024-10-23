@@ -1,4 +1,10 @@
-- name: Install google chrome from web .deb
+- name: 'chrome: Check if source is already added to apt sources'
+  stat:
+    path: "/etc/apt/sources.list.d/google-chrome.list"
+  register: google_chrome_apt_source
+
+- name: 'chrome: Install from web .deb'
   apt:
     deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  when: not google_chrome_apt_source.stat.exists
   tags: chrome

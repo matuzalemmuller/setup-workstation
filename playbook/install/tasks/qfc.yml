@@ -1,8 +1,14 @@
-- name: Clone pindexis/qfc
+- name: 'qfc: Check if installed'
+  stat:
+    path: "/home/matuzalem/.qfc/bin/qfc"
+  register: qfc_binary
+
+- name: 'qfc: Clone repo'
   become: true
   become_user: "{{ username }}"
   git:
     repo: "https://github.com/matuzalemmuller/qfc.git"
     dest: "/home/{{ username }}/.qfc"
     force: yes
+  when: not qfc_binary.stat.exists
   tags: qfc

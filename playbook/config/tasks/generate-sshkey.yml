@@ -1,4 +1,4 @@
-- name: Generate OpenSSH keypair for GitHub with the default values (4096 bits, rsa)
+- name: 'openssh: Generate OpenSSH keypair for GitHub with the default values (4096 bits, rsa)'
   openssh_keypair:
     path: "/home/{{ username }}/.ssh/github"
     owner: "{{ username }}"

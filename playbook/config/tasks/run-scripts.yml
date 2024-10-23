@@ -1,4 +1,4 @@
-- name: Run script (template)
+- name: 'scripts: run from templates'
   become: true
   become_user: "{{ username }}"
   shell: "{{ lookup('template', '{{ item }}') }}"
