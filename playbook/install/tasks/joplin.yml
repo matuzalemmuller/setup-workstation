@@ -5,13 +5,14 @@
   register: joplin_latest_release
   tags: joplin
 
-- name: 'joplin: Get latest release'
+- name: 'joplin: Convert release from raw to ansible fact'
   set_fact:
     joplin_latest_release_json: "{{ joplin_latest_release.content | from_json }}"
   tags: joplin
 
 - name: 'joplin: Download AppImage'
   get_url:
+    # joplin_latest_release_json.tag_name[1:] -- ignore "v" in release name
     url: https://github.com/laurent22/joplin/releases/latest/download/Joplin-{{ joplin_latest_release_json.tag_name[1:] }}.AppImage
     dest: "/opt/joplin/Joplin.AppImage"
     mode: '755'

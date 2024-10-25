@@ -14,7 +14,9 @@
   vars:
     packages:
       - com.discordapp.Discord
+      - com.github.d4nj1.tlpui
       - com.github.micahflee.torbrowser-launcher
       - com.github.tchx84.Flatseal
-      - com.github.d4nj1.tlpui
+      - org.gnome.NetworkDisplays
+      - org.shotcut.Shotcut
   tags: flatpak
