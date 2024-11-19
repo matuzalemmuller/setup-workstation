@@ -47,6 +47,8 @@
       alias proxmox='ssh root@10.0.0.200'
       alias hetzner='ssh root@10.8.0.2'
       alias serve_folder='python3 -m http.server 8080 --bind 0.0.0.0 --directory '
+      alias hssh='ssh -i ~/.ssh/homelab '
+      alias watch='watch ' # allows using watch with aliases - https://unix.stackexchange.com/a/25329
 
 - name: 'bashrc: Add helm auto-completion'
   become: true
@@ -129,7 +131,7 @@
     path: "/home/{{ username }}/.bashrc"
     insertafter: "EOF"
     block: |
-      export PROMPT_COMMAND="history -a; history -n"
+      # export PROMPT_COMMAND="history -a; history -n"
 
 - name: 'bashrc: Use ydiff for git diff and difftool for individual files'
   become: true
