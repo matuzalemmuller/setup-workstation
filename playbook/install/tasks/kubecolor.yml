@@ -30,3 +30,12 @@
     path: "/tmp/kubecolor"
     state: absent
   tags: kubecolor
+
+- name: 'kubecolor: Add symlink for "k"'
+  ansible.builtin.file:
+    src: /usr/local/bin/kubecolor
+    dest: /usr/local/bin/k
+    owner: root
+    group: root
+    state: link
+  tags: kubecolor
