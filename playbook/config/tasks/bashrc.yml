@@ -60,7 +60,7 @@
     block: |
       source <(helm completion bash)
 
-- name: 'bashrc: Add kubectl auto-completion'
+- name: 'bashrc: Add kubectl/kubecolor auto-completion'
   become: true
   become_user: "{{ username }}"
   blockinfile:
@@ -144,7 +144,7 @@
       git() {
         if [ "$1" == "diff" ];  then
             if [ "$#" -eq 1 ]; then
-                /opt/ydiff/ydiff.py -s
+                /opt/ydiff/ydiff.py
             else
                 /usr/bin/git difftool --tool=vimdiff -y $2
             fi
