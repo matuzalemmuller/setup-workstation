@@ -49,6 +49,7 @@
       alias serve_folder='python3 -m http.server 8080 --bind 0.0.0.0 --directory '
       alias hssh='ssh -i ~/.ssh/homelab '
       alias watch='watch ' # allows using watch with aliases - https://unix.stackexchange.com/a/25329
+      alias kuberemote_source='export KUBECONFIG=/home/{{ username }}/.kube/remoteconfig.yaml'
 
 - name: 'bashrc: Add helm auto-completion'
   become: true

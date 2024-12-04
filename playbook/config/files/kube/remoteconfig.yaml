@@ -1,0 +1,15 @@
+apiVersion: v1
+clusters:
+- cluster:
+    server: http://10.8.0.5:8001
+  name: remote-cluster
+contexts:
+- context:
+    cluster: remote-cluster
+    user: ""
+  name: remote-context
+current-context: remote-context
+kind: Config
+preferences: {}
+users: []
+
