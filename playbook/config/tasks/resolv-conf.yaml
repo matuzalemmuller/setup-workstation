@@ -7,4 +7,4 @@
   blockinfile:
       path: /etc/resolvconf/resolv.conf.d/tail
       block: |
-            search homelab.matuzalemmuller.com cloud.matuzalemmuller.com
+            search homelab.matuzalemmuller.com
