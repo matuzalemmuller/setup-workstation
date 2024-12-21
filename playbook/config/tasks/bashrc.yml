@@ -174,3 +174,18 @@
       fi
       unset __mamba_setup
       # <<< mamba initialize <<<
+
+- name: 'bashrc: k8s cheat sheet'
+  become: true
+  become_user: "{{ username }}"
+  blockinfile:
+    marker: "## {mark} k8s cheat sheet"
+    path: "/home/{{ username }}/.bashrc"
+    insertafter: "EOF"
+    block: |
+      function kcheat() {
+      cat << EOF
+      # get all pods running in a node
+      k get pod -A -o wide --field-selector spec.nodeName=NODE_NAME
+      EOF
+      }
