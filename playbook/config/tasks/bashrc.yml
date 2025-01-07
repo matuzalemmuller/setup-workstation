@@ -47,7 +47,7 @@
       alias proxmox='ssh root@10.0.0.200'
       alias hetzner='ssh root@10.8.0.2'
       alias serve_folder='python3 -m http.server 8080 --bind 0.0.0.0 --directory '
-      alias hssh='ssh -i ~/.ssh/homelab '
+      alias hssh='ssh -i ~/.ssh/homelab -o StrictHostKeyChecking=no '
       alias watch='watch ' # allows using watch with aliases - https://unix.stackexchange.com/a/25329
       alias kuberemote_source='export KUBECONFIG=/home/{{ username }}/.kube/remoteconfig.yaml'
 
@@ -60,6 +60,16 @@
     insertafter: "EOF"
     block: |
       source <(helm completion bash)
+
+- name: 'bashrc: Add helmfile auto-completion'
+  become: true
+  become_user: "{{ username }}"
+  blockinfile:
+    marker: "## {mark} Add helmfile autocomplete"
+    path: "/home/{{ username }}/.bashrc"
+    insertafter: "EOF"
+    block: |
+      source <(helmfile completion bash)
 
 - name: 'bashrc: Add kubectl/kubecolor auto-completion'
   become: true
