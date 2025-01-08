@@ -44,6 +44,7 @@
       - ipython3
       - iotop
       - jq
+      - kubectx
       - libffi-dev
       - libglib2.0-dev
       - libncurses5-dev
