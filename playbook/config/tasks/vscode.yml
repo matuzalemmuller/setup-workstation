@@ -4,8 +4,8 @@
   shell: code --install-extension "{{ item }}"
   loop:
     - alefragnani.project-manager
-    - Codeium.codeium
     - formulahendry.code-runner
+    - GitHub.copilot
     - HashiCorp.terraform
     - ms-azuretools.vscode-docker
     - ms-kubernetes-tools.vscode-kubernetes-tools

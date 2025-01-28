@@ -50,45 +50,6 @@
       alias hssh='ssh -i ~/.ssh/homelab -o StrictHostKeyChecking=no '
       alias watch='watch ' # allows using watch with aliases - https://unix.stackexchange.com/a/25329
       alias kuberemote_source='export KUBECONFIG=/home/{{ username }}/.kube/remoteconfig.yaml'
-      function kns() {
-        if [[ -z "$1" ]]; then
-          kubectl get ns
-        else
-          kubectl config set-context --current --namespace "$1"
-        fi
-      }
-
-- name: 'bashrc: Add helm auto-completion'
-  become: true
-  become_user: "{{ username }}"
-  blockinfile:
-    marker: "## {mark} Add helm autocomplete"
-    path: "/home/{{ username }}/.bashrc"
-    insertafter: "EOF"
-    block: |
-      source <(helm completion bash)
-
-- name: 'bashrc: Add helmfile auto-completion'
-  become: true
-  become_user: "{{ username }}"
-  blockinfile:
-    marker: "## {mark} Add helmfile autocomplete"
-    path: "/home/{{ username }}/.bashrc"
-    insertafter: "EOF"
-    block: |
-      source <(helmfile completion bash)
-
-- name: 'bashrc: Add kubectl/kubecolor auto-completion'
-  become: true
-  become_user: "{{ username }}"
-  blockinfile:
-    marker: "## {mark} Add kubectl autocomplete"
-    path: "/home/{{ username }}/.bashrc"
-    insertafter: "EOF"
-    block: |
-      source <(kubectl completion bash)
-      alias k=kubecolor
-      complete -o default -F __start_kubectl k
 
 - name: 'bashrc: Add terraform auto-completion'
   become: true
@@ -100,7 +61,7 @@
     block: |
       complete -C /usr/bin/terraform terraform
 
-- name: 'bashrc: Add k3d auto-completion and alias'
+- name: 'bashrc: Add k3d aliases'
   become: true
   become_user: "{{ username }}"
   blockinfile:
@@ -108,12 +69,11 @@
     path: "/home/{{ username }}/.bashrc"
     insertafter: "EOF"
     block: |
-      source <(k3d completion bash)
       alias k3d-create-cluster='k3d cluster create mycluster --agents 1 -p "30000-30050:30000-30050@loadbalancer"'
       alias k3d-stop-cluster='k3d cluster stop mycluster'
       alias k3d-start-cluster='k3d cluster start mycluster'
 
-- name: 'bashrc: Add kind auto-completion and aliases'
+- name: 'bashrc: Add kind aliases'
   become: true
   become_user: "{{ username }}"
   blockinfile:
@@ -121,9 +81,29 @@
     path: "/home/{{ username }}/.bashrc"
     insertafter: "EOF"
     block: |
-      source <(kind completion bash)
       alias kind-create-cluster-full="kind create cluster --config /home/{{ username }}/.kube/kind-cluster-config-full.yaml"
       alias kind-create-cluster-quick="kind create cluster --config /home/{{ username }}/.kube/kind-cluster-config-quick.yaml"
+
+- name: 'bashrc: Source autocompletion'
+  become: true
+  become_user: "{{ username }}"
+  blockinfile:
+    marker: "## {mark} bashrc: Source autocompletion"
+    path: "/home/{{ username }}/.bashrc"
+    insertafter: "EOF"
+    block: |
+      for fl in `find /home/matuzalem/.bash_autocomplete/*`; do source $fl; done
+
+- name: 'bashrc: Alias k to kubecolor'
+  become: true
+  become_user: "{{ username }}"
+  blockinfile:
+    marker: "## {mark} Add kubectl autocomplete"
+    path: "/home/{{ username }}/.bashrc"
+    insertafter: "EOF"
+    block: |
+      alias k=kubecolor
+      complete -o default -F __start_kubectl k
 
 - name: 'bashrc: Add qfc sourcing'
   become: true
@@ -140,16 +120,6 @@
     path: "/home/{{ username }}/.bashrc"
     regexp: '^HISTFILESIZE='
     line: 'HISTFILESIZE=10000'
-
-- name: 'bashrc: Sync history across open sessions'
-  become: true
-  become_user: "{{ username }}"
-  blockinfile:
-    marker: "## {mark} Sync history across open sessions"
-    path: "/home/{{ username }}/.bashrc"
-    insertafter: "EOF"
-    block: |
-      # export PROMPT_COMMAND="history -a; history -n"
 
 - name: 'bashrc: Use ydiff for git diff and difftool for individual files'
   become: true
@@ -192,7 +162,7 @@
       unset __mamba_setup
       # <<< mamba initialize <<<
 
-- name: 'bashrc: k8s cheat sheet'
+- name: 'bashrc: k8s cheat sheet/helpers'
   become: true
   become_user: "{{ username }}"
   blockinfile:
@@ -205,4 +175,11 @@
       # get all pods running in a node
       k get pod -A -o wide --field-selector spec.nodeName=NODE_NAME
       EOF
+      }
+      function kns() {
+        if [[ -z "$1" ]]; then
+          kubectl get ns
+        else
+          kubectl config set-context --current --namespace "$1"
+        fi
       }

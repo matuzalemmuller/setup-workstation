@@ -45,3 +45,9 @@
     state: latest
   when: not kubectl_apt_source.stat.exists
   tags: kubectl
+
+- name: 'kubectl: Add autocomplete'
+  become: true
+  become_user: "{{ username }}"
+  shell: kubectl completion bash > /home/{{ username }}/.bash_autocomplete/kubectl
+  tags: kubectl

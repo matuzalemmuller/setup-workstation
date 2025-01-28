@@ -4,3 +4,9 @@
     dest: "/usr/local/bin/kind"
     mode: '755'
   tags: kind
+
+- name: 'kind: Add autocomplete'
+  become: true
+  become_user: "{{ username }}"
+  shell: kind completion bash > /home/{{ username }}/.bash_autocomplete/kind
+  tags: kind
