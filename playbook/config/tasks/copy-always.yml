@@ -20,6 +20,8 @@
       dest: "/home/{{ username }}/.kube/kind-cluster-config-full.yaml"
     - src: kube/kind-cluster-config-quick.yaml
       dest: "/home/{{ username }}/.kube/kind-cluster-config-quick.yaml"
+    - src: kube/kubectl_aliases.sh
+      dest: "/home/{{ username }}/.bash_autocomplete/kubectl_aliases.sh"
     - src: mimeapps.list
       dest: "/home/{{ username }}/.config/mimeapps.list"
     - src: vscode/snippets/

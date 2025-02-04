@@ -50,6 +50,7 @@
       alias hssh='ssh -i ~/.ssh/homelab -o StrictHostKeyChecking=no '
       alias watch='watch ' # allows using watch with aliases - https://unix.stackexchange.com/a/25329
       alias kuberemote_source='export KUBECONFIG=/home/{{ username }}/.kube/remoteconfig.yaml'
+      alias bashrc='vim /home/{{ username }}/.bashrc'
 
 - name: 'bashrc: Add terraform auto-completion'
   become: true
@@ -170,14 +171,35 @@
     path: "/home/{{ username }}/.bashrc"
     insertafter: "EOF"
     block: |
-      function kcheat() {
-      cat << EOF
-      # get all pods running in a node
-      k get pod -A -o wide --field-selector spec.nodeName=NODE_NAME
-      EOF
+      function kc() {
+        printf "# get all pods running in a node\n"
+        printf "k get pod -A -o wide --field-selector spec.nodeName=NODE_NAME\n\n"
+        # Define colors using ANSI escape codes
+        RED='\033[0;31m'
+        GREEN='\033[0;32m'
+        YELLOW='\033[0;33m'
+        BLUE='\033[0;34m'
+        NC='\033[0m' # No Color (reset to default)
+        
+        # Print the table headers with colors
+        echo -e "base\t\tsystem\t\toperation\tresource\tflags"
+        echo -e "---------------------------------------"
+        
+        # Print table rows with data
+        echo -e "\t\t\t\t\t\t${RED}po${NC}ds\t\t${RED}oyaml"
+        echo -e "\t\t\t\t${RED}g${NC}et\t\t${RED}dep${NC}loyment\t${RED}ojson"
+        echo -e "\t\t\t\t${RED}d${NC}escribe\t${RED}sec${NC}ret\t\t${RED}owide"
+        echo -e "\t\t\t\t${RED}rm${NC}:delete\t${RED}ing${NC}ress\t\t${RED}all"
+        echo -e "${RED}k${NC}ubectl\t\t-n=kube-${RED}sys${NC}tem\t${RED}lo${NC}gs\t\t${RED}no${NC}de\t\t${RED}w"
+        echo -e "\t\t\t\t${RED}ex${NC}ec\t\t${RED}svc${NC}\t\t${RED}f"
+        echo -e "\t\t\t\t${RED}a${NC}pply\t\t${RED}ns${NC}\t\t${RED}l"
+        echo -e "\t\t\t\t\t\t${RED}cm${NC}ds\t\t"
+
+        /home/{{ username }}/.bash_autocomplete/.kubectl_aliases.sh
       }
       function kns() {
         if [[ -z "$1" ]]; then
+          kubectl config view | grep namespace
           kubectl get ns
         else
           kubectl config set-context --current --namespace "$1"

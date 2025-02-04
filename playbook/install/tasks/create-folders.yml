@@ -8,6 +8,7 @@
     group: "{{ username }}"
     mode: '755'
   loop:
+    - '/home/{{ username }}/.bash_autocomplete'
     - '/home/{{ username }}/.kube'
     - '/home/{{ username }}/dev'
     - '/home/{{ username }}/Programs/distrobox/debian-home'
