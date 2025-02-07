@@ -4,8 +4,6 @@
   register: nettop_binary
 
 - name: 'nettop: Clone repo to /tmp'
-  become: true
-  become_user: "{{ username }}"
   git:
     repo: "https://github.com/matuzalemmuller/nettop"
     dest: "/tmp/nettop"
@@ -14,8 +12,6 @@
   tags: nettop
 
 - name: 'nettop: Compile repo (make release)'
-  become: true
-  become_user: "{{ username }}"
   make:
     chdir: "/tmp/nettop"
     target: release
