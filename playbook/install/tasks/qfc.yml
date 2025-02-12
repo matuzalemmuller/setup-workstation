@@ -2,6 +2,7 @@
   stat:
     path: "/home/matuzalem/.qfc/bin/qfc"
   register: qfc_binary
+  tags: qfc
 
 - name: 'qfc: Clone repo'
   become: true

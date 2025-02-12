@@ -85,6 +85,7 @@
       - wireguard
       - wireshark
       - xfce4-whiskermenu-plugin
+      - xournal
       - xsel
       - zip
   register: apt_install

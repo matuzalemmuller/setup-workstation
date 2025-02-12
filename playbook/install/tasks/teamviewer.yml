@@ -2,6 +2,7 @@
   stat:
     path: "/etc/apt/sources.list.d/teamviewer.list"
   register: teamviewer_apt_source
+  tags: teamviewer
 
 - name: 'teamviewer: Install from web .deb'
   apt:

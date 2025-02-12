@@ -21,7 +21,6 @@
 - import_tasks: qfc.yml
 - import_tasks: teamviewer.yml
 - import_tasks: terraform.yml
-- import_tasks: tgpt.yml
 - import_tasks: vim-gitgutter.yml
 - import_tasks: vscode.yml
 - import_tasks: webapp-manager.yml

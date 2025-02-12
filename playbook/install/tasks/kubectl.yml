@@ -2,6 +2,7 @@
   stat:
     path: "/etc/apt/sources.list.d/kubectl.list"
   register: kubectl_apt_source
+  tags: kubectl
 
 - name: 'kubectl: Get latest version'
   uri:

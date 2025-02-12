@@ -2,6 +2,7 @@
   stat:
     path: "/usr/bin/webapp-manager"
   register: webapp_manager_binary
+  tags: webapp-manager
 
 - name: 'webapp-manager: Unarchive release tarball to /tmp'
   unarchive:

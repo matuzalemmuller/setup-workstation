@@ -2,6 +2,7 @@
   stat:
     path: "/opt/fzf/bin/fzf"
   register: fzf_binary
+  tags: fzf
 
 - name: 'fzf: Clone repo'
   git:

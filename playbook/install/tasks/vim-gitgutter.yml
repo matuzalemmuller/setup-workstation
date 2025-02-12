@@ -2,6 +2,7 @@
   stat: 
     path: "/home/{{ username }}/.vim/pack/airblade/start/vim-gitgutter/plugin/gitgutter.vim"
   register: vim_gitgutter_plugin
+  tags: vim
 
 - name: 'vim-gitgutter: Create folder'
   become: true

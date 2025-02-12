@@ -2,6 +2,7 @@
   stat: 
     path: "/usr/local/bin/nettop"
   register: nettop_binary
+  tags: nettop
 
 - name: 'nettop: Clone repo to /tmp'
   git:

@@ -2,6 +2,7 @@
   stat:
     path: "/etc/apt/sources.list.d/docker.list"
   register: docker_apt_source
+  tags: docker
 
 - name: 'docker: Add gpg key'
   apt_key:

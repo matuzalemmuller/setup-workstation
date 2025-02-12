@@ -2,6 +2,7 @@
   stat:
     path: "/opt/ydiff/ydiff.py"
   register: ydiff_script
+  tags: ydiff
 
 - name: 'ydiff: Download executable'
   get_url:

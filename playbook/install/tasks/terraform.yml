@@ -2,6 +2,7 @@
   stat:
     path: "/etc/apt/sources.list.d/hashicorp.list"
   register: hashicorp_apt_source
+  tags: terraform
 
 - name: 'terraform: Add gpg key'
   apt_key:
