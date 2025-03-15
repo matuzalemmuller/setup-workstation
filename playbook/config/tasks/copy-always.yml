@@ -12,9 +12,9 @@
       dest: "/home/{{ username }}/.local/share/applications/gnome-power-manager.desktop"
     - src: joplin.desktop
       dest: "/home/{{ username }}/.local/share/applications/joplin.desktop"
-    - src: k9s/config.yaml
+    - src: kube/k9s-config.yaml
       dest: "/home/{{ username }}/.config/k9s/config.yaml"
-    - src: k9s/skin-gruvbox-dark.yaml
+    - src: kube/k9s-skin-gruvbox-dark.yaml
       dest: "/home/{{ username }}/.config/k9s/skins/gruvbox-dark.yaml"
     - src: kube/kind-cluster-config-full.yaml
       dest: "/home/{{ username }}/.kube/kind-cluster-config-full.yaml"

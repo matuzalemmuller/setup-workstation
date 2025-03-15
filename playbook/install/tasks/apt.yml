@@ -68,6 +68,7 @@
       - remmina
       - samba
       - software-properties-common
+      - sshfs
       - sshpass
       - strace
       - stress

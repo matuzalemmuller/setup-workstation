@@ -17,6 +17,7 @@
     - '/home/{{ username }}/Programs/distrobox/ubuntu-home'
     - '/home/{{ username }}/Programs/shortcuts'
     - '/home/{{ username }}/.local/share/applications'
+    - '/home/{{ username }}/.local/share/ice/firefox/whatsapp'
     - '/home/{{ username }}/.ssh'
     - '/home/{{ username }}/.config/autostart'
     - '/home/{{ username }}/.config/gtk-3.0'

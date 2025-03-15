@@ -2,7 +2,7 @@
 Version=1.0
 Name=Whatsapp Web
 Comment=Web App
-Exec=google-chrome-stable --app="https://web.whatsapp.com" --class=WebApp-WhatsappWeb3834 --name=WebApp-WhatsappWeb3834 --user-data-dir=/home/{{ username }}/.local/share/ice/profiles/WhatsappWeb3834
+Exec=sh -c 'XAPP_FORCE_GTKWINDOW_ICON="webapp-manager" firefox --class WebApp-aaa6435 --name WebApp-aaa6435 --profile /home/{{ username }}/.local/share/ice/firefox/whatsapp --no-remote "https://web.whatsapp.com"'
 Terminal=false
 X-MultipleArgs=false
 Type=Application
@@ -11,7 +11,7 @@ Categories=GTK;WebApps;
 MimeType=text/html;text/xml;application/xhtml_xml;
 StartupWMClass=WebApp-WhatsappWeb3834
 StartupNotify=true
-X-WebApp-Browser=Chrome
+X-WebApp-Browser=Firefox
 X-WebApp-URL=https://web.whatsapp.com
 X-WebApp-CustomParameters=
 X-WebApp-Navbar=false
