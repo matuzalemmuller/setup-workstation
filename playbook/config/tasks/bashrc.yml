@@ -195,7 +195,7 @@
         echo -e "\t\t\t\t${RED}a${NC}pply\t\t${RED}ns${NC}\t\t${RED}l"
         echo -e "\t\t\t\t\t\t${RED}cm${NC}ds\t\t"
 
-        /home/{{ username }}/.bash_autocomplete/.kubectl_aliases.sh
+        /home/{{ username }}/.bash_autocomplete/kubectl_aliases.sh
       }
       function kns() {
         if [[ -z "$1" ]]; then
