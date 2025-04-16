@@ -1,3 +1,11 @@
+- Configure VPN
+    - Homelab (all)
+    - Homelab (homelab)
+    - Cloud (all)
+    - Cloud (homelab)
+    - Proton US 1
+    - Proton US 2
+
 - Login to:
     - Dropbox
     - Joplin
@@ -16,3 +24,7 @@
 
 - Upload pub SSH key to GitHub:
     - .ssh/github.pub
+
+- Install latest kernel for backports repo (kernel needs to be > 6.1 to use amd-pstate)
+    - https://www.reddit.com/r/linux/comments/15p4bfs/amd_pstate_and_amd_pstate_epp_scaling_driver/
+    - https://wiki.archlinux.org/title/Lenovo_ThinkPad_T14s_(AMD)_Gen_3#AMD_P-State_EPP

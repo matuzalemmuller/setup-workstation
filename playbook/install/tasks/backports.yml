@@ -1,0 +1,13 @@
+- name: 'debian-backports: Check if source is already added to apt sources'
+  stat:
+    path: "/etc/apt/sources.list.d/backports.list"
+  register: backports_apt_source
+  tags: backports
+
+- name: 'debian-backports: Add repo'
+  apt_repository:
+    repo: "deb http://deb.debian.org/debian bookworm-backports main contrib non-free"
+    filename: backports
+    state: present
+  when: not backports_apt_source.stat.exists
+  tags: backports

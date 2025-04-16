@@ -2,7 +2,7 @@
   lineinfile:
     path: /etc/default/grub
     regexp: '^GRUB_CMDLINE_LINUX_DEFAULT='
-    line: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=off init_on_alloc=0"'
+    line: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=off init_on_alloc=0 amd_pstate=active"'
 
 - name: 'ThinkPad: Update grub'
   shell: update-grub
@@ -33,3 +33,36 @@
       dest: "/etc/tlp.conf"
   when: ansible_product_version is match("ThinkPad L14 Gen 3")
 
+# https://www.reddit.com/r/linux/comments/15p4bfs/amd_pstate_and_amd_pstate_epp_scaling_driver/
+# https://wiki.archlinux.org/title/Lenovo_ThinkPad_T14s_(AMD)_Gen_3#AMD_P-State_EPP
+- name: 'ThinkPad P14s Gen 2a: Copy config files RW (root)'
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+    backup: true
+  loop:
+    - src: thinkpad/p14s-tlp.conf
+      dest: "/etc/tlp.conf"
+    - src: thinkpad/amd-pstate/99-battery.rules
+      dest: "/etc/udev/rules.d/99-battery.rules"
+  when: ansible_product_version is match("ThinkPad P14s Gen 2a")
+
+# https://www.reddit.com/r/linux/comments/15p4bfs/amd_pstate_and_amd_pstate_epp_scaling_driver/
+# https://wiki.archlinux.org/title/Lenovo_ThinkPad_T14s_(AMD)_Gen_3#AMD_P-State_EPP
+- name: 'ThinkPad P14s Gen 2a: Copy config files RWX (root)'
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: 'root'
+    group: 'root'
+    mode: '0755'
+    backup: true
+  loop:
+    - src: thinkpad/amd-pstate/on_ac.sh
+      dest: "/usr/local/bin/on_ac.sh"
+    - src: thinkpad/amd-pstate/on_battery.sh
+      dest: "/usr/local/bin/on_battery.sh"
+  when: ansible_product_version is match("ThinkPad P14s Gen 2a")
