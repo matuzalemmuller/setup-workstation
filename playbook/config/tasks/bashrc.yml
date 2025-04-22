@@ -40,6 +40,7 @@
     block: |
       alias cpv='rsync -ah --info=progress2'
       alias grep='grep --color=auto'
+      alias iotop='sudo /usr/sbin/iotop'
       alias nettop='sudo /usr/local/bin/nettop'
       alias virsh='sudo virsh'
       alias cnf='command-not-found'

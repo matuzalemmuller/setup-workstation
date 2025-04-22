@@ -76,6 +76,8 @@
     group: 'root'
     mode: '0644'
   loop:
+    - src: sudoers/amd-pstate
+      dest: "/etc/sudoers.d/amd-pstate"
     - src: sudoers/iotop
       dest: "/etc/sudoers.d/iotop"
     - src: sudoers/nettop

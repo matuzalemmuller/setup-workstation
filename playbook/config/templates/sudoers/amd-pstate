@@ -1,0 +1,2 @@
+{{ username }}  ALL=NOPASSWD:/usr/local/bin/on_battery.sh
+{{ username }}  ALL=NOPASSWD:/usr/local/bin/on_ac.sh
