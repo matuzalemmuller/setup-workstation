@@ -39,6 +39,7 @@
       - gnome-system-tools
       - gnupg
       - gparted
+      - graphicsmagick-imagemagick-compat
       - gufw
       - handbrake
       - htop
