@@ -4,11 +4,9 @@ jobs:
   syntax-check:
     runs-on: ubuntu-22.04
     container:
-      image: alpine:3.15
+      image: matuzalemmuller/setup-workstation:latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Install ansible
-        run: apk add ansible
       - name: Run ansible-playbook --syntax-check
         run: ansible-playbook playbook/setup-workstation.yml --syntax-check
