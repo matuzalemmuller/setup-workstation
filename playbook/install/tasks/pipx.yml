@@ -1,0 +1,5 @@
+- name: 'pipx: Install uv'
+  become: true
+  become_user: "{{ username }}"
+  community.general.pipx:
+    name: uv
