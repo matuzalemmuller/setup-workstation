@@ -18,12 +18,12 @@
 - import_tasks: macbook.yml
   when: ansible_product_name is match("MacBookPro12,1")
 - import_tasks: micromamba.yml
-- import_tasks: pipx.yml
 - import_tasks: nettop.yml
 - import_tasks: qfc.yml
 - import_tasks: teamviewer.yml
 - import_tasks: terraform.yml
 - import_tasks: tgpt.yml
+- import_tasks: uv.yml
 - import_tasks: vim-gitgutter.yml
 - import_tasks: vscode.yml
 - import_tasks: webapp-manager.yml

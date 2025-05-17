@@ -1,0 +1,14 @@
+- name: 'pipx: Install uv'
+  become: true
+  become_user: "{{ username }}"
+  community.general.pipx:
+    name: uv
+  tags: uv
+
+- name: 'uv: Add autocomplete'
+  become: true
+  become_user: "{{ username }}"
+  shell: |
+    uv    generate-shell-completion bash > /home/{{ username }}/.bash_autocomplete/uv
+    uvx --generate-shell-completion bash > /home/{{ username }}/.bash_autocomplete/uvx
+  tags: uv
