@@ -19,4 +19,5 @@
       - com.github.tchx84.Flatseal
       - org.gnome.NetworkDisplays
       - org.shotcut.Shotcut
+      - org.wesnoth.Wesnoth
   tags: flatpak
