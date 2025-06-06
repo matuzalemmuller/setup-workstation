@@ -62,6 +62,7 @@
       - obs-studio
       - openjdk-17-jdk
       - original-awk
+      - piper
       - pipx
       - psmisc
       - python3-pip
