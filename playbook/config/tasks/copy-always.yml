@@ -16,9 +16,7 @@
       dest: "/home/{{ username }}/.config/k9s/config.yaml"
     - src: kube/k9s-skin-gruvbox-dark.yaml
       dest: "/home/{{ username }}/.config/k9s/skins/gruvbox-dark.yaml"
-    - src: kube/kind-cluster-config-full.yaml
-      dest: "/home/{{ username }}/.kube/kind-cluster-config-full.yaml"
-    - src: kube/kind-cluster-config-quick.yaml
+    - src: kube/kind-cluster-config.yaml
       dest: "/home/{{ username }}/.kube/kind-cluster-config-quick.yaml"
     - src: kube/kubectl_aliases.sh
       dest: "/home/{{ username }}/.bash_autocomplete/kubectl_aliases.sh"

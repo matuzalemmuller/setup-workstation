@@ -85,8 +85,7 @@
     path: "/home/{{ username }}/.bashrc"
     insertafter: "EOF"
     block: |
-      alias kind-create-cluster-full="kind create cluster --config /home/{{ username }}/.kube/kind-cluster-config-full.yaml"
-      alias kind-create-cluster-quick="kind create cluster --config /home/{{ username }}/.kube/kind-cluster-config-quick.yaml"
+      alias kind-create-cluster="kind create cluster --config /home/{{ username }}/.kube/kind-cluster-config.yaml"
 
 - name: 'bashrc: Source autocompletion'
   become: true
