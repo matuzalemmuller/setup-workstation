@@ -1,3 +1,8 @@
+- name: 'apt: Add contrib and non-free repos'
+  template:
+    src: "sources.list.j2"
+    dest: "/etc/apt/sources.list"
+
 - name: 'apt: Upgrade all packages'
   apt:
     upgrade: yes
@@ -83,6 +88,7 @@
       - tlp
       - tmux
       - transmission-gtk
+      - ttf-mscorefonts-installer
       - ufw
       - unrar-free
       - vim

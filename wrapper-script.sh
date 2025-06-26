@@ -5,7 +5,7 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 NC='\033[0m'
 
-echo -e "${YELLOW}!!This script should be run in your local debian installation - it is NOT meant to set up a remote computer!!${NC}"
+echo -e "${YELLOW}!!This script should be run in the local debian installation - it is NOT meant to set up a remote computer!!${NC}"
 
 # Prompt user for username and password
 read -p "Username: " username

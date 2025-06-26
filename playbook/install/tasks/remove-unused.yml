@@ -7,6 +7,7 @@
       - exfalso
       - firefox-esr
       - parole
+      - speech-dispatcher
       - xterm
 
 - name: 'apt: Autoremove packages that are no longer required'
