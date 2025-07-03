@@ -67,7 +67,6 @@
       - nfs-common
       - obs-studio
       - openjdk-17-jdk
-      - pandoc
       - original-awk
       - piper
       - pipx
