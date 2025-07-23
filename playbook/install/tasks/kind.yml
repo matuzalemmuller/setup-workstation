@@ -8,5 +8,5 @@
 - name: 'kind: Add autocomplete'
   become: true
   become_user: "{{ username }}"
-  shell: kind completion bash > /home/{{ username }}/.bash_autocomplete/kind
+  shell: /usr/local/bin/kind completion bash > /home/{{ username }}/.bash_autocomplete/kind
   tags: kind

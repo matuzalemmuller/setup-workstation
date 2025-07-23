@@ -34,5 +34,5 @@
 - name: 'helmfile: Add autocomplete'
   become: true
   become_user: "{{ username }}"
-  shell: helmfile completion bash > /home/{{ username }}/.bash_autocomplete/helmfile
+  shell: /usr/local/bin/helmfile completion bash > /home/{{ username }}/.bash_autocomplete/helmfile
   tags: helmfile

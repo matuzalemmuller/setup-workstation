@@ -50,5 +50,5 @@
 - name: 'kubectl: Add autocomplete'
   become: true
   become_user: "{{ username }}"
-  shell: kubectl completion bash > /home/{{ username }}/.bash_autocomplete/kubectl
+  shell: /usr/bin/kubectl completion bash > /home/{{ username }}/.bash_autocomplete/kubectl
   tags: kubectl

@@ -8,5 +8,5 @@
 - name: 'k3d: Add autocomplete'
   become: true
   become_user: "{{ username }}"
-  shell: k3d completion bash > /home/{{ username }}/.bash_autocomplete/k3d
+  shell: /usr/local/bin/k3d completion bash > /home/{{ username }}/.bash_autocomplete/k3d
   tags: k3d
