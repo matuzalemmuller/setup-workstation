@@ -19,6 +19,7 @@
       - audacity
       - autotools-dev
       - blueman
+      - bpftrace
       - catfish
       - ca-certificates
       - cheese
