@@ -55,6 +55,7 @@
       alias on-battery='sudo /usr/local/bin/on_battery.sh'
       alias on-ac='sudo /usr/local/bin/on_ac.sh'
       alias kctx='kubectx'
+      alias conda='micromamba'
 
 - name: 'bashrc: Add terraform auto-completion'
   become: true
