@@ -36,6 +36,7 @@
       - distrobox
       - drawing
       - evince
+      - fio
       - flatpak
       - galculator
       - gdebi
