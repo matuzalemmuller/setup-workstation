@@ -79,6 +79,7 @@
       - python3-virtualenv
       - qimgv
       - remmina
+      - ripgrep
       - samba
       - software-properties-common
       - sshfs
