@@ -50,6 +50,8 @@
       dest: "/home/{{ username }}/Programs/distrobox/opensuse-home/.vimrc"
     - src: vimrc
       dest: "/home/{{ username }}/Programs/distrobox/ubuntu-home/.vimrc"
+    - src: xfce4-terminal-config-terminalrc
+      dest: "/home/{{ username }}/.config/xfce4/terminal/terminalrc"
 
 - name: 'copy-always: Copy config files (templates)'
   template:
