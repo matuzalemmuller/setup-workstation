@@ -82,6 +82,7 @@
       - ripgrep
       - samba
       - software-properties-common
+      - sqlite3
       - sshfs
       - sshpass
       - strace
