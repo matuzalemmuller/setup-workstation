@@ -9,4 +9,4 @@
   become: true
   become_user: "{{ username }}"
   shell: /usr/local/bin/argocd completion bash > /home/{{ username }}/.bash_autocomplete/argocd
-  tags: k3d
+  tags: argocd

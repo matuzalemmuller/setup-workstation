@@ -17,3 +17,9 @@
     path: "/tmp/eksctl"
     state: absent
   tags: eksctl
+
+- name: 'eksctl: Add autocomplete'
+  become: true
+  become_user: "{{ username }}"
+  shell: /usr/local/bin/eksctl completion bash > /home/{{ username }}/.bash_autocomplete/eksctl
+  tags: eksctl

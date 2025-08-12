@@ -71,7 +71,7 @@
   become: true
   become_user: "{{ username }}"
   blockinfile:
-    marker: "## {mark} Add k3d autocomplete"
+    marker: "## {mark} Add k3d aliases"
     path: "/home/{{ username }}/.bashrc"
     insertafter: "EOF"
     block: |
@@ -83,7 +83,7 @@
   become: true
   become_user: "{{ username }}"
   blockinfile:
-    marker: "## {mark} Add kind autocomplete"
+    marker: "## {mark} Add kind alias"
     path: "/home/{{ username }}/.bashrc"
     insertafter: "EOF"
     block: |
@@ -198,8 +198,6 @@
         echo -e "\t\t\t\t${RED}ex${NC}ec\t\t${RED}svc${NC}\t\t${RED}f"
         echo -e "\t\t\t\t${RED}a${NC}pply\t\t${RED}ns${NC}\t\t${RED}l"
         echo -e "\t\t\t\t\t\t${RED}cm${NC}ds\t\t"
-
-        /home/{{ username }}/.bash_autocomplete/kubectl_aliases.sh
       }
       function kns() {
         if [[ -z "$1" ]]; then
