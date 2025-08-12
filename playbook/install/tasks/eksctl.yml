@@ -1,0 +1,19 @@
+- name: 'eksctl: Unarchive release tarball to /tmp'
+  unarchive:
+    src: https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_Linux_amd64.tar.gz
+    dest: "/tmp"
+    copy: false
+  tags: eksctl
+
+- name: 'eksctl: Copy executable to /usr/local/bin/eksctl'
+  copy:
+    src: "/tmp/eksctl"
+    dest: "/usr/local/bin/eksctl"
+    mode: '755'
+  tags: eksctl
+
+- name: 'eksctl: Cleanup release from /tmp'
+  file:
+    path: "/tmp/eksctl"
+    state: absent
+  tags: eksctl

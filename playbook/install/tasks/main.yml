@@ -5,6 +5,7 @@
 - import_tasks: chrome.yml
 - import_tasks: docker.yml
 - import_tasks: dropbox.yml
+- import_tasks: eksctl.yml
 - import_tasks: firefox.yml
 - import_tasks: flatpak.yml
 - import_tasks: fzf.yml
