@@ -178,6 +178,8 @@
       function kc() {
         printf "# get all pods running in a node\n"
         printf "k get pod -A -o wide --field-selector spec.nodeName=NODE_NAME\n\n"
+        printf "# get all pods with custom columns\n"
+        printf 'k get pod -A -o custom-columns="NAME:.metadata.name,PRIORITY:.spec.priorityClassName"\n\n'
         # Define colors using ANSI escape codes
         RED='\033[0;31m'
         GREEN='\033[0;32m'
@@ -207,3 +209,13 @@
           kubectl config set-context --current --namespace "$1"
         fi
       }
+
+- name: 'bashrc: PS1 override'
+  become: true
+  become_user: "{{ username }}"
+  blockinfile:
+    marker: "## {mark} PS1 override"
+    path: "/home/{{ username }}/.bashrc"
+    insertafter: "EOF"
+    block: |
+      PS1='\[\e[1;$(EXIT_CODE=$?; if [[ "$EXIT_CODE" == "0" ]]; then echo "32m\]"; else echo "33m\]($EXIT_CODE) "; fi)\u@\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\] $ '
