@@ -219,3 +219,13 @@
     insertafter: "EOF"
     block: |
       PS1='\[\e[1;$(EXIT_CODE=$?; if [[ "$EXIT_CODE" == "0" ]]; then echo "32m\]"; else echo "33m\]($EXIT_CODE) "; fi)\u@\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\] $ '
+
+- name: 'bashrc: Add ARGOCD_OPTS'
+  become: true
+  become_user: "{{ username }}"
+  blockinfile:
+    marker: "## {mark} Add ARGOCD_OPTS"
+    path: "/home/{{ username }}/.bashrc"
+    insertafter: "EOF"
+    block: |
+      export ARGOCD_OPTS="--grpc-web"
