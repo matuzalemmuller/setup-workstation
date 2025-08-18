@@ -1,0 +1,25 @@
+- name: 'kubelogin: Unarchive release tarball to /tmp'
+  unarchive:
+    src: https://github.com/int128/kubelogin/releases/latest/download/kubelogin_linux_amd64.zip 
+    dest: "/tmp"
+    copy: false
+  tags: kubelogin
+
+- name: 'kubelogin: Copy executable to /usr/local/bin/kubectl-oidc_login'
+  copy:
+    src: "/tmp/kubelogin"
+    dest: "/usr/local/bin/kubectl-oidc_login"
+    mode: '755'
+  tags: kubelogin
+
+- name: 'kubelogin: Cleanup release from /tmp'
+  file:
+    path: "/tmp/kubelogin"
+    state: absent
+  tags: kubelogin
+
+- name: 'kubelogin: Add autocomplete'
+  become: true
+  become_user: "{{ username }}"
+  shell: /usr/local/bin/kubectl-oidc_login completion bash > /home/{{ username }}/.bash_autocomplete/kubelogin
+  tags: kubelogin

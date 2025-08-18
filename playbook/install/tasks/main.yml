@@ -17,6 +17,7 @@
 - import_tasks: kind.yml
 - import_tasks: kubecolor.yml
 - import_tasks: kubectl.yml
+- import_tasks: kubelogin.yml
 - import_tasks: macbook.yml
   when: ansible_product_name is match("MacBookPro12,1")
 - import_tasks: micromamba.yml
