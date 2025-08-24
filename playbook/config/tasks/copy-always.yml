@@ -84,11 +84,3 @@
       dest: "/etc/sudoers.d/nettop"
     - src: sudoers/virsh
       dest: "/etc/sudoers.d/virsh"
-
-- name: 'copy-always: Copy kube remote conf (proxied kube)'
-  copy:
-    src: kube/remoteconfig.yaml
-    dest: "/home/{{ username }}/.kube/remoteconfig.yaml"
-    owner: "{{ username }}"
-    group: "{{ username }}"
-    mode: '0600'

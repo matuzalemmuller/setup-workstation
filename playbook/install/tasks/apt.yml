@@ -63,6 +63,7 @@
       - libreadline-dev
       - linux-perf
       - lrzip
+      - ltrace
       - menulibre
       - mp3wrap
       - net-tools

@@ -50,12 +50,14 @@
       alias serve-folder='python3 -m http.server 8080 --bind 0.0.0.0 --directory '
       alias hssh='ssh -i ~/.ssh/homelab -o StrictHostKeyChecking=no '
       alias watch='watch ' # allows using watch with aliases - https://unix.stackexchange.com/a/25329
-      alias kuberemote-source='export KUBECONFIG=/home/{{ username }}/.kube/remoteconfig.yaml'
+      alias kubeconfig-admin='export KUBECONFIG=/home/{{ username }}/.kube/admin_config'
+      alias kubeconfig-user='export KUBECONFIG=/home/{{ username }}/.kube/config'
       alias bashrc='vim /home/{{ username }}/.bashrc'
       alias on-battery='sudo /usr/local/bin/on_battery.sh'
       alias on-ac='sudo /usr/local/bin/on_ac.sh'
       alias kctx='kubectx'
       alias conda='micromamba'
+      alias dev='cd /home/{{ username }}/dev'
 
 - name: 'bashrc: Add terraform auto-completion'
   become: true
