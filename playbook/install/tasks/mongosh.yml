@@ -1,0 +1,29 @@
+- name: 'mongosh: Get release info'
+  uri:
+    url: https://api.github.com/repos/mongodb-js/mongosh/releases/latest
+    return_content: yes
+  register: mongosh_latest_release
+  tags: mongosh
+
+- name: 'mongosh: Convert release from raw to ansible fact'
+  set_fact:
+    mongosh_latest_release_json: "{{ mongosh_latest_release.content | from_json }}"
+  tags: mongosh
+
+- name: 'mongosh: Download release to /tmp'
+  unarchive:
+    # mongosh_latest_release_json.tag_name[1:] -- ignore "v" in release name
+    src: https://github.com/mongodb-js/mongosh/releases/latest/download/mongosh-{{ mongosh_latest_release_json.tag_name[1:] }}-linux-x64.tgz
+    dest: "/opt"
+    copy: false
+  tags: mongosh
+
+- name: 'mongosh: Add mongosh to PATH'
+  become: true
+  become_user: "{{ username }}"
+  blockinfile:
+    marker: "## {mark} Add Add mongosh to PATH"
+    path: "/home/{{ username }}/.bashrc"
+    insertafter: "EOF"
+    block: |
+      PATH=/opt/mongosh-{{ mongosh_latest_release_json.tag_name[1:] }}-linux-x64/bin:$PATH
