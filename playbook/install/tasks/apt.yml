@@ -49,6 +49,7 @@
       - gparted
       - graphicsmagick-imagemagick-compat
       - gufw
+      - gvfs-backends
       - handbrake
       - htop
       - ipython3
