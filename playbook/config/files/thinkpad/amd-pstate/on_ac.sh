@@ -5,7 +5,7 @@ echo '500' > '/proc/sys/vm/dirty_writeback_centisecs';
 
 # Change AMD Paste EPP energy preference
 # Available profiles: performance, balance_performance, balance_power, power
-echo 'balance_performance' | tee /sys/devices/system/cpu/cpu*/cpufreq/energy_performance_preference;
+echo 'performance' | tee /sys/devices/system/cpu/cpu*/cpufreq/energy_performance_preference;
 
 # If required, change cpu scaling governor
 # Possible options are: conservative ondemand userspace powersave performance schedutil

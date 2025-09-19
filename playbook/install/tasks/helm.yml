@@ -6,14 +6,14 @@
 
 - name: 'helm: Add gpg key'
   apt_key:
-    url: https://baltocdn.com/helm/signing.asc
+    url: https://packages.buildkite.com/helm-linux/helm-debian/gpgkey
     keyring: /etc/apt/trusted.gpg.d/helm.gpg
   when: not helm_apt_source.stat.exists
   tags: helm
 
 - name: 'helm: Add repo'
   apt_repository:
-    repo: "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main"
+    repo: "deb [signed-by=/etc/apt/trusted.gpg.d/helm.gpg] https://packages.buildkite.com/helm-linux/helm-debian/any any main"
     filename: helm
     state: present
   when: not helm_apt_source.stat.exists

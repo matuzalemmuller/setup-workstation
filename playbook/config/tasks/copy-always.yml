@@ -68,6 +68,15 @@
     - src: xfce4-keyboard-shortcuts.xml.j2
       dest: "/home/{{ username }}/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml"
 
+- name: 'copy-always: Copy config files (root)'
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: '0644'
+  loop:
+    - src: freedesktop-suspend-on-lock.policy
+      dest: "/usr/share/polkit-1/actions/org.freedesktop.login1.policy"
+
 - name: 'copy-always: Copy config files (root / templates)'
   template:
     src: "{{ item.src }}"
