@@ -1,0 +1,10 @@
+[Unit]
+Description=Disable wakeup every 15 minutes
+Requires=disable-wakeup.service
+
+[Timer]
+OnCalendar=*:0/15
+Persistent=true
+
+[Install]
+WantedBy=timers.target

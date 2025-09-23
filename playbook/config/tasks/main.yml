@@ -6,6 +6,7 @@
 - import_tasks: first_time_install.yml
   when: not first_time_setup.stat.exists
 - import_tasks: copy-always.yml
+- import_tasks: disable-wakeup.yml
 - import_tasks: dmesg.yml
 - import_tasks: bashrc.yml
 - import_tasks: bashrc-root.yml

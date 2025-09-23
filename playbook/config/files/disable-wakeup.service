@@ -1,0 +1,9 @@
+[Unit]
+Description=Disable USB wakeup from suspend
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c 'for dev in GPP0 RESA GPP2 GPP6 GPP4 GPP5 L850 GP17 XHC0 XHC1 GPP7; do echo "$dev" > /proc/acpi/wakeup; done'
+
+[Install]
+WantedBy=multi-user.target

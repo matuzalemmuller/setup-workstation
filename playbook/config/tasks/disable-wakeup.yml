@@ -1,0 +1,17 @@
+- name: 'disable-wakeup: Copy systemd service (root)'
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: '0644'
+  loop:
+    - src: "disable-wakeup.service"
+      dest: "/etc/systemd/system/disable-wakeup.service"
+    - src: "disable-wakeup.timer"
+      dest: "/etc/systemd/system/disable-wakeup.timer"
+
+- name: 'disable-wakeup: Enable and start systemd timer (root)'
+  systemd:
+    name: "disable-wakeup.timer"
+    enabled: true
+    state: started
+    daemon_reload: true
