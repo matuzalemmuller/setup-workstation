@@ -1,0 +1,19 @@
+/home/{{ username }}/Programs/rclone/log/gdrive.log {
+    # Rotate when the file size reaches 10 megabytes
+    size 10M
+
+    # Keep a maximum of 5 old log files
+    rotate 10
+
+    # Do not compress the rotated logs
+    nocompress
+
+    # Run the rotation as the '{{ username }}' user and group
+    su {{ username }} {{ username }}
+
+    # Don't return an error if the log file is missing
+    missingok
+
+    # Don't rotate the log if it's empty
+    notifempty
+}

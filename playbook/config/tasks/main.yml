@@ -10,6 +10,7 @@
 - import_tasks: dmesg.yml
 - import_tasks: bashrc.yml
 - import_tasks: bashrc-root.yml
+- import_tasks: cron.yml
 - import_tasks: vscode.yml
 # This needs to be run last since it puts the network in a bad state
 - import_tasks: resolv-conf.yaml

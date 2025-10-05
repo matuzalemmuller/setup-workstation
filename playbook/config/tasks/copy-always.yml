@@ -22,6 +22,8 @@
       dest: "/home/{{ username }}/.bash_autocomplete/kubectl_aliases.sh"
     - src: mimeapps.list
       dest: "/home/{{ username }}/.config/mimeapps.list"
+    - src: rclone/rclone-filters.txt
+      dest: "/home/{{ username }}/Programs/rclone/rclone-filters.txt"
     - src: vscode/snippets/
       dest: "/home/{{ username }}/.config/Code/User/snippets/"
     - src: vscode/settings.json
@@ -59,8 +61,13 @@
     dest: "{{ item.dest }}"
     owner: "{{ username }}"
     group: "{{ username }}"
-    mode: '0644'
+    mode: " {{ item.mode | default('0644') }}"
   loop:
+    - src: logrotate_rclone.conf.j2
+      dest: "/home/{{ username }}/Programs/rclone/logrotate.conf"
+    - src: rclone-gdrive.sh.j2
+      dest: "/home/{{ username }}/Programs/rclone/rclone-gdrive.sh"
+      mode: '0555'
     - src: thunar-bookmarks.j2
       dest: "/home/{{ username }}/.config/gtk-3.0/bookmarks"
     - src: webapp-WhatsappWeb.desktop.j2

@@ -54,13 +54,11 @@ if ! ansible-playbook playbook/setup-workstation.yml -e "ansible_sudo_pass=${pas
 fi
 
 # Complete/reboot
-echo -ne "${GREEN}Setup complete! A reboot is required to the first time setup. Reboot now? ([yes]/no)${NC}: "
+echo -ne "${GREEN}Setup complete! A reboot is required to the first time setup. Reboot now? (yes/[no])${NC}: "
 read rbt
 
-if [ "${rbt}" != "no" ]; then
-    if [ "${rbt}" == "yes" ] || [ -z "${rbt}" ]; then
-        echo ${password} | sudo -S reboot now
-    fi
+if [ "${rbt}" == "yes" ]; then
+    echo ${password} | sudo -S reboot now
 fi
 
 echo -e "${YELLOW}If performing your first time setup: you can reboot later (sudo reboot now), but do NOT start XFCE!${NC}"

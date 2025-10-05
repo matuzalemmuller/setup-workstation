@@ -1,0 +1,10 @@
+# Exclude directories
+- Old-Drive/**
+- Backup/**
+- Camera Uploads/**
+- Estudos/**
+- Family Room/**
+- Meus Arquivos/Fotos/**
+- Meus Arquivos/Videos/**
+- Trabalho/Bolsas/**
+- WhatsApp Backup/**

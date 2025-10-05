@@ -24,6 +24,7 @@
 - import_tasks: mongosh.yml
 - import_tasks: nettop.yml
 - import_tasks: qfc.yml
+- import_tasks: rclone.yml
 - import_tasks: teamviewer.yml
 - import_tasks: terraform.yml
 - import_tasks: tgpt.yml

@@ -58,6 +58,7 @@
       alias kctx='kubectx'
       alias conda='micromamba'
       alias dev='cd /home/{{ username }}/dev'
+      alias gdrive-rclone-sync='/home/{{ username }}/Programs/rclone/rclone-gdrive.sh'
 
 - name: 'bashrc: Add terraform auto-completion'
   become: true
@@ -99,7 +100,7 @@
     path: "/home/{{ username }}/.bashrc"
     insertafter: "EOF"
     block: |
-      for fl in `find /home/matuzalem/.bash_autocomplete/*`; do source $fl; done
+      for fl in `find /home/{{ username }}/.bash_autocomplete/*`; do source $fl; done
 
 - name: 'bashrc: Alias k to kubecolor'
   become: true
@@ -159,7 +160,7 @@
       # >>> mamba initialize >>>
       # !! Contents within this block are managed by 'micromamba shell init' !!
       export MAMBA_EXE='/opt/micromamba/bin/micromamba';
-      export MAMBA_ROOT_PREFIX='/home/matuzalem/micromamba';
+      export MAMBA_ROOT_PREFIX='/home/{{ username }}/micromamba';
       __mamba_setup="$("$MAMBA_EXE" shell hook --shell bash --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
       if [ $? -eq 0 ]; then
           eval "$__mamba_setup"

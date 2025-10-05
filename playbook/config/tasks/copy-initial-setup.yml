@@ -18,6 +18,8 @@
       dest: "/home/{{ username }}/.inputrc"
     - src: panel
       dest: "/home/{{ username }}/.config/xfce4"
+    - src: rclone/README_rclone.md
+      dest: "/home/{{ username }}/Desktop/README_rclone.md"
     - src: terminator-default-terminal.rc
       dest: "/home/{{ username }}/.config/xfce4/helpers.rc"
     - src: TODO.txt

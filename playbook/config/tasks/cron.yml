@@ -1,0 +1,15 @@
+- name: "cron: Add cron for Google Drive sync with rclone"
+  ansible.builtin.cron:
+    name: "Sync Google Drive with rclone (every 15 minutes)"
+    minute: "*/5"
+    job: "/home/{{ username }}/Programs/rclone/rclone-gdrive.sh"
+    user: "{{ username }}"
+    state: present
+
+- name: "cron: Add cron to logrotate rclone logs"
+  ansible.builtin.cron:
+    name: ""
+    minute: "*/5"
+    job: "/usr/sbin/logrotate --state /home/{{ username }}/Programs/rclone/log/logrotate.status /home/{{ username }}/Programs/rclone/logrotate.conf"
+    user: "{{ username }}"
+    state: present

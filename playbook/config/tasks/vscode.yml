@@ -1,7 +1,7 @@
 - name: 'vscode: Install extensions'
   become: true
   become_user: "{{ username }}"
-  shell: code --install-extension "{{ item }}"
+  shell: grep -q -i "{{ item }}" /home/{{ username }}/.vscode/extensions/extensions.json || code --install-extension "{{ item }}"
   loop:
     - alefragnani.project-manager
     - formulahendry.code-runner

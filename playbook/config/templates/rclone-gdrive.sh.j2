@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Check if rclone has been configured
+if [ ! -f "/home/{{ username }}/.config/rclone/rclone.conf" ]; then
+    exit 1
+fi
+
+# Check if the gdrive directory exists and initial sync already happened
+if [[ $(find /home/{{ username }}/gdrive/ | wc -l) -eq 1 ]]; then
+    exit 2
+fi
+
+# Just in case...
+if [[ $(du -sb "/home/{{ username }}/gdrive" | awk '{print $1}') -eq 4096 ]]; then
+    exit 3
+fi
+
+# If there's already an rclone process running
+if pgrep -x "rclone" > /dev/null; then
+    exit 4
+fi
+
+/usr/bin/rclone bisync /home/{{ username }}/gdrive gdrive: --filter-from /home/{{ username }}/Programs/rclone/rclone-filters.txt --log-file /home/{{ username }}/Programs/rclone/log/gdrive.log --log-level INFO
