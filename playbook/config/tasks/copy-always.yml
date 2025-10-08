@@ -32,6 +32,8 @@
       dest: "/home/{{ username }}/.config/Code/User/keybindings.json"
     - src: terminator
       dest: "/home/{{ username }}/.config/terminator/config"
+    - src: thunar.xml
+      dest: "/home/{{ username }}/.config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml"
     - src: tmux.conf
       dest: "/home/{{ username }}/.tmux.conf"
     - src: tmux.conf

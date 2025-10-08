@@ -8,8 +8,8 @@
 
 - name: "cron: Add cron to logrotate rclone logs"
   ansible.builtin.cron:
-    name: ""
-    minute: "*/5"
+    name: "Logrotate rclone logs (every hour)"
+    minute: "0"
     job: "/usr/sbin/logrotate --state /home/{{ username }}/Programs/rclone/log/logrotate.status /home/{{ username }}/Programs/rclone/logrotate.conf"
     user: "{{ username }}"
     state: present
