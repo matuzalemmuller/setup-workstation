@@ -10,20 +10,27 @@
     mongosh_latest_release_json: "{{ mongosh_latest_release.content | from_json }}"
   tags: mongosh
 
+- name: 'mongosh: Delete current installation'
+  file:
+    path: "/opt/mongosh/"
+    state: absent
+  tags: mongosh
+
+- name: 'mongosh: Create folder for latest version'
+  file:
+    path: "/opt/mongosh"
+    state: directory
+    owner: 'root'
+    group: 'root'
+    mode: '755'
+  tags: mongosh
+
 - name: 'mongosh: Download release to /tmp'
   unarchive:
     # mongosh_latest_release_json.tag_name[1:] -- ignore "v" in release name
     src: https://github.com/mongodb-js/mongosh/releases/latest/download/mongosh-{{ mongosh_latest_release_json.tag_name[1:] }}-linux-x64.tgz
-    dest: "/opt"
-    copy: false
+    dest: "/opt/mongosh"
+    list_files: yes
+    extra_opts: [--strip-components=1]
+    remote_src: yes
   tags: mongosh
-
-- name: 'mongosh: Add mongosh to PATH'
-  become: true
-  become_user: "{{ username }}"
-  blockinfile:
-    marker: "## {mark} Add Add mongosh to PATH"
-    path: "/home/{{ username }}/.bashrc"
-    insertafter: "EOF"
-    block: |
-      PATH=/opt/mongosh-{{ mongosh_latest_release_json.tag_name[1:] }}-linux-x64/bin:$PATH

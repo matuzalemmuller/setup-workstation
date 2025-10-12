@@ -9,15 +9,15 @@
       # disable tmux freeze + ssh fix: https://stackoverflow.com/questions/24623021/getting-stty-standard-input-inappropriate-ioctl-for-device-when-using-scp-thro
       [[ $- == *i* ]] && /usr/bin/stty -ixon
 
-- name: 'bashrc: Add /usr/sbin to PATH'
+- name: 'bashrc: Add /usr/sbin and /opt/mongosh/bin to PATH'
   become: true
   become_user: "{{ username }}"
   blockinfile:
-    marker: "## {mark} Add /usr/sbin to PATH"
+    marker: "## {mark} Add /usr/sbin and /opt/mongosh/bin to PATH"
     path: "/home/{{ username }}/.bashrc"
     insertafter: "EOF"
     block: |
-      export PATH="$PATH:/usr/sbin"
+      export PATH="$PATH:/usr/sbin:/opt/mongosh/bin"
 
 - name: 'bashrc: Add ls aliases'
   become: true

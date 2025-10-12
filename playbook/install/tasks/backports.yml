@@ -6,7 +6,7 @@
 
 - name: 'debian-backports: Add repo'
   apt_repository:
-    repo: "deb http://deb.debian.org/debian bookworm-backports main contrib non-free"
+    repo: "deb http://deb.debian.org/debian {{ ansible_lsb.codename }}-backports main contrib non-free"
     filename: backports
     state: present
   when: not backports_apt_source.stat.exists

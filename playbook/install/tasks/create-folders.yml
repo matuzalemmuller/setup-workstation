@@ -37,6 +37,7 @@
   loop:
     - '/opt/joplin'
     - '/opt/micromamba'
+    - '/opt/mongosh'
     - '/opt/ydiff'
 
 - name: 'preinstall: Delete unused default folders'
