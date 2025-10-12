@@ -5,7 +5,6 @@
     - Proton US 2
 
 - Login to:
-    - Dropbox
     - Joplin
     - Firefox/Chrome
     - VSCode/Codeium
