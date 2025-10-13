@@ -1,6 +1,8 @@
 name: Syntax check
-on: [push]
-jobs:
+on:
+  push:
+    branches:
+      - 'main'
   syntax-check:
     runs-on: ubuntu-22.04
     container:
@@ -10,3 +12,5 @@ jobs:
         uses: actions/checkout@v4
       - name: Run ansible-playbook --syntax-check
         run: ansible-playbook playbook/setup-workstation.yml --syntax-check
+      - name: Display all available tasks
+        run: ansible-playbook playbook/setup-workstation.yml --list-tasks
