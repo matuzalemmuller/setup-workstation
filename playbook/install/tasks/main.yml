@@ -33,6 +33,7 @@
 - import_tasks: vscode.yml
 - import_tasks: webapp-manager.yml
 - import_tasks: ydiff.yml
+- import_tasks: z.yml
 - import_tasks: remove-unused.yml
 
 - name: Get packages installed/upgraded today

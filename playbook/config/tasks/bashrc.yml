@@ -232,3 +232,13 @@
     insertafter: "EOF"
     block: |
       export ARGOCD_OPTS="--grpc-web"
+
+- name: 'bashrc: source z'
+  become: true
+  become_user: "{{ username }}"
+  blockinfile:
+    marker: "## {mark} Source z"
+    path: "/home/{{ username }}/.bashrc"
+    insertafter: "EOF"
+    block: |
+      source /home/{{ username }}/.z.sh

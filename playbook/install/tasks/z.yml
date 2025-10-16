@@ -1,0 +1,8 @@
+- name: 'z: Download script'
+  become: true
+  become_user: "{{ username }}"
+  get_url:
+    url: https://raw.githubusercontent.com/matuzalemmuller/z/refs/heads/master/z.sh
+    dest: "/home/{{ username }}/.z.sh"
+    mode: '755'
+  tags: z
