@@ -49,7 +49,7 @@ fi
 
 # Run ansible playbook
 echo -e "${GREEN}Running the playbook...${NC}"
-if ! ansible-playbook playbook/setup-workstation.yml -e "ansible_sudo_pass=${password}" -e "username=${username}"; then
+if ! ansible-playbook playbook/setup-workstation.yml --diff -e "ansible_sudo_pass=${password}" -e "username=${username}"; then
     exit 1
 fi
 
