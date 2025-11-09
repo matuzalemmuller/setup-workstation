@@ -17,7 +17,6 @@
       - com.github.d4nj1.tlpui
       - com.github.micahflee.torbrowser-launcher
       - com.github.tchx84.Flatseal
-      - org.gnome.NetworkDisplays
       - org.shotcut.Shotcut
       - org.wesnoth.Wesnoth
   tags: flatpak

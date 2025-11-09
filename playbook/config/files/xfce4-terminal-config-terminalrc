@@ -36,4 +36,6 @@ DropdownAlwaysShowTabs=FALSE
 DropdownHeight=48
 DropdownWidth=100
 DropdownOpacity=97
+RunCustomCommand=TRUE
+CustomCommand=/usr/bin/tmux
 
