@@ -42,6 +42,7 @@
       - gdebi
       - git
       - gnome-disk-utility
+      - gnome-network-displays
       - gnome-power-manager
       - gnome-system-monitor
       - gnome-system-tools
