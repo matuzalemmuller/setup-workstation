@@ -70,6 +70,9 @@
     - src: rclone-gdrive.sh.j2
       dest: "/home/{{ username }}/Programs/rclone/rclone-gdrive.sh"
       mode: '0555'
+    - src: rclone-gdrive-force-resync.sh.j2
+      dest: "/home/{{ username }}/Programs/rclone/rclone-gdrive-force-resync.sh"
+      mode: '0555'
     - src: thunar-bookmarks.j2
       dest: "/home/{{ username }}/.config/gtk-3.0/bookmarks"
     - src: webapp-WhatsappWeb.desktop.j2
