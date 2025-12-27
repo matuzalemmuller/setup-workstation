@@ -60,15 +60,15 @@
       alias dev='cd /home/{{ username }}/dev'
       alias gdrive-rclone-sync='/home/{{ username }}/Programs/rclone/rclone-gdrive.sh'
 
-- name: 'bashrc: Add terraform auto-completion'
+- name: 'bashrc: Add opentofu auto-completion'
   become: true
   become_user: "{{ username }}"
   blockinfile:
-    marker: "## {mark} Add terraform autocomplete"
+    marker: "## {mark} Add opentofu autocomplete"
     path: "/home/{{ username }}/.bashrc"
     insertafter: "EOF"
     block: |
-      complete -C /usr/bin/terraform terraform
+      complete -C /usr/local/bin/tofu autocomplete tofu
 
 - name: 'bashrc: Add k3d aliases'
   become: true

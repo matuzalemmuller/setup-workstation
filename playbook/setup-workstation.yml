@@ -1,10 +1,9 @@
 ---
 
 - hosts: all
-  vars_prompt:
-    - name: username
-      prompt: "Please provide the username"
-      private: false
+  vars:
+    # This pulls the USER environment variable from the local machine
+    username: "{{ lookup('env', 'USER') }}"
   roles:
     - role: install
     - role: config

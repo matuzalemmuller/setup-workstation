@@ -1,0 +1,19 @@
+- name: 'opentofu: Unarchive release tarball to /tmp'
+  unarchive:
+    src: https://github.com/opentofu/opentofu/releases/download/v1.11.2/tofu_1.11.2_linux_amd64.tar.gz
+    dest: "/tmp"
+    copy: false
+  tags: opentofu
+
+- name: 'opentofu: Copy executable to /usr/local/bin/tofu'
+  copy:
+    src: "/tmp/tofu"
+    dest: "/usr/local/bin/tofu"
+    mode: '755'
+  tags: opentofu
+
+- name: 'opentofu: Cleanup release from /tmp'
+  file:
+    path: "/tmp/tofu"
+    state: absent
+  tags: opentofu

@@ -7,8 +7,7 @@ NC='\033[0m'
 
 echo -e "${YELLOW}!!This script should be run in the local debian installation - it is NOT meant to set up a remote computer!!${NC}"
 
-# Prompt user for username and password
-username=$(whoami)
+# Prompt user for password
 read -s -p "Sudo password (user must have root privileges): " password
 echo
 
@@ -44,12 +43,12 @@ if ! command -v ansible-playbook &>/dev/null; then
     echo -e "${GREEN}Installing ansible...${NC}"
     pipx install --include-deps ansible
     pipx ensurepath --force
-    export PATH=$PATH:/home/${username}/.local/bin
+    export PATH=$PATH:/home/$(whoami)}/.local/bin
 fi
 
 # Run ansible playbook
 echo -e "${GREEN}Running the playbook...${NC}"
-if ! ansible-playbook playbook/setup-workstation.yml --diff -e "ansible_sudo_pass=${password}" -e "username=${username}"; then
+if ! ansible-playbook playbook/setup-workstation.yml --diff -e "ansible_sudo_pass=${password}"; then
     exit 1
 fi
 
