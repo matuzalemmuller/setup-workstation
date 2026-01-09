@@ -36,5 +36,6 @@
     ],
     "vs-kubernetes": {
         "vs-kubernetes.crd-code-completion": "disabled"
-    }
+    },
+    "http.systemCertificatesNode": true
 }

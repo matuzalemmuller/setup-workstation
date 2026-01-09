@@ -1,11 +1,20 @@
-- name: 'vscode: Install extensions'
+- name: "vscode: Get list of installed extensions"
   become: true
   become_user: "{{ username }}"
-  shell: grep -q -i "{{ item }}" /home/{{ username }}/.vscode/extensions/extensions.json || code --install-extension "{{ item }}"
+  shell: "code --list-extensions"
+  register: installed_extensions
+  changed_when: false
+  check_mode: no
+  tags: vscode
+
+- name: "vscode: Install extensions"
+  become: true
+  become_user: "{{ username }}"
+  shell: "code --install-extension {{ item }}"
   loop:
     - alefragnani.project-manager
     - formulahendry.code-runner
-    - GitHub.copilot
+    - Google.geminicodeassist
     - HashiCorp.terraform
     - ms-azuretools.vscode-docker
     - ms-kubernetes-tools.vscode-kubernetes-tools
@@ -15,4 +24,5 @@
     - oderwat.indent-rainbow
     - redhat.vscode-yaml
     - rangav.vscode-thunder-client
+  when: "item not in installed_extensions.stdout_lines"
   tags: vscode
