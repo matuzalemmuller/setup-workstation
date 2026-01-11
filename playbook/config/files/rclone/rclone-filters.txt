@@ -6,5 +6,6 @@
 - Family Room/**
 - Meus Arquivos/Fotos/**
 - Meus Arquivos/Videos/**
+- Sala da familia/**
 - Trabalho/Bolsas/**
 - WhatsApp Backup/**
